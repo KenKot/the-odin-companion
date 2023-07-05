@@ -1,4 +1,6 @@
-# the-odin-companion
+<div style="text-align: center;">
+  <h1>The Odin Companion</h1>
+</div>
 
 <p align="center"><img src="./misc/magni.png" /></p>
 
