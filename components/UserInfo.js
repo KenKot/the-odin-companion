@@ -12,7 +12,9 @@ export default function UserInfo() {
         return (
                 <div>
                     <Image src={session?.user?.image} width={50} height={50} /> 
-                    </div>)
+                    <span>Name: {session?.user?.name}</span>
+                    <span>Email: {session?.user?.email}</span>
+                </div>)
     } else {
         return <SigninBtn />
         
