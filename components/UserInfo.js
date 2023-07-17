@@ -11,9 +11,10 @@ export default function UserInfo() {
     if (status === "authenticated") {
         return (
                 <div>
-                    <Image src={session?.user?.image} width={50} height={50} /> 
-                    <span>Name: {session?.user?.name}</span>
-                    <span>Email: {session?.user?.email}</span>
+                    <Image src={session?.user?.image} width={50} height={50} className="rounded-full"/> 
+                    <span>Welcome {session?.user?.name}!</span>
+                    <br />
+                    <span>{session?.user?.email}</span>
                 </div>)
     } else {
         return <SigninBtn />
