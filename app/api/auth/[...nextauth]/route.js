@@ -20,7 +20,7 @@ const authOptions = {
           const userExists = await User.findOne({ email });
 
           if (!userExists) {
-            const res = await fetch("the-odin-companion.vercel.app/api/user", {
+            const res = await fetch("https://the-odin-companion.vercel.app/api/user", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
