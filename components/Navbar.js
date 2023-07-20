@@ -18,7 +18,7 @@ export default function Navbar() {
             height={150} // Desired height
             className="rounded-full"
           />
-          <h1 className="text-5xl  font-semibold">The Odin Companion!</h1>
+          <h1 className="text-5xl  font-semibold">The Odin Companion!!</h1>
         </div>
         <div>
           {status === "authenticated" ? (
