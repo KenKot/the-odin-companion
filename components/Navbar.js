@@ -9,8 +9,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav class="flex items-center justify-between p-6 border border-black border-4 rounded">
-        <div class="flex items-center space-x-6">
+      <nav className="flex items-center justify-between p-6 border border-black border-4 rounded">
+        <div className="flex items-center space-x-6">
           <Image
             src="/magni.png" // Path to your image
             alt="Description of the image"
