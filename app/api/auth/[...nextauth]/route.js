@@ -1,5 +1,6 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
+import Flashcard from "@/models/flashcard";
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
@@ -17,25 +18,27 @@ const authOptions = {
         const { name, email } = user;
         try {
           await connectMongoDB();
-          const userExists = await User.findOne({ email });
+          let userDoc = await User.findOne({ email });
 
-          if (!userExists) {
-              const apiRoute = process.env.DOMAIN + "/api/user";
-              const res = await fetch(apiRoute, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                name,
-                email,
-              }),
-            });
+          if (!userDoc) {
+            userDoc = await User.create({ name, email }); // Directly create the user using MongoDB
 
-            if (res.ok) {
-              return user;
+            // Create 5 flashcards for the new user
+            for (let i = 0; i < 5; i++) {
+              const flashcard = new Flashcard({
+                userId: userDoc._id, // Set the userId to the new user's id
+                question: `Question ${i + 1}`,
+                answer: `Answer ${i + 1}`,
+                score: 0,
+              });
+              await flashcard.save();
             }
           }
+
+          // Update the user object with the user document from MongoDB
+          user.id = userDoc._id;
+
+          return user;
         } catch (error) {
           console.log(error);
         }
