@@ -1,6 +1,9 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
+import Course from "@/models/course";
+import Lesson from "@/models/lesson";
 import Flashcard from "@/models/flashcard";
+
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
@@ -23,29 +26,38 @@ const authOptions = {
           if (!userDoc) {
             userDoc = await User.create({ name, email }); // Directly create the user using MongoDB
 
-            // Create 5 flashcards for the new user
-            for (let i = 0; i < 5; i++) {
-              const flashcard = new Flashcard({
-                userId: userDoc._id, // Set the userId to the new user's id
-                question: `Question ${i + 1}`,
-                answer: `Answer ${i + 1}`,
-                lesson: `lesson 1`,
-                score: 0,
-              });
-              await flashcard.save();
-            }
+            // Create two courses for the new user
+            const courses = Array.from({ length: 2 }, async (_, i) => {
+              const course = new Course({ title: `Course ${i + 1}` });
 
-            // Create 5 more flashcards for w/ diff category
-            for (let i = 0; i < 5; i++) {
-              const flashcard = new Flashcard({
-                userId: userDoc._id, // Set the userId to the new user's id
-                question: `Question ${i + 1}`,
-                answer: `Answer ${i + 1}`,
-                lesson: `lesson 2`,
-                score: 0,
+              // Create two lessons for each course
+              const lessons = Array.from({ length: 2 }, async (_, j) => {
+                const lesson = new Lesson({ title: `Lesson ${j + 1}` });
+
+                // Create three flashcards for each lesson
+                const flashcards = Array.from({ length: 3 }, async (_, k) => {
+                  const flashcard = new Flashcard({
+                    question: `Question ${k + 1}`,
+                    answer: `Answer ${k + 1}`,
+                    isMastered: false,
+                  });
+
+                  await flashcard.save();
+                  lesson.flashcards.push(flashcard._id);
+                });
+
+                await Promise.all(flashcards);
+                await lesson.save();
+                course.lessons.push(lesson._id);
               });
-              await flashcard.save();
-            }
+
+              await Promise.all(lessons);
+              await course.save();
+              return course._id;
+            });
+
+            userDoc.courses = await Promise.all(courses);
+            await userDoc.save();
           }
 
           // Update the user object with the user document from MongoDB
