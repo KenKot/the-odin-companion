@@ -16,6 +16,13 @@ const authOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
+    async session({ session }) {
+      // store the user id from MongoDB to session
+      const sessionUser = await User.findOne({ email: session.user.email });
+      session.user.id = sessionUser._id.toString();
+
+      return session;
+    },
     async signIn({ user, account }) {
       if (account.provider === "github") {
         const { name, email } = user;

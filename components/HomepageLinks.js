@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 export default function HomepageLinks() {
-
-    return (
-        <>
-            <Link href="/foundations">Foundations</Link>
-        </>
-    )
+  return (
+    <>
+      <Link href="/dashboard">Foundations</Link>
+    </>
+  );
 }
