@@ -29,6 +29,19 @@ const authOptions = {
                 userId: userDoc._id, // Set the userId to the new user's id
                 question: `Question ${i + 1}`,
                 answer: `Answer ${i + 1}`,
+                lesson: `lesson 1`,
+                score: 0,
+              });
+              await flashcard.save();
+            }
+
+            // Create 5 more flashcards for w/ diff category
+            for (let i = 0; i < 5; i++) {
+              const flashcard = new Flashcard({
+                userId: userDoc._id, // Set the userId to the new user's id
+                question: `Question ${i + 1}`,
+                answer: `Answer ${i + 1}`,
+                lesson: `lesson 2`,
                 score: 0,
               });
               await flashcard.save();

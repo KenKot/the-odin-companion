@@ -11,6 +11,10 @@ const flashcardSchema = new Schema(
       type: String,
       required: true,
     },
+    lesson: {
+      type: String,
+      required: true,
+    },
     answer: {
       type: String,
       required: true,
