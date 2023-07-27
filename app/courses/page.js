@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+// import { SessionProvider } from "next-auth/react";
+import { useSession } from "next-auth/react";
 function Courses() {
+  //   const { data: session } = useSession();
+  //   const userId = session.user.id;
+
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
