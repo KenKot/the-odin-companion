@@ -27,18 +27,22 @@ function Courses() {
   return (
     <div>
       <h1>Courses</h1>
-      {courses.length > 0 ? (
-        <ul>
-          {courses.map((course) => (
-            <li key={course._id}>
-              <h2>{course.title}</h2>
-              {/* Render more details about the course here */}
-            </li>
+      {courses.map((course) => (
+        <li key={course._id}>
+          <h2>{course.title}</h2>
+          {course.lessons.map((lesson) => (
+            <div key={lesson._id}>
+              <h3>{lesson.title}</h3>
+              {lesson.flashcards.map((flashcard) => (
+                <div key={flashcard._id}>
+                  <p>{flashcard.question}</p>
+                  <p>{flashcard.answer}</p>
+                </div>
+              ))}
+            </div>
           ))}
-        </ul>
-      ) : (
-        <p>No courses found.</p>
-      )}
+        </li>
+      ))}
     </div>
   );
 }
