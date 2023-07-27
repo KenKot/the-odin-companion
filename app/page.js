@@ -1,11 +1,12 @@
-import HomepageLinks from '@/components/HomepageLinks'
-import UserInfo from '@/components/UserInfo'
+import UserInfo from "@/components/UserInfo";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <UserInfo />
-      <HomepageLinks />
+      <hr />
+      <Link href="/courses">Courses</Link>
     </>
-  )
+  );
 }

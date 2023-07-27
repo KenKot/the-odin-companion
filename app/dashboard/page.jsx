@@ -8,7 +8,7 @@ const Dashboard = () => {
   //   const { user } = useSelector((state) => state.user); // select user from state
   const { data: session } = useSession();
   const user = session?.user;
-  console.log(user);
+  console.log(user, "user /dashboard route");
   return (
     <div>
       <h1>Dashboard</h1>
