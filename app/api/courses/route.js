@@ -5,12 +5,16 @@ import { NextResponse } from "next/server";
 import { getSession } from "next-auth/react";
 
 import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async (request) => {
   try {
     await connectMongoDB();
 
-    const user = await User.findById("64c1d335ce614842596daeef").populate({
+    const session = await getServerSession(authOptions);
+    const userId = session.user.id;
+
+    const user = await User.findById(userId).populate({
       path: "courses",
       model: "Course",
       populate: {

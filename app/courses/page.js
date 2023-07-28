@@ -3,15 +3,19 @@
 import { useEffect, useState } from "react";
 // import { SessionProvider } from "next-auth/react";
 import { useSession } from "next-auth/react";
+
 function Courses() {
   //   const { data: session } = useSession();
-  //   const userId = session.user.id;
+  //   const session = await getSession({ req });
+  // const { userId } = session;
 
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch courses from the API
+    // const userId = session;
+
     fetch("/api/courses")
       .then((response) => response.json())
       .then((data) => {
