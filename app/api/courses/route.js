@@ -27,8 +27,34 @@ export const GET = async (request) => {
       },
     });
 
+    console.log("user=", user);
+
     // Extract courses from user object
     const userCourses = user.courses;
+    let coursesInfo = []; //data to return. Holds course names + statistics
+
+    userCourses.forEach((course) => {
+      let lessons = course.lessons;
+      let courseInfo = {
+        title: course.title,
+        totalLessons: lessons.length,
+        completedLessons: 0,
+      }; //this is the data that pushes onto courseInfo[], to eventually return to user
+
+      lessons.forEach((lesson) => {
+        let toIncrement = 1;
+        lesson.flashcards.forEach((flashcard) => {
+          if (!flashcard.isMastered) {
+            toIncrement = 0;
+            // break;
+          }
+        });
+        courseInfo.completedLessons += toIncrement;
+      });
+      coursesInfo.push(courseInfo);
+    });
+
+    console.log("!!!", coursesInfo);
 
     return new Response(JSON.stringify(userCourses), { status: 200 });
   } catch (error) {
