@@ -27,7 +27,7 @@ export const GET = async (request) => {
       },
     });
 
-    console.log("user=", user);
+    // console.log("user=", user);
 
     // Extract courses from user object
     const userCourses = user.courses;
@@ -55,7 +55,7 @@ export const GET = async (request) => {
       coursesInfo.push(courseInfo);
     });
 
-    console.log("!!!", coursesInfo);
+    // console.log("!!!", coursesInfo);
 
     return new Response(JSON.stringify(coursesInfo), { status: 200 }); // Changed 'userCourses' to 'coursesInfo'
 

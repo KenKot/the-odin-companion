@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
@@ -28,12 +29,18 @@ function Courses() {
     <div>
       <h1>Courses</h1>
       {courses.map((course, index) => (
-        <div key={index} className="border-2 border-black m-2 p-2">
-          <h2>{course.title}</h2>
-          <p>Total Lessons: {course.totalLessons}</p>
-          <p>Completed Flashcards: {course.completedFlashcards}</p>
-          <p>Total Flashcards: {course.totalFlashcards}</p>
-        </div>
+        <Link
+          key={index}
+          href={`/courses/${course.title.replace(/\s+/g, "-")}`}
+          passHref
+        >
+          <div className="border-2 border-black m-2 p-2 cursor-pointer">
+            <h2>{course.title}</h2>
+            <p>Total Lessons: {course.totalLessons}</p>
+            <p>Completed Flashcards: {course.completedFlashcards}</p>
+            <p>Total Flashcards: {course.totalFlashcards}</p>
+          </div>
+        </Link>
       ))}
     </div>
   );
