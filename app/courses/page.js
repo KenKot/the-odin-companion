@@ -1,21 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { SessionProvider } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
 function Courses() {
-  //   const { data: session } = useSession();
-  //   const session = await getSession({ req });
-  // const { userId } = session;
-
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch courses from the API
-    // const userId = session;
-
     fetch("/api/courses")
       .then((response) => response.json())
       .then((data) => {
@@ -35,21 +27,13 @@ function Courses() {
   return (
     <div>
       <h1>Courses</h1>
-      {courses.map((course) => (
-        <li key={course._id}>
+      {courses.map((course, index) => (
+        <div key={index} className="border-2 border-black m-2 p-2">
           <h2>{course.title}</h2>
-          {course.lessons.map((lesson) => (
-            <div key={lesson._id}>
-              <h3>{lesson.title}</h3>
-              {lesson.flashcards.map((flashcard) => (
-                <div key={flashcard._id}>
-                  <p>{flashcard.question}</p>
-                  <p>{flashcard.answer}</p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </li>
+          <p>Total Lessons: {course.totalLessons}</p>
+          <p>Completed Flashcards: {course.completedFlashcards}</p>
+          <p>Total Flashcards: {course.totalFlashcards}</p>
+        </div>
       ))}
     </div>
   );

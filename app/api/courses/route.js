@@ -35,28 +35,31 @@ export const GET = async (request) => {
 
     userCourses.forEach((course) => {
       let lessons = course.lessons;
+
       let courseInfo = {
         title: course.title,
         totalLessons: lessons.length,
-        completedLessons: 0,
-      }; //this is the data that pushes onto courseInfo[], to eventually return to user
+        completedFlashcards: 0,
+        totalFlashcards: 0,
+      }; // this is the data that pushes onto courseInfo[], to eventually return to user
 
       lessons.forEach((lesson) => {
-        let toIncrement = 1;
         lesson.flashcards.forEach((flashcard) => {
-          if (!flashcard.isMastered) {
-            toIncrement = 0;
-            // break;
+          courseInfo.totalFlashcards++;
+          if (flashcard.isMastered) {
+            courseInfo.completedFlashcards++;
           }
         });
-        courseInfo.completedLessons += toIncrement;
       });
+
       coursesInfo.push(courseInfo);
     });
 
     console.log("!!!", coursesInfo);
 
-    return new Response(JSON.stringify(userCourses), { status: 200 });
+    return new Response(JSON.stringify(coursesInfo), { status: 200 }); // Changed 'userCourses' to 'coursesInfo'
+
+    // return new Response(JSON.stringify(userCourses), { status: 200 });
   } catch (error) {
     return new Response("Failed to fetch all prompts", { status: 500 });
   }
