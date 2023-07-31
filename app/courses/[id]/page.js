@@ -11,10 +11,12 @@ function CourseDetail() {
   let arr = pathName.split("/");
   let id = arr[arr.length - 1];
 
+  console.log("teehee", id);
+
   useEffect(() => {
-    if (!id) {
-      return; // id isn't available yet, exit early
-    }
+    // if (!id) {
+    //   return; // id isn't available yet, exit early
+    // }
 
     fetch(`/api/courses/${id}`)
       .then((response) => response.json())
@@ -26,7 +28,7 @@ function CourseDetail() {
         console.error("Error:", error);
         setLoading(false);
       });
-  }, [id]); // re-run the effect when the `id` changes
+  }, []); // re-run the effect when the `id` changes
 
   if (loading) {
     return <div>Loading...</div>;

@@ -7,21 +7,28 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 export const GET = async (request) => {
   try {
     await connectMongoDB();
-
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
-    const courseId = request.query.id.replace("-", " ");
+
+    let urlCoursenameArray = request.url.split("/");
+    let coursename = urlCoursenameArray[urlCoursenameArray.length - 1];
+    const courseTitle = coursename.replace(/-/g, " ");
+    console.log(coursename, "!!!req!!");
 
     const user = await User.findById(userId);
 
     if (!user) {
+      console.log("USER NOT FOUND");
       return new Response("User not found", { status: 404 });
     }
 
     const course = await Course.findOne({
       _id: { $in: user.courses },
-      title: courseId,
+      title: courseTitle,
     });
+
+    console.log("pre-wowwee");
+    console.log(course, "wowwee");
 
     if (!course) {
       return new Response("Course not found", { status: 404 });
@@ -29,6 +36,7 @@ export const GET = async (request) => {
 
     return new Response(JSON.stringify(course), { status: 200 });
   } catch (error) {
+    console.error("Failed to fetch course: ", error);
     return new Response("Failed to fetch course", { status: 500 });
   }
 };
