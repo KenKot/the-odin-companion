@@ -2,11 +2,14 @@ import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
 
-import { useSession } from "next-auth/react";
-
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export async function POST(request) {
-  const { data: session } = useSession();
+  // export async function POST(request) {
+  const session = await getServerSession(authOptions);
+
+  // const { data: session } = useSession();
 
   const { name, email } = await request.json();
   console.log("!!!!!!!", "user/route.js fired");
