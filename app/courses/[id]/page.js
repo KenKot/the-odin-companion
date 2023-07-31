@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 function CourseDetail() {
   const [course, setCourse] = useState(null);
@@ -11,13 +12,7 @@ function CourseDetail() {
   let arr = pathName.split("/");
   let id = arr[arr.length - 1];
 
-  console.log("teehee", id);
-
   useEffect(() => {
-    // if (!id) {
-    //   return; // id isn't available yet, exit early
-    // }
-
     fetch(`/api/courses/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -28,7 +23,7 @@ function CourseDetail() {
         console.error("Error:", error);
         setLoading(false);
       });
-  }, []); // re-run the effect when the `id` changes
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -41,7 +36,21 @@ function CourseDetail() {
   return (
     <div>
       <h1>{course.title}</h1>
-      {/* Render additional details about the course here */}
+      {course.lessons.map((lesson, index) => (
+        <Link
+          key={index}
+          href={`/lessons/${lesson.title.replace(/\s+/g, "-")}`}
+          passHref
+        >
+          <div className="border-2 border-black m-2 p-2 cursor-pointer">
+            <h2>{lesson.title}</h2>
+            <p>
+              Mastered Flashcards: {lesson.masteredFlashcards} /{" "}
+              {lesson.flashcards.length}
+            </p>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }

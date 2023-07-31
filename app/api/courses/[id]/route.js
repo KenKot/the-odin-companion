@@ -13,7 +13,6 @@ export const GET = async (request) => {
     let urlCoursenameArray = request.url.split("/");
     let coursename = urlCoursenameArray[urlCoursenameArray.length - 1];
     const courseTitle = coursename.replace(/-/g, " ");
-    console.log(coursename, "!!!req!!");
 
     const user = await User.findById(userId);
 
@@ -25,16 +24,32 @@ export const GET = async (request) => {
     const course = await Course.findOne({
       _id: { $in: user.courses },
       title: courseTitle,
+    }).populate({
+      path: "lessons",
+      model: "Lesson",
+      populate: {
+        path: "flashcards",
+        model: "Flashcard",
+      },
     });
-
-    console.log("pre-wowwee");
-    console.log(course, "wowwee");
 
     if (!course) {
       return new Response("Course not found", { status: 404 });
     }
 
-    return new Response(JSON.stringify(course), { status: 200 });
+    const courseWithMasteredFlashcards = {
+      ...course._doc,
+      lessons: course.lessons.map((lesson) => ({
+        ...lesson._doc,
+        masteredFlashcards: lesson.flashcards.filter(
+          (flashcard) => flashcard.isMastered
+        ).length,
+      })),
+    };
+
+    return new Response(JSON.stringify(courseWithMasteredFlashcards), {
+      status: 200,
+    });
   } catch (error) {
     console.error("Failed to fetch course: ", error);
     return new Response("Failed to fetch course", { status: 500 });
