@@ -9,17 +9,19 @@ export default function Navbar() {
 
   return (
     <>
-      <nav class="flex items-center justify-between p-6 border border-black border-4 rounded">
-        <div class="flex items-center space-x-6">
-          <Image
-            src="/magni.png" // Path to your image
-            alt="Description of the image"
-            width={150} // Desired width
-            height={150} // Desired height
-            className="rounded-full"
-          />
-          <h1 className="text-5xl  font-semibold">The Odin Companion!!</h1>
-        </div>
+      <nav className="flex items-center justify-between p-6 border border-black border-4 rounded">
+        <Link href="/">
+          <div className="flex items-center space-x-6">
+            <Image
+              src="/magni.png" // Path to your image
+              alt="Description of the image"
+              width={150} // Desired width
+              height={150} // Desired height
+              className="rounded-full"
+            />
+            <h1 className="text-5xl  font-semibold">The Odin Companion</h1>
+          </div>
+        </Link>
         <div>
           {status === "authenticated" ? (
             <button
