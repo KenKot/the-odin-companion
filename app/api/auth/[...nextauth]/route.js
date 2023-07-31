@@ -30,6 +30,8 @@ const authOptions = {
           await connectMongoDB();
           let userDoc = await User.findOne({ email });
 
+          let lessonCounter = 0; // Initialize a lesson counter
+
           if (!userDoc) {
             userDoc = await User.create({ name, email }); // Directly create the user using MongoDB
 
@@ -39,7 +41,8 @@ const authOptions = {
 
               // Create two lessons for each course
               const lessons = Array.from({ length: 2 }, async (_, j) => {
-                const lesson = new Lesson({ title: `Lesson ${j + 1}` });
+                lessonCounter += 1; // Increment the lesson counter
+                const lesson = new Lesson({ title: `Lesson ${lessonCounter}` });
 
                 // Create three flashcards for each lesson
                 const flashcards = Array.from({ length: 3 }, async (_, k) => {
