@@ -28,11 +28,7 @@ function Courses() {
     <div>
       <h1>Courses</h1>
       {courses.map((course, index) => (
-        <Link
-          key={index}
-          href={`/courses/${course.title.replace(/\s+/g, "-")}`}
-          passHref
-        >
+        <Link key={index} href={`/courses/${course._id}`} passHref>
           <div className="border-2 border-black m-2 p-2 cursor-pointer">
             <h2>{course.title}</h2>
             <p>Total Lessons: {course.totalLessons}</p>

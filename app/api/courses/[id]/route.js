@@ -4,15 +4,16 @@ import User from "@/models/user";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 
-export const GET = async (request) => {
+export const GET = async (request, { params }) => {
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
 
-    let urlCoursenameArray = request.url.split("/");
-    let coursename = urlCoursenameArray[urlCoursenameArray.length - 1];
-    const courseTitle = coursename.replace(/-/g, " ");
+    // let urlCourseIdArray = request.url.split("/");
+    // let courseId = urlCourseIdArray[urlCourseIdArray.length - 1];
+
+    let courseId = params.id;
 
     const user = await User.findById(userId);
 
@@ -22,8 +23,7 @@ export const GET = async (request) => {
     }
 
     const course = await Course.findOne({
-      _id: { $in: user.courses },
-      title: courseTitle,
+      _id: { $in: user.courses, $eq: courseId },
     }).populate({
       path: "lessons",
       model: "Lesson",

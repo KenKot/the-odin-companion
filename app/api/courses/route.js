@@ -37,6 +37,7 @@ export const GET = async (request) => {
       let lessons = course.lessons;
 
       let courseInfo = {
+        _id: course._id.toString(),
         title: course.title,
         totalLessons: lessons.length,
         completedFlashcards: 0,
