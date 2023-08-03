@@ -6,7 +6,23 @@ export default function Home() {
     <>
       <UserInfo />
       <hr />
-      <Link href="/courses">Courses</Link>
+      <br />
+      {/* <Link href="/courses" className="border-2 border-red-500"> */}
+      <Link href="/courses">
+        <button
+          className="
+    bg-blue-500 
+    hover:bg-blue-700 
+    text-white 
+    font-bold 
+    py-2 
+    px-4 
+    rounded
+  "
+        >
+          Courses
+        </button>
+      </Link>
     </>
   );
 }
