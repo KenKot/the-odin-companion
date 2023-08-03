@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-function Courses() {
+export default function Courses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,5 +40,3 @@ function Courses() {
     </div>
   );
 }
-
-export default Courses;

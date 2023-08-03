@@ -2,17 +2,12 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-function LessonDetail() {
+export default function LessonDetail({ params }) {
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const router = useRouter();
-  const pathName = usePathname();
-  let arr = pathName.split("/");
-  let id = arr[arr.length - 1];
-
   useEffect(() => {
-    fetch(`/api/lessons/${id}`)
+    fetch(`/api/lessons/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
         setLesson(data);
@@ -74,5 +69,3 @@ function LessonDetail() {
     </div>
   );
 }
-
-export default LessonDetail;

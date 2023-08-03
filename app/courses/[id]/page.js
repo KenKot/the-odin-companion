@@ -3,17 +3,12 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
-function CourseDetail() {
+export default function CourseDetail({ params }) {
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const router = useRouter();
-  const pathName = usePathname();
-  let arr = pathName.split("/");
-  let id = arr[arr.length - 1];
-
   useEffect(() => {
-    fetch(`/api/courses/${id}`)
+    fetch(`/api/courses/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
         setCourse(data);
@@ -50,5 +45,3 @@ function CourseDetail() {
     </div>
   );
 }
-
-export default CourseDetail;
