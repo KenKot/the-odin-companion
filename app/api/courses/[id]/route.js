@@ -3,6 +3,7 @@ import Course from "@/models/course";
 import User from "@/models/user";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
   try {
@@ -46,12 +47,11 @@ export const GET = async (request, { params }) => {
         ).length,
       })),
     };
-
-    return new Response(JSON.stringify(courseWithMasteredFlashcards), {
-      status: 200,
-    });
+    return NextResponse.json(courseWithMasteredFlashcards, { status: 201 });
   } catch (error) {
-    console.error("Failed to fetch course: ", error);
-    return new Response("Failed to fetch course", { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch courseWithMasteredFlashcards" },
+      { status: 500 }
+    );
   }
 };

@@ -1,8 +1,8 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import Course from "@/models/course";
 import User from "@/models/user";
-import { NextResponse } from "next/server";
 import { getSession } from "next-auth/react";
+import { NextResponse } from "next/server";
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
@@ -56,12 +56,11 @@ export const GET = async (request) => {
       coursesInfo.push(courseInfo);
     });
 
-    // console.log("!!!", coursesInfo);
-
-    return new Response(JSON.stringify(coursesInfo), { status: 200 }); // Changed 'userCourses' to 'coursesInfo'
-
-    // return new Response(JSON.stringify(userCourses), { status: 200 });
+    return NextResponse.json(coursesInfo, { status: 201 });
   } catch (error) {
-    return new Response("Failed to fetch all prompts", { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch all courses" },
+      { status: 500 }
+    );
   }
 };

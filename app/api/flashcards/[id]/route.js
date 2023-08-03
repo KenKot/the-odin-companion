@@ -4,6 +4,7 @@ import Lesson from "@/models/lesson";
 import Course from "@/models/course";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import { NextResponse } from "next/server";
 
 export const PATCH = async (request) => {
   try {
@@ -43,10 +44,11 @@ export const PATCH = async (request) => {
 
     // save the updated flashcard
     await flashcard.save();
-
-    return new Response(JSON.stringify(flashcard), { status: 200 });
+    return NextResponse.json(flashcard, { status: 201 });
   } catch (error) {
-    console.error("Failed to update flashcard: ", error);
-    return new Response("Failed to update flashcard", { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch flashcard" },
+      { status: 500 }
+    );
   }
 };

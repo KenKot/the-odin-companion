@@ -1,0 +1,3 @@
+1) add some navigation
+2) 1 flashcard at a time /// a comprehensive user experience
+3) protected routes + ensure auth

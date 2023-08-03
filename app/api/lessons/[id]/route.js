@@ -3,6 +3,7 @@ import User from "@/models/user";
 import Lesson from "@/models/lesson";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
   try {
@@ -35,10 +36,11 @@ export const GET = async (request, { params }) => {
         status: 403,
       });
     }
-
-    return new Response(JSON.stringify(lesson), { status: 200 });
+    return NextResponse.json(lesson, { status: 201 });
   } catch (error) {
-    console.error("Failed to fetch lesson: ", error);
-    return new Response("Failed to fetch lesson", { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch lesson " },
+      { status: 500 }
+    );
   }
 };
