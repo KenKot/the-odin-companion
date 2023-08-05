@@ -1670,6 +1670,869 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Advanced HTML and CSS Course",
+      "lessons": [
+        {
+          "title": "Animation",
+          "flashcards": [
+            {
+              "question": "What are the four main functions of the transform property?",
+              "answer": "The four main functions of the transform property are translate(), rotate(), scale(), and skew(). These can be used to move, rotate, scale, and skew an element respectively."
+            },
+            {
+              "question": "Which function can be used to move an object through space on the X, Y, or Z axis?",
+              "answer": "The translate() function can be used to move an object through space on the X, Y, or Z axis."
+            },
+            {
+              "question": "Which function can be used to make an object larger or smaller on the X, Y, or Z axis?",
+              "answer": "The scale() function can be used to make an object larger or smaller on the X, Y, or Z axis."
+            },
+            {
+              "question": "What additional function is required for 3D transforms?",
+              "answer": "The perspective() function is often used for 3D transforms to give a sense of depth."
+            },
+            {
+              "question": "Are all CSS properties animatable?",
+              "answer": "No, not all CSS properties are animatable. Examples of non-animatable properties are: display, margin, padding, etc."
+            },
+            {
+              "question": "What are the long and short-hand notations for transitions?",
+              "answer": "The long-hand notation for a transition is specifying the individual properties like transition-property, transition-duration, transition-timing-function, and transition-delay. The shorthand notation is the 'transition' property, where you can define all of these in one line."
+            },
+            {
+              "question": "What is the stacking context?",
+              "answer": "The stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user, who is assumed to be facing the viewport or the webpage."
+            },
+            {
+              "question": "Why do you need to keep an eye on repaints?",
+              "answer": "Repaints can be expensive in terms of performance. Each repaint requires the browser to recalculate the layout and re-render the page, which can slow down your application."
+            },
+            {
+              "question": "What are the long and short-hand notations for CSS animations?",
+              "answer": "The long-hand notation for CSS animations includes properties like animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state. The shorthand notation is the 'animation' property, where you can define all of these in one line."
+            },
+            {
+              "question": "How do you add keyframes to an animation?",
+              "answer": "Keyframes in CSS are added using the @keyframes rule, followed by the name of the animation. Inside the @keyframes rule, you can define different stages of the animation using percentages from 0% to 100%."
+            },
+            {
+              "question": "When would you use an animation over a transition (and vice versa)?",
+              "answer": "Animations are used when you want to have fine-grained control over the intermediate steps of a sequence over a period of time. Transitions are used when you want to animate a change from one state to another, over a small duration, typically in response to user actions like hover, focus, or active."
+            }
+          ]
+        },
+        {
+          "title": "Accessibility",
+          "flashcards": [
+            {
+              "question": "What is web accessibility?",
+              "answer": "Web accessibility refers to the inclusive practice of removing barriers that prevent interaction with, or access to websites, by people with disabilities. It ensures that all users, regardless of their ability, can access, understand, navigate, and interact with the Web."
+            },
+            {
+              "question": "Who truly benefits from accessibility features?",
+              "answer": "While web accessibility primarily benefits people with disabilities, it also benefits others such as elderly users with changing abilities due to aging, people with temporary disabilities, and even people using mobile devices, among others."
+            },
+            {
+              "question": "What is the purpose of the Web Content Accessibility Guidelines?",
+              "answer": "The purpose of the Web Content Accessibility Guidelines (WCAG) is to provide a single shared standard for web content accessibility that meets the needs of individuals, organizations, and governments internationally. It provides recommendations for making Web content more accessible, primarily for people with disabilities."
+            },
+            {
+              "question": "What are the 4 principles of the WCAG?",
+              "answer": "The four principles of the WCAG are Perceivable, Operable, Understandable, and Robust (POUR). These principles lay the foundation necessary for anyone to access and use web content."
+            },
+            {
+              "question": "Why is semantic HTML important for accessibility?",
+              "answer": "Semantic HTML is crucial for accessibility because it provides meaning to the web content which helps assistive technologies, like screen readers, to properly convey the information to its users."
+            },
+            {
+              "question": "What are the seven HTML elements that define landmarks on a page?",
+              "answer": "The seven HTML elements that define landmarks are: header, nav, main, article, section, aside, and footer."
+            },
+            {
+              "question": "What is a contrast ratio?",
+              "answer": "A contrast ratio is a measure used to calculate the difference in color and brightness between the foreground and background of text on a webpage. It is a crucial aspect of web accessibility."
+            },
+            {
+              "question": "What are two ways you can check a contrast ratio using your dev tools?",
+              "answer": "You can check contrast ratio using browser dev tools such as the 'Inspect Element' feature in browsers like Chrome or Firefox. Also, there are specific tools like Chrome's Lighthouse or plugins like aXe which can be used for accessibility auditing including checking contrast ratios."
+            },
+            {
+              "question": "What should you avoid when conveying information to users?",
+              "answer": "You should avoid relying solely on color to convey information as this can make content inaccessible to users who are color blind or visually impaired. Also, avoid complex language or jargon without providing explanations or alternatives."
+            },
+            {
+              "question": "What are two things that interactive elements must have for keyboard users?",
+              "answer": "Interactive elements should have a focus state and they should be operable using keyboard commands only. This ensures users who navigate using the keyboard can access and interact with these elements."
+            },
+            {
+              "question": "What are focus styles?",
+              "answer": "Focus styles are CSS styles applied to an element when it has focus. They are typically applied to interactive elements such as links, form controls, and buttons to indicate they can be interacted with."
+            },
+            {
+              "question": "Why should you never completely remove focus styles from an element?",
+              "answer": "Removing focus styles from an element can make it difficult for keyboard users to navigate the site, as they won't be able to see which element is currently focused."
+            },
+            {
+              "question": "What is the tab order?",
+              "answer": "The tab order is the order in which elements receive focus when the user presses the tab key. It is determined by the order of elements in the HTML document."
+            },
+            {
+              "question": "What is the best way to hide hidden content from assistive technologies?",
+              "answer": "You can use the 'aria-hidden' attribute or the 'display: none' CSS rule to hide content from assistive technologies."
+            },
+            {
+              "question": "What are three rules you should follow in order to provide meaningful links?",
+              "answer": "To provide meaningful links: 1) the link text should describe the destination; 2) generic text like 'click here' should be avoided; 3) links that lead to the same destination should have the same description."
+            },
+            {
+              "question": "What information should you inform users of in order to provide meaningful error messages in forms?",
+              "answer": "Error messages should identify the error clearly, provide a reason why the error occurred, and suggest a solution to correct the error."
+            },
+            {
+              "question": "When should you use the empty string/null value for the alt attribute?",
+              "answer": "You should use an empty string for the alt attribute when the image is purely decorative and provides no content or functional information."
+            },
+            {
+              "question": "What purpose does WAI-ARIA serve?",
+              "answer": "Web Accessibility Initiative - Accessible Rich Internet Applications (WAI-ARIA) serves to improve the accessibility of web content and web applications, particularly those developed with JavaScript, by providing additional semantics to help assistive technologies make sense of the content."
+            },
+            {
+              "question": "What are the four things ARIA can’t do?",
+              "answer": "ARIA can’t: 1) make an inaccessible interface accessible; 2) aid with usability issues if the underlying interface has usability problems; 3) change behavior of the UI; 4) create accessible tables or form elements if native HTML isn’t used properly."
+            },
+            {
+              "question": "What are the five rules of ARIA?",
+              "answer": "The five rules of ARIA are: 1) If you can use a native HTML element or attribute with the semantics and behavior you require, do so; 2) Do not change native semantics, unless you really have to; 3) All interactive ARIA controls must be usable with the keyboard; 4) Do not use role='presentation' or aria-hidden='true' on a focusable element; 5) All interactive elements must have an accessible name."
+            },
+            {
+              "question": "What is the accessibility tree?",
+              "answer": "The accessibility tree is a structure produced by the browser's Accessibility APIs that provides information about each element of the website in a way that's useful to assistive technologies, such as screen readers."
+            },
+            {
+              "question": "What are the differences between the three ARIA labels?",
+              "answer": "aria-label provides an invisible label where a visible label cannot be used. aria-labelledby allows the use of another element to label the component. aria-describedby provides a reference to elements that offer a description of the component."
+            },
+            {
+              "question": "What does the aria-hidden attribute do?",
+              "answer": "The aria-hidden attribute tells assistive technology to ignore the element on which it is applied, effectively hiding it from the accessibility tree."
+            },
+            {
+              "question": "What are some of the various accessibility features available in your browser’s DevTools?",
+              "answer": "Browser DevTools provide a range of accessibility features like inspecting ARIA attributes, checking color contrast ratios, simulating color blindness, checking keyboard accessibility, and more."
+            },
+            {
+              "question": "Which third-party accessibility auditing tool is available in the Chrome DevTools by default?",
+              "answer": "Lighthouse, a open-source, automated tool for improving the quality of web pages, is available in Chrome DevTools by default and includes features for auditing accessibility."
+            }
+          ]
+        },
+        {
+          "title": "Responsive Design",
+          "flashcards": [
+            {
+              "question": "What is Responsive Design?",
+              "answer": "Responsive Design is an approach to web design where web pages render well on a variety of devices and window or screen sizes. It is achieved using fluid grid layouts, flexible images and media, and CSS media queries to adapt the layout to the viewing environment."
+            },
+            {
+              "question": "Why should you avoid fixed width?",
+              "answer": "You should avoid fixed width because it doesn't adapt to the size of the viewport or screen size. This can result in content overflowing off the edge of the screen on smaller devices, or being centered with wide empty spaces on larger ones, leading to a poor user experience."
+            },
+            {
+              "question": "Why should you avoid fixed height?",
+              "answer": "You should avoid fixed height because content can overflow and become hidden if it needs more space than the fixed height allows. Additionally, it doesn't adapt to changes in the viewport height, which can vary significantly between devices and orientations."
+            },
+            {
+              "question": "In what situations might it be appropriate to use a fixed height or width?",
+              "answer": "Fixed heights or widths might be appropriate in some situations such as for specific design elements like a logo or an icon, where their dimensions need to be maintained. However, they should generally be used sparingly in a responsive design context."
+            },
+            {
+              "question": "Why should you avoid percentages?",
+              "answer": "Percentage dimensions are relative to the size of the parent container, so they can lead to unpredictable results if the parent's size isn't controlled. However, in responsive design, percentages are often used effectively to create fluid layouts that adapt to the viewport."
+            },
+            {
+              "question": "What is the main difference between object-fit and background-size?",
+              "answer": "The main difference between object-fit and background-size is their use cases. 'object-fit' is used for content images (like img or video), while 'background-size' is used for background images. Both control how an image should be resized to fit its container."
+            },
+            {
+              "question": "How can you define a width and a height on an img without distorting it?",
+              "answer": "To define a width and a height on an img without distorting it, you can use the CSS property 'object-fit'. For instance, 'object-fit: cover' scales the image to cover the element, maintaining its aspect ratio."
+            },
+            {
+              "question": "Why would you want to provide different images at different screen resolutions?",
+              "answer": "You might want to provide different images at different screen resolutions to ensure that images look sharp on high-resolution screens, while also not loading unnecessarily large images on lower resolution screens where the extra detail wouldn't be visible. This can improve both the appearance and performance of a website."
+            },
+            {
+              "question": "When would you want to use an img with a srcset vs a picture?",
+              "answer": "You would want to use an img with a srcset when you only need to provide different resolutions of the same image. You would want to use a picture element when you need more control over which image is displayed, such as providing different images for different viewport sizes or screen densities."
+            },
+            {
+              "question": "How do you define a media query to create a mobile layout for your site?",
+              "answer": "You define a media query to create a mobile layout for your site using the @media rule in CSS. For example, '@media (max-width: 600px) {...}' will apply the CSS rules within the brackets if the viewport is 600px wide or less."
+            },
+            {
+              "question": "What is the difference between max-width and min-width in a media query definition?",
+              "answer": "In a media query, 'max-width' is the maximum viewport width at which the styles will apply, while 'min-width' is the minimum viewport width at which the styles will apply. So, a media query with 'max-width' will apply the styles for viewports smaller than the specified size, and 'min-width' will apply the styles for viewports larger than the specified size."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "React",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "flashcards": [
+            {
+              "question": "What is the purpose of React?",
+              "answer": "React is a JavaScript library that aims to simplify the development of visual interfaces. Developed by Facebook, React allows developers to create reusable UI components. The main purpose of React is to be fast, scalable, and simple. It works only on user interfaces in the application, which allows it to be easily integrated with other libraries or existing projects."
+            },
+            {
+              "question": "What are the benefits of using React?",
+              "answer": "React offers several benefits: 1) It improves performance through virtual DOM. 2) It helps write clean, modular, and reusable components. 3) Unidirectional data flow provides better control throughout the application. 4) It is backed by a strong community and has extensive libraries and tools. 5) It is SEO friendly as compared to other JavaScript libraries."
+            },
+            {
+              "question": "What are some of the ways we can start a new React project?",
+              "answer": "There are several ways to start a new React project: 1) Using 'Create React App', a toolchain from Facebook. 2) Using 'Next.js' for server-rendered React applications. 3) Using 'Gatsby', a static site generator for React. 4) Using 'Vite', a build tool that provides a faster and leaner development experience for modern web projects."
+            },
+            {
+              "question": "Why should we initially be using pre-made toolchains instead of making our own?",
+              "answer": "Pre-made toolchains like Create React App or Vite save you time and effort by setting up project structures, implementing best practices, and handling build configurations. This allows developers to focus on writing the application code. Moreover, they are maintained by large communities, so they are often more reliable and up-to-date."
+            },
+            {
+              "question": "What is Vite and why would we use it?",
+              "answer": "Vite is a modern front-end build tool created by Evan You, the creator of Vue.js. It offers a faster and leaner development experience for modern web projects. Vite provides features like hot module replacement (HMR), which reloads modules in the browser as they are edited without a full page refresh. It also supports TypeScript, JSX, CSS, JSON and other file types out of the box."
+            },
+            {
+              "question": "What command can we run to scaffold a new React project using Vite?",
+              "answer": "To scaffold a new React project using Vite, you can run the command 'npx create-vite my-react-app --template react'. This will create a new directory called 'my-react-app' with a minimal Vite configuration for a React project."
+            },
+            {
+              "question": "What is in the public folder?",
+              "answer": "The public folder of a React project usually contains static assets that should be served directly by the web server, like the index.html file, favicon, and images. The files in this directory won't be processed by Webpack, so they are copied to the build folder as they are."
+            },
+            {
+              "question": "What is in the src folder?",
+              "answer": "The src (source) folder contains the core code of the React application. This includes JavaScript (or TypeScript) code, CSS or SCSS files, images, and other assets that require processing by Webpack or other bundlers. Typically, it contains components, hooks, utilities, services, styles, and assets."
+            },
+            {
+              "question": "Why are the React Developer Tools useful?",
+              "answer": "React Developer Tools is a browser extension that allows developers to inspect the React component hierarchies in the virtual DOM. You can select specific elements in the DOM to inspect their props and state. It can significantly help in debugging your applications, observing component hierarchy, and understanding component relationships within the app."
+            }
+          ]
+        },
+        {
+          "title": "Getting Started With React",
+          "flashcards": [
+            {
+              "question": "What does a React element look like?",
+              "answer": "A React element is an object representation of a DOM element. It is written using JSX and can look like this: <h1>Hello, world!</h1>. It describes what you want to see on the screen."
+            },
+            {
+              "question": "How would you create a functional component?",
+              "answer": "A functional component is a JavaScript function that returns a React element. Here's an example: function Welcome(props) { return <h1>Hello, {props.name}</h1>; }."
+            },
+            {
+              "question": "How do you export and then import a component?",
+              "answer": "You can export a component using the 'export' keyword. For example: 'export default Welcome'. You can import it in another file using the 'import' keyword. For example: 'import Welcome from './Welcome'."
+            },
+            {
+              "question": "What is JSX?",
+              "answer": "JSX (JavaScript XML) is a syntax extension for JavaScript. It is used with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript."
+            },
+            {
+              "question": "Why do we use JSX?",
+              "answer": "JSX makes it easier to write and add HTML in React. It also allows us to write HTML elements in JavaScript and place them in the DOM without any createElement() and/or appendChild() methods. JSX converts HTML tags into react elements and also makes it possible to create complex UI by enclosing JavaScript expressions within braces."
+            },
+            {
+              "question": "What are the three rules of JSX?",
+              "answer": "1) When combining multiple elements they must be wrapped in a single parent element. 2) JSX uses 'className' instead of 'class' for adding CSS classes to elements. 3) All tags must close, either by using self-closing tag syntax or with a corresponding closing tag."
+            },
+            {
+              "question": "How do you reference a dynamic value inside of your JSX?",
+              "answer": "You can reference a dynamic value inside of your JSX by enclosing the value in curly braces. For example, {variableName}."
+            },
+            {
+              "question": "How do you render a list of elements/components in JSX?",
+              "answer": "To render a list of elements/components in JSX, you can use the JavaScript map() function. For example, you could use 'items.map((item) => <li>{item}</li>)' to create an array of li elements."
+            },
+            {
+              "question": "What are the ways you could render UI conditionally?",
+              "answer": "You can render UI conditionally in React using JavaScript operators like 'if' or the conditional (ternary) operator. You can also use logical && operator for inline rendering."
+            },
+            {
+              "question": "How would you conditionally return JSX?",
+              "answer": "You can conditionally return JSX using JavaScript's conditional (ternary) operator. For example: 'condition ? <ComponentIfTrue /> : <ComponentIfFalse />'."
+            },
+            {
+              "question": "Why does React need keys?",
+              "answer": "Keys help React identify which items have changed, are added, or are removed. They should be given to the elements inside an array to give the elements a stable identity."
+            },
+            {
+              "question": "How do you use keys?",
+              "answer": "Keys can be used in React by assigning the 'key' attribute with a unique value to the element. For example, when rendering a list, you can assign the item's index or id as a key: 'items.map((item, index) => <li key={index}>{item}</li>)'."
+            },
+            {
+              "question": "Where should the key value ideally come from?",
+              "answer": "The key value should ideally be a unique and constant id. If a unique id is not available, you might resort to using the index as a key. However, this can lead to performance and data integrity issues if the items in your list can change order, be deleted, or new items can be added."
+            },
+            {
+              "question": "When can we use an array index as the key value?",
+              "answer": "Although it's not recommended, you can use the array index as a key value when the list is static, and the list items have no logical id, and the items will not be reordered or filtered."
+            },
+            {
+              "question": "What is an anti-pattern when using keys?",
+              "answer": "An anti-pattern when using keys is using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with the component state."
+            },
+            {
+              "question": "How does data flow between React components? From child to parent? From parent to child? Both?",
+              "answer": "In React, data flows unidirectionally, from parent to child through properties (props). To make data flow from child to parent, the parent can pass a function to the child through props, and the child may invoke that function and pass data as its argument."
+            },
+            {
+              "question": "Why do we use props in React?",
+              "answer": "Props (properties) in React allow components to communicate with each other. They are used to pass data from parent to child components, as well as to pass callback functions to handle events or change the state."
+            },
+            {
+              "question": "How do we define default properties on a React component? What are some benefits in doing so?",
+              "answer": "Default props can be defined by setting the 'defaultProps' property on the component. The benefits of using defaultProps include type checking and error prevention, simplifying the component usage, and providing default behavior."
+            },
+            {
+              "question": "How can we pass functions as props?",
+              "answer": "We can pass functions as props the same way we pass any other props. For example: <ChildComponent onClick={this.handleClick} />. In this case, 'handleClick' is a method defined in the parent component and passed as a prop to 'ChildComponent'."
+            }
+          ]
+        },
+        {
+          "title": "States And Effects",
+          "flashcards": [
+            {
+              "question": "What is state?",
+              "answer": "In React, state refers to a built-in object that a component can use to keep track of changing data. This data can influence the component's behavior, rendering, and attributes."
+            },
+            {
+              "question": "What is the useState hook and how to use it?",
+              "answer": "useState is a Hook that allows you to add React state to function components. It takes the initial state as an argument and returns an array containing the current state value and a function to update it. For example: const [count, setCount] = useState(0)."
+            },
+            {
+              "question": "What happens to the component when one of its state is changed?",
+              "answer": "When a state value changes, the component will re-render to reflect the new state. If the new state value leads to different render output, React will update the DOM accordingly."
+            },
+            {
+              "question": "What are some of the rules of hooks?",
+              "answer": "1) Only call Hooks at the top level. Don't call Hooks inside loops, conditions, or nested functions. 2) Only call Hooks from React function components. Don’t call Hooks from regular JavaScript functions."
+            },
+            {
+              "question": "What should you keep in mind while declaring state?",
+              "answer": "When declaring state in React, it's important to keep in mind that state should be kept as simple as possible, and should only include data that could change and affect the rendering of the component."
+            },
+            {
+              "question": "What does “state is immutable” mean?",
+              "answer": "When we say 'state is immutable' in React, it means the state object cannot be modified directly. To update the state, we need to use the 'setState' method or the state updating function returned by 'useState' hook."
+            },
+            {
+              "question": "What does “state as a snapshot” mean?",
+              "answer": "The phrase 'state as a snapshot' means that state data represents the state of the component at a specific point in time. When a component's state changes, a new 'snapshot' of the state is created, which leads to a re-render of the component."
+            },
+            {
+              "question": "What’s the difference between passing a value vs a callback to the setState function?",
+              "answer": "Passing a value to the setState function sets the state directly to that value. Passing a callback function allows you to access the previous state value and compute the new state based on the old one, which is useful when the new state depends on the old state."
+            },
+            {
+              "question": "Why would you want to control a component?",
+              "answer": "Controlling a component (making it a controlled component) gives you more control over the form values and form handling. The state of the form elements resides in the state property of the component and not in the DOM. This makes it easier to integrate with other UI logic in your component or app."
+            },
+            {
+              "question": "What is an effect?",
+              "answer": "In React, an effect is a piece of functionality that can be executed after the component has been rendered. Effects can be used for various tasks like fetching data, managing subscriptions, or manually changing the DOM. These are typically managed in lifecycle methods in class components but can be executed from useEffect hooks in functional components."
+            },
+            {
+              "question": "What constitutes an useEffect hook?",
+              "answer": "The useEffect hook takes two arguments: a function that contains the effect and a dependency array. The effect runs when the component mounts and when any of the dependencies change. If the dependency array is empty, the effect runs only when the component mounts and unmounts."
+            },
+            {
+              "question": "What is the one question we can ask to know when to use an effect?",
+              "answer": "The question we can ask to know when to use an effect is, 'Do I want to perform this action after the component has rendered and potentially after state or props have changed?' If the answer is yes, we use an effect."
+            },
+            {
+              "question": "What do we mean by lifting up the state?",
+              "answer": "Lifting up the state refers to moving the state up to a common ancestor component so that it can be shared between multiple components. This technique can help keep components in sync."
+            }
+          ]
+        },
+        {
+          "title": "Class Components",
+          "flashcards": [
+            {
+              "question": "How do props get used in a class-based component?",
+              "answer": "In a class-based component, props are accessed via the 'this' keyword. For instance, 'this.props.name' would access the 'name' prop."
+            },
+            {
+              "question": "How does JSX get displayed?",
+              "answer": "JSX gets displayed after being transpiled to regular JavaScript by a tool such as Babel. Babel transforms the JSX into 'React.createElement' calls, which return objects that React can use to build the DOM. Then, React updates the DOM to match the returned objects."
+            },
+            {
+              "question": "How do we deal with state in a class-based component?",
+              "answer": "In a class-based component, state is a property of the component instance and can be initialized in the constructor. You can modify the state using 'this.setState' method, which merges the object you provide into the current state."
+            },
+            {
+              "question": "How do you restore the context of this in a method?",
+              "answer": "The context of 'this' in a method can be restored by binding the method to 'this'. This can be done in the constructor (e.g., 'this.myMethod = this.myMethod.bind(this)'), or by using an arrow function, which automatically binds 'this' to the surrounding class context."
+            },
+            {
+              "question": "What is the only required lifecycle method?",
+              "answer": "The only required lifecycle method in a React class component is the 'render' method."
+            },
+            {
+              "question": "What lifecycle method should you use for initial data fetching?",
+              "answer": "The 'componentDidMount' lifecycle method is usually the best place to fetch initial data in a class-based React component."
+            },
+            {
+              "question": "When you want to act upon change of the DOM, or of state, what lifecycle method would you use?",
+              "answer": "When you want to act upon a change of the DOM or state, the 'componentDidUpdate' lifecycle method should be used."
+            },
+            {
+              "question": "When performing cleanup actions, what lifecycle method should be used?",
+              "answer": "The 'componentWillUnmount' lifecycle method should be used when performing cleanup actions in a class-based React component."
+            },
+            {
+              "question": "How does the useEffect hook combine some of the lifecycle methods?",
+              "answer": "The 'useEffect' hook in React combines the functionality of the 'componentDidMount', 'componentDidUpdate', and 'componentWillUnmount' lifecycle methods from class components. It runs after every render, but you can control when it runs by specifying dependencies or clean up side-effects by returning a cleanup function."
+            }
+          ]
+        },
+        {
+          "title": "React Testing",
+          "flashcards": [
+            {
+              "question": "What packages are required for React testing?",
+              "answer": "The main packages required for React testing include 'react-testing-library', 'jest' and 'user-event'. 'react-testing-library' provides a set of helpers for testing React components, 'jest' is a JavaScript testing framework, and 'user-event' provides a set of interactions that simulate real user interactions."
+            },
+            {
+              "question": "What is the significance of the user-event package?",
+              "answer": "The 'user-event' package is used in testing to simulate user interactions. It provides a more realistic and complete testing of interactions compared to simple firing of events, as it takes into consideration the various events that would take place in a real user interaction."
+            },
+            {
+              "question": "What does the render method do?",
+              "answer": "The render method in testing, provided by the 'react-testing-library', is used to render a React component into a virtual DOM for testing. It returns an object with functions that can be used for querying the output."
+            },
+            {
+              "question": "What is the most preferred method for querying?",
+              "answer": "The most preferred methods for querying are those that resemble how users interact with your site, as stated in the 'react-testing-library' guiding principles. This includes querying by role, text content (like label, placeholder, text, etc.), display value, or testId."
+            },
+            {
+              "question": "How would you test for a click event with userEvent?",
+              "answer": "To test for a click event with 'userEvent', you would first render the component, then use the 'userEvent.click()' function, passing in the element that is supposed to be clicked. You can use a query function to get the element."
+            },
+            {
+              "question": "What is the advantage of snapshot tests?",
+              "answer": "Snapshot testing allows you to capture the state of your UI and save it as a reference snapshot. Any subsequent test runs will be compared to this snapshot, making it easy to catch and review any unexpected changes."
+            },
+            {
+              "question": "What are the disadvantages of snapshot tests?",
+              "answer": "Disadvantages of snapshot tests can include bloated and unreadable snapshots for large components, false positives if snapshots are not reviewed properly before updating, and they might not catch all types of errors, like those involving user interaction or state changes."
+            },
+            {
+              "question": "How can you mock a callback handler?",
+              "answer": "You can mock a callback handler in Jest using 'jest.fn()'. This creates a mock function that you can spy on to check if it's called, what arguments it was called with, and how many times it was called."
+            },
+            {
+              "question": "How can you mock a child component?",
+              "answer": "You can mock a child component in Jest using 'jest.mock()'. This replaces the actual component with a mock component, allowing you to isolate the behavior of the parent component for testing. You could also create a manual mock in a __mocks__ folder with the same name as the component you want to mock."
+            }
+          ]
+        },
+        {
+          "title": "The React Ecosystem",
+          "flashcards": [
+            {
+              "question": "How would we set up a basic implementation of PropTypes?",
+              "answer": "PropTypes are set up by assigning a 'propTypes' object to the component. Each property on the object corresponds to a prop and its type. For example: 'MyComponent.propTypes = { name: PropTypes.string }'. This specifies that the 'name' prop should be of type string."
+            },
+            {
+              "question": "If we pass in a prop to a component that has a defaultProp defined, what would happen?",
+              "answer": "If a prop with a defined defaultProp is passed to a component, the passed prop's value will be used instead of the defaultProp's value. The defaultProp only gets used when the prop is not provided to the component."
+            },
+            {
+              "question": "What is the difference between PropTypes and TypeScript?",
+              "answer": "PropTypes is a library that provides runtime type checking for React props. It's lightweight and only checks props. TypeScript is a static type-checking language that gets compiled down to JavaScript. It provides advanced type-checking and error-catching features for the entire JavaScript code, not just props."
+            },
+            {
+              "question": "What does client-side routing mean?",
+              "answer": "Client-side routing means that the routing process is handled by the JavaScript running on the client side, instead of the server. When the user navigates, the URL changes but the server does not get hit with a request for a new page. Instead, the new content is loaded dynamically using JavaScript."
+            },
+            {
+              "question": "How do you set up a basic router?",
+              "answer": "In React, a basic router is set up using the react-router-dom library. You wrap the app with a BrowserRouter component, and then use Route components to specify which components to render for different paths. The Switch component can be used to only render the first matching Route."
+            },
+            {
+              "question": "What should be used in place of “a” tags to enable client-side routing?",
+              "answer": "To enable client-side routing in React, 'Link' or 'NavLink' components from the 'react-router-dom' library should be used instead of 'a' tags. They update the URL and render the new component without causing a page refresh."
+            },
+            {
+              "question": "How do you create nested routes?",
+              "answer": "Nested routes in React can be created by defining Route components inside other components. This allows parts of the UI to have their own sub-routes."
+            },
+            {
+              "question": "What do you mean by dynamic segments or URL params?",
+              "answer": "Dynamic segments or URL params in routing refer to parts of the URL that can change. They are defined by adding a colon before the segment name in the path (e.g., '/users/:userId'). The value can then be accessed in the component via the 'match.params' object."
+            },
+            {
+              "question": "How do you add a “catch-all” route?",
+              "answer": "A 'catch-all' route in React can be added using the '*' path in a Route component. This Route should be the last one inside a Switch component, so that it catches all paths that do not match any of the previous routes."
+            },
+            {
+              "question": "How do you create protected routes?",
+              "answer": "Protected routes in React can be created by making a new component that checks if the user is authenticated. If they are, it renders the requested route (passed as a prop). If not, it redirects to a login page. This component can then be used in place of a Route component for paths that should be protected."
+            },
+            {
+              "question": "How can you fetch data from an API in React?",
+              "answer": "In React, data can be fetched from an API using the 'fetch' function or libraries like 'axios'. The data is typically fetched in the 'componentDidMount' lifecycle method for class components, or the 'useEffect' hook for functional components."
+            },
+            {
+              "question": "Why should you manually throw errors in fetch requests?",
+              "answer": "Fetch does not reject the promise on HTTP error status, even on 404 or 500. Instead, it resolves the promise with the 'ok' property set to 'false'. Therefore, to have fetch promise reject on HTTP error statuses, you need to manually throw an error."
+            },
+            {
+              "question": "How can you avoid waterfalling requests?",
+              "answer": "Waterfalling requests can be avoided by using 'Promise.all()'. This function takes an array of promises and returns a new promise that only resolves once all the passed promises have resolved. This allows multiple requests to be made concurrently, instead of waiting for each one to finish before starting the next."
+            },
+            {
+              "question": "How can you use CSS Modules in your React app?",
+              "answer": "CSS Modules can be used in a React app by naming your CSS files with the '.module.css' extension. Then, you can import the styles into your component file like you would import a JavaScript module. The imported styles are an object where keys are class names and the values are automatically generated unique class names."
+            },
+            {
+              "question": "What does CSS-in-JS mean?",
+              "answer": "CSS-in-JS refers to a pattern where CSS is composed using JavaScript instead of defined in external files. This can be done using libraries like styled-components or emotion. This approach can offer benefits like scoped styles, dynamic styles based on props, and usage of JavaScript variables and functions in your styles."
+            },
+            {
+              "question": "What are component libraries?",
+              "answer": "Component libraries are collections of pre-built, reusable components that can be imported and used in your application. They can include components like buttons, forms, modals, etc. Examples include Material-UI, Ant Design, and Bootstrap."
+            }
+          ]
+        },
+        {
+          "title": "More React Concepts",
+          "flashcards": [
+            {
+              "question": "What are the benefits of using the Context API over passing props down through multiple levels of components?",
+              "answer": "The Context API allows for easier sharing of state across multiple components without the need for prop drilling (passing props down through multiple levels). This makes code cleaner, easier to manage, and reduces the complexity of the component tree."
+            },
+            {
+              "question": "What are the drawbacks in using the Context API?",
+              "answer": "Using Context API can make components less reusable, as they become dependent on the Context structure. Overuse of Context can also lead to unnecessary re-renders if not managed correctly, because a change in Context will cause all components consuming it to re-render."
+            },
+            {
+              "question": "What are the ways you can avoid prop drilling?",
+              "answer": "To avoid prop drilling, you can use state management techniques such as the Context API, Redux, or Recoil. Component composition is another method that can be used to share state or functionality between components."
+            },
+            {
+              "question": "What are reducers?",
+              "answer": "Reducers are functions that take the current state and an action, and return a new state. They are used in state management systems like Redux and in the React 'useReducer' hook. Reducers should be pure functions without side-effects."
+            },
+            {
+              "question": "How would you declare a reducer?",
+              "answer": "A reducer is declared as a function with two parameters: the current state and an action. The function returns a new state based on the action type. For example, 'const reducer = (state, action) => {...}'"
+            },
+            {
+              "question": "What does the dispatch function do?",
+              "answer": "The dispatch function is used to send actions to the reducer in order to update the state. It triggers the reducer with a specific action."
+            },
+            {
+              "question": "What steps can you follow to migrate from useState to useReducer?",
+              "answer": "To migrate from useState to useReducer, you need to: 1. Define a reducer function that takes the current state and action, and returns a new state. 2. Replace the useState hook with the useReducer hook, passing in the reducer function and initial state. 3. Replace calls to the state-setting function from useState with dispatch calls, passing in actions that the reducer can handle."
+            },
+            {
+              "question": "Why should you prefer useRef hook over other DOM manipulation methods like querySelector?",
+              "answer": "The useRef hook provides a more declarative and React-friendly way to access DOM nodes. It returns a mutable object that can hold a reference to a DOM node and won't cause a re-render when its value changes, unlike state variables."
+            },
+            {
+              "question": "What is the difference between useMemo and useCallback?",
+              "answer": "useMemo and useCallback both memoize a value to avoid expensive computations on each render. useMemo returns the memoized result of a function, while useCallback returns a memoized version of the function itself."
+            },
+            {
+              "question": "How do useMemo and useCallback help optimize the performance of React components?",
+              "answer": "useMemo and useCallback help optimize performance by memoizing values and preventing unnecessary re-calculations or re-renders. useMemo can be used to memoize the result of a function, while useCallback can be used to memoize a function itself, which can be helpful in preventing unnecessary re-renders when passing callbacks to optimized child components."
+            },
+            {
+              "question": "When should you memoize a value?",
+              "answer": "You should consider memoizing a value when: 1. The calculation of the value is computationally expensive and the value doesn't change often. 2. You're passing a callback to a child component that's optimized with React.memo or shouldComponentUpdate, and the function definition would cause the child to re-render unnecessarily."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "NodeJS",
+      "lessons": [
+        {
+          "title": "Introduction to NodeJS",
+          "flashcards": [
+            {
+              "question": "What is back-end development?",
+              "answer": "Back-end development refers to the server-side of web application development. This includes interacting with databases, server scripting, API development, handling user authentication and more. It's responsible for storing, processing, and managing data, ensuring everything the front-end needs is accessible and secure."
+            },
+            {
+              "question": "How many parts does the backend consist of?",
+              "answer": "The backend generally consists of three main parts: the server, the database, and the application (or server-side scripts)."
+            },
+            {
+              "question": "Name each part of the backend.",
+              "answer": "The three main parts of the backend are: 1. Server: This is the computer that receives requests. 2. Application: This could be a Node.js or Python application running on the server, which processes the client's request and sends a response. 3. Database: This is where the data is stored. Examples include MySQL, PostgreSQL, or MongoDB."
+            },
+            {
+              "question": "Where does the backend store its data?",
+              "answer": "The backend stores its data in a database. The type of database can vary depending on the application requirements and could be a SQL database like PostgreSQL or MySQL, or a NoSQL database like MongoDB or Cassandra."
+            },
+            {
+              "question": "What problems do frameworks solve?",
+              "answer": "Frameworks provide a structured and efficient way to build web applications. They offer predefined methods to handle common tasks, follow design patterns for organizing code, provide tools for error handling, simplify security implementations, facilitate database interactions, and often speed up the development process."
+            },
+            {
+              "question": "Name some popular front-end and back-end frameworks.",
+              "answer": "Popular front-end frameworks include React.js, Angular, and Vue.js. On the back-end, popular frameworks include Express.js for Node.js, Django and Flask for Python, and Ruby on Rails for Ruby."
+            },
+            {
+              "question": "Describe the process of choosing a framework.",
+              "answer": "Choosing a framework involves evaluating the project requirements, the features provided by the framework, the programming languages you or your team are comfortable with, the size and activity of the framework's community, available learning resources, and the long-term viability of the project. It's also important to consider factors like performance, security features, and scalability."
+            },
+            {
+              "question": "What is a File System Module? How and why would you use it?",
+              "answer": "The File System module is a built-in module in Node.js that allows you to work with the file system on your computer. It provides methods for reading files, creating files, updating files, deleting files, renaming files, etc. You would use it whenever you need to perform operations on the file system, for example reading data from files or writing data to files."
+            },
+            {
+              "question": "What is the command for installing a package locally in with npm?",
+              "answer": "To install a package locally with npm, you would use the command 'npm install <package-name>'. This will install the package in the node_modules folder in your current directory (project)."
+            },
+            {
+              "question": "What is the command for installing a package globally in with npm?",
+              "answer": "To install a package globally with npm, you would use the command 'npm install -g <package-name>'. This installs the package globally so that it can be used in any project on your machine."
+            },
+            {
+              "question": "What is the difference between a global and local package install with npm?",
+              "answer": "A local package install with npm will install the package in the node_modules directory of the current project and it will only be accessible within that project. A global install, on the other hand, installs the package in a central location on your system (depends on your system's configuration), allowing the package to be accessed by any project on your system."
+            },
+            {
+              "question": "What are two ways to debug Node?",
+              "answer": "Two ways to debug Node.js applications are: 1. Using the built-in Node.js debugger by running the node command followed by debug and the path to the script (e.g., node debug script.js). 2. Using external tools or IDEs that support Node.js debugging, such as Visual Studio Code or Chrome DevTools."
+            }
+          ]
+        },
+        {
+          "title": "MongoDB",
+          "flashcards": [
+            {
+              "question": "What is the difference between a relational database and a non-relational database?",
+              "answer": "A relational database is based on the relational model, which organizes data into tables with rows and columns, and relationships between these tables are structured through foreign keys. They are designed to handle structured data and are good for complex queries. SQL (Structured Query Language) is typically used to interact with these databases. Examples include PostgreSQL, MySQL, and Oracle. On the other hand, non-relational databases, also known as NoSQL databases, do not rely on the traditional row-and-column schema that relational databases use. They are designed to handle unstructured data and can store and process data in many different ways, including document-oriented, column-oriented, graph-based, or key-value pairs. They are highly scalable and are designed to handle large data loads. Examples include MongoDB, Cassandra, and Redis."
+            }
+          ]
+        },
+        {
+          "title": "Express & Mongoose",
+          "flashcards": [
+            {
+              "question": "What is Express?",
+              "answer": "Express.js, or simply Express, is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the process of writing server-side applications by providing a simple and intuitive API for routing, middleware configuration, and rendering views among other things."
+            },
+            {
+              "question": "What is a module?",
+              "answer": "In Node.js, a module is a simple or complex functionality organized in single or multiple JavaScript files which can be reused throughout the Node.js application. Each module in Node.js has its own context, so it cannot interfere with other modules or pollute the global scope."
+            },
+            {
+              "question": "Which are the four most used methods to define route handlers?",
+              "answer": "The four most commonly used HTTP methods to define route handlers in Express are GET, POST, PUT, and DELETE."
+            },
+            {
+              "question": "How do we handle errors?",
+              "answer": "In Express, errors can be handled using middleware that are loaded after the regular routes. These middleware have a special signature with four arguments (err, req, res, next). If an error is passed to next(), Express will skip all remaining route and middleware functions and invoke the error-handling middleware."
+            },
+            {
+              "question": "How do you use the Express library with NPM in a project?",
+              "answer": "You can use the Express library with NPM by first installing it using the command 'npm install express'. After the package is installed, you can include it in your project using require: 'const express = require('express')'."
+            },
+            {
+              "question": "What is middleware?",
+              "answer": "In Express, middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. These functions can execute any code, make changes to the request and the response objects, end the request-response cycle, and call the next middleware function in the stack."
+            },
+            {
+              "question": "What is the req object?",
+              "answer": "In Express, the req (request) object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on."
+            },
+            {
+              "question": "What is the res object?",
+              "answer": "In Express, the res (response) object represents the HTTP response that an Express app sends when it gets an HTTP request."
+            },
+            {
+              "question": "Why is next important?",
+              "answer": "The 'next' function in Express is used to pass control to the next matching route handler or middleware. It's important for managing the flow of code execution in your application, especially when performing asynchronous operations, error handling or when several routes/middleware are potentially able to respond to a single request."
+            },
+            {
+              "question": "What does app.use do?",
+              "answer": "In Express, app.use() is a method that is used to mount a function or a middleware to a specific route, or to all routes if no path is specified. This function will be executed every time the app receives a request at the specified path, or at any path if none is specified."
+            },
+            {
+              "question": "What does CRUD stand for?",
+              "answer": "CRUD stands for Create, Read, Update, and Delete. These are the four basic operations that can be performed with most traditional database systems and they are the cornerstone for interacting with any persistent storage."
+            },
+            {
+              "question": "What does the Model in “MVC” refer to?",
+              "answer": "In MVC architecture, the 'Model' represents the data and the business logic. It is responsible for retrieving the data and converting it into meaningful concepts for the application. It is also responsible for data validation, handling transactions, and performing operations on the data."
+            },
+            {
+              "question": "What does the View in “MVC” refer to?",
+              "answer": "In MVC architecture, the 'View' represents the user interface and displays the data that the model provides. It is responsible for defining how the application's data should be presented and how the user interacts with it."
+            },
+            {
+              "question": "What does the Controller in “MVC” refer to?",
+              "answer": "In MVC architecture, the 'Controller' acts as an intermediary between the Model and the View. It handles the input from the user, updates the Model accordingly, and then updates the View based on the changes in the Model."
+            },
+            {
+              "question": "What’s the difference between static and dynamic websites?",
+              "answer": "A static website is one that is primarily built using static pages. These pages don’t change content or layout with every request to the server. On the other hand, a dynamic website's content or layout can change for each user or interaction, often pulling from a database to populate content."
+            },
+            {
+              "question": "What does ‘PaaS’ stand for?",
+              "answer": "'PaaS' stands for Platform as a Service. It is a cloud computing model where a third-party provider delivers hardware and software tools to users over the internet. These tools are usually needed for application development."
+            },
+            {
+              "question": "What are the advantages of using a PaaS hosting provider?",
+              "answer": "Using a PaaS provider can have several advantages, such as reducing the complexity of infrastructure management, providing a pre-configured environment for development, scaling easily based on application needs, and potentially reducing costs and speeding up development and deployment times."
+            },
+            {
+              "question": "What is an instance?",
+              "answer": "In the context of cloud computing, an instance is a virtual server for running applications on the cloud. It is an abstraction of the hardware that is managed by the cloud provider's infrastructure."
+            },
+            {
+              "question": "What steps can you take to diagnose an issue that arises during deployment?",
+              "answer": "To diagnose issues during deployment, you can: 1. Check the logs for error messages. 2. Use debugging tools provided by the hosting environment. 3. Test your code locally in an environment that mirrors the production environment. 4. Use version control to track changes and find the cause of the problem."
+            },
+            {
+              "question": "What steps can you take to diagnose an issue that only appears after deployment?",
+              "answer": "To diagnose issues that appear only after deployment, you can: 1. Check the application and server logs for any error messages. 2. Try reproducing the issue in a staging environment. 3. Use monitoring and performance tracking tools to understand the application's behavior in production. 4. Review recent changes to the codebase or the infrastructure configuration."
+            },
+            {
+              "question": "How do you define a route function in Express?",
+              "answer": "In Express, a route function is defined by specifying the HTTP method, the route path, and the handler function. For example: app.get('/example', function(req, res) { res.send('Hello World!') })"
+            },
+            {
+              "question": "Name four HTTP verbs a route might need to handle.",
+              "answer": "Four HTTP verbs that a route might need to handle are: GET, POST, PUT, DELETE."
+            },
+            {
+              "question": "What is a route parameter, and what syntax is used to define one in a route handler?",
+              "answer": "A route parameter is a way of capturing dynamic values from the URL. In Express, route parameters are defined using a colon followed by the parameter name, like '/users/:userId'. This value can then be accessed in the request object in the route handler, like 'req.params.userId'."
+            },
+            {
+              "question": "What is a route-handler callback function commonly called?",
+              "answer": "A route-handler callback function is commonly called a 'middleware function' in the context of Express, because it has access to the request and response objects and can pass control to the next middleware in the stack."
+            }
+          ]
+        },
+        {
+          "title": "Authentication",
+          "flashcards": [
+            {
+              "question": "Which passportJS strategy did we use in this lesson?",
+              "answer": "As this is a hypothetical question, I can't provide a specific answer. However, common strategies used with PassportJS include 'local' for username/email and password authentication, and OAuth strategies like 'passport-google-oauth20' for Google authentication."
+            },
+            {
+              "question": "Why does passportJS create a cookie?",
+              "answer": "PassportJS creates a cookie to maintain session state between requests. When a user logs in, Passport will create a cookie that is sent to the client's browser. This cookie is sent back to the server with every subsequent request, allowing Passport to identify the user and maintain their logged-in state."
+            },
+            {
+              "question": "What does the bcrypt.compare() function do?",
+              "answer": "The bcrypt.compare() function is used to compare a plain-text password with a hashed password. It's typically used during the login process: the plain-text password entered by the user is compared with the stored hashed password. If the function returns true, it means the passwords match."
+            },
+            {
+              "question": "Why should we include bcrypt when we begin a project?",
+              "answer": "Including bcrypt at the beginning of a project allows us to securely hash and salt passwords that users provide when they create accounts. This is a best practice for storing passwords, as it doesn't expose actual password content, and it helps protect against attacks such as rainbow table and dictionary attacks."
+            },
+            {
+              "question": "What special kind of variable can be used on a server to store secrets?",
+              "answer": "Environment variables can be used on a server to store secrets. These are outside the application code and can be easily changed without affecting the application. They also can be different for each environment (development, testing, production), making them perfect for storing sensitive data like API keys or database credentials."
+            },
+            {
+              "question": "What are two widely used packages that can be used to store and import these variables?",
+              "answer": "The two widely used packages that can be used to manage environment variables are 'dotenv' and 'node-config'."
+            },
+            {
+              "question": "What is the name of the file dotenv looks for when injecting these variables into our app?",
+              "answer": "When injecting these variables into our app, 'dotenv' looks for a file named '.env' in the root directory of the project."
+            }
+          ]
+        },
+        {
+          "title": "APIs",
+          "flashcards": [
+            {
+              "question": "What does REST stand for?",
+              "answer": "REST stands for Representational State Transfer. It is an architectural style for designing networked applications. REST uses a client-server, stateless, cacheable communications protocol, with HTTP being the most common."
+            },
+            {
+              "question": "What are HTTP verbs and why are they important to an API?",
+              "answer": "HTTP verbs (GET, POST, PUT, DELETE, etc.) define what action we are trying to perform with our request to the API. They are important because they specify the desired action to be performed on the specified resource."
+            },
+            {
+              "question": "What is the Same-Origin Policy?",
+              "answer": "The Same-Origin Policy is a security measure implemented in web browsers to prevent scripts from one domain accessing and interacting with scripts from another domain. This policy helps to prevent cross-site scripting attacks."
+            },
+            {
+              "question": "How do you enable CORS in your Express app?",
+              "answer": "To enable Cross-Origin Resource Sharing (CORS) in your Express app, you can use the 'cors' middleware. After installing it with npm, you can use it in your app like this: 'app.use(cors())'."
+            },
+            {
+              "question": "Which HTTP verb does each letter in CRUD (Create, Read, Update, Delete) correspond to?",
+              "answer": "In CRUD operations, Create corresponds to POST, Read corresponds to GET, Update corresponds to PUT or PATCH, and Delete corresponds to DELETE."
+            },
+            {
+              "question": "What is a JSON web token?",
+              "answer": "A JSON Web Token (JWT) is a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be used for authentication and secure data exchange."
+            },
+            {
+              "question": "What are two things a secure token will do?",
+              "answer": "A secure token provides authentication by confirming the identity of the user. Secondly, it allows for secure transmission of information and ensures that the data has not been altered in transit."
+            },
+            {
+              "question": "Where in the code is a secure token passed?",
+              "answer": "A secure token is usually passed in the 'Authorization' header of the HTTP request. For example, when using a JWT for authentication, the token is included in the 'Authorization' header with the 'Bearer' scheme."
+            }
+          ]
+        },
+        {
+          "title": "Testing Express",
+          "flashcards": [
+            {
+              "question": "What is the motivation behind SuperTest?",
+              "answer": "SuperTest is designed to make testing HTTP servers easier. It provides a high-level abstraction for testing HTTP requests and responses, while still allowing for more detailed assertions when necessary. Its fluent API makes writing tests more convenient and readable."
+            },
+            {
+              "question": "What is the purpose of done? What convenience does SuperTest provide concerning it?",
+              "answer": "In asynchronous testing, 'done' is a callback function that is invoked to signal the completion of the test. SuperTest provides convenience by invoking 'done' automatically when it completes the HTTP assertions, thereby reducing boilerplate and making the tests cleaner."
+            },
+            {
+              "question": "What is the difference in handling errors when using .end() method in conjunction with .expect() provided by SuperTest?",
+              "answer": "When using the .expect() method in conjunction with the .end() method, SuperTest will handle errors automatically. If an assertion fails within the .expect() method, it will be passed to .end() as the error. This provides a cleaner API for error handling in your tests."
+            },
+            {
+              "question": "What are the methods provided by SuperAgent to handle multipart requests and how to use them?",
+              "answer": "SuperAgent provides the .attach() and .field() methods for multipart requests. .attach() can be used to attach a file to the request, and .field() can be used to add a field to the form being sent with the request."
+            },
+            {
+              "question": "What is the purpose of using a separate database for testing?",
+              "answer": "Using a separate database for testing isolates the testing environment from the development and production environments. This prevents tests from altering data in the development or production databases, and ensures that the state of the database is consistent and controlled for each test."
+            },
+            {
+              "question": "How would you create and setup a testing database using the npm package mongodb-memory-server?",
+              "answer": "To create a testing database with mongodb-memory-server, you install the package via npm, then in your test setup code, you instantiate a new instance of the MongoMemoryServer class. This will spin up a new, isolated MongoDB instance in memory. You can get the URI for the server using the getUri() method and use it to connect your test database client."
+            },
+            {
+              "question": "What is an alternative method of database setup for your testing environment?",
+              "answer": "An alternative to using an in-memory database like mongodb-memory-server is to use a test database in a real MongoDB server. You could have a separate database or even a separate MongoDB instance specifically for testing. You would need to handle setup and teardown of test data for each test or test suite."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
