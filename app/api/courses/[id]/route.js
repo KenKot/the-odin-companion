@@ -11,32 +11,21 @@ export const GET = async (request, { params }) => {
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
 
+    // let urlCourseIdArray = request.url.split("/");
+    // let courseId = urlCourseIdArray[urlCourseIdArray.length - 1];
+
     let courseId = params.id;
 
-    const user = await User.findById(userId).populate({
-      path: "paths",
-      model: "Path",
-    });
+    const user = await User.findById(userId);
 
     if (!user) {
       console.log("USER NOT FOUND");
       return new Response("User not found", { status: 404 });
     }
 
-    let course;
-
-    for (let path of user.paths) {
-      course = path.courses.find(
-        (course) => course._id.toString() === courseId
-      );
-      if (course) break;
-    }
-
-    if (!course) {
-      return new Response("Course not found", { status: 404 });
-    }
-
-    course = await Course.findById(courseId).populate({
+    const course = await Course.findOne({
+      _id: { $in: user.courses, $eq: courseId },
+    }).populate({
       path: "lessons",
       model: "Lesson",
       populate: {
@@ -44,6 +33,10 @@ export const GET = async (request, { params }) => {
         model: "Flashcard",
       },
     });
+
+    if (!course) {
+      return new Response("Course not found", { status: 404 });
+    }
 
     const courseWithMasteredFlashcards = {
       ...course._doc,

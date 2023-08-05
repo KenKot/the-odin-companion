@@ -20,38 +20,23 @@ export const GET = async (request, { params }) => {
     }
 
     // Fetch the user
-    const user = await User.findById(userId).populate({
-      path: "paths",
-      model: "Path",
-      populate: {
-        path: "courses",
-        model: "Course",
-      },
-    });
+    const user = await User.findById(userId).populate("courses");
 
     if (!user) {
       return new Response("User not found", { status: 404 });
     }
 
-    // Check if the lesson belongs to one of the user's courses in a path
-    let lessonExists = false;
-    for (let path of user.paths) {
-      for (let course of path.courses) {
-        if (course.lessons.includes(lessonId)) {
-          lessonExists = true;
-          break;
-        }
-      }
-      if (lessonExists) break;
-    }
+    // Check if the lesson belongs to one of the user's courses
+    let lessonExists = user.courses.some((course) =>
+      course.lessons.includes(lessonId)
+    );
 
     if (!lessonExists) {
       return new Response("User does not have access to this lesson", {
         status: 403,
       });
     }
-
-    return NextResponse.json(lesson, { status: 200 });
+    return NextResponse.json(lesson, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch lesson " },
