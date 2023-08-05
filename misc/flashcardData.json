@@ -1199,6 +1199,477 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Javascript",
+      "lessons": [
+        {
+          "title": "Organizing Your Javascript Code",
+          "flashcards": [
+            {
+              "question": "Write an object constructor and instantiate the object.",
+              "answer": "var Person = function(name, age) {\n    this.name = name;\n    this.age = age;\n}\n\nvar person1 = new Person(\"John\", 20);"
+            },
+            {
+              "question": "Describe what a prototype is and how it can be used.",
+              "answer": "A prototype is a preliminary model of something. It is often used to evaluate a concept or process."
+            },
+            {
+              "question": "Explain prototypal inheritance.",
+              "answer": "In prototypal inheritance, an object can inherit the properties of another object. The first object is called the prototype and the second object is called the child. The child object inherits all the properties of the prototype, including methods and variables."
+            },
+            {
+              "question": "Understand the basic do’s and don’t’s of prototypical inheritance.",
+              "answer": "In prototypical inheritance, objects inherit from other objects. The main thing to remember is that objects inherit from other objects, not from classes. \n\nHere are some basic do’s and don’ts: \n\nDo: \n\n- Use objects to inherit from other objects. \n- Make sure that the objects you want to inherit from have the same structure. \n- Use the prototype property to reference the object you want to inherit from. \n\nDon’t: \n\n- Use classes to inherit from other classes. \n- Use the prototype property to reference the object you want to inherit from."
+            },
+            {
+              "question": "Explain what Object.create does.",
+              "answer": "Object.create creates a new object with the specified prototype object and properties."
+            },
+            {
+              "question": "How does this behave in different situations?",
+              "answer": "This will behave differently in different situations depending on the context."
+            },
+            {
+              "question": "Describe common bugs you might run into using constructors.",
+              "answer": "-A constructor may be forget to initialize all instance variables \n-A constructor may initialize instance variables to invalid values \n-A constructor may invoke other methods that may throw exceptions \n-A constructor may fail to allocate enough memory"
+            },
+            {
+              "question": "Write a factory method that returns an object.",
+              "answer": "A factory method is a method that creates and returns an object. It is a static method that is invoked without an instance of the class. \n\npublic static Object createObject() {\n    return new Object();\n}"
+            },
+            {
+              "question": "Explain how scope works in JavaScript (bonus points if you can point out what ES6 changed!).",
+              "answer": "Scope in JavaScript determines the accessibility (visibility) of variables. There are two types of scope: global scope and local scope. Global scope is created when a variable is declared outside of a function. Local scope is created when a variable is declared inside a function. Variables declared in global scope are accessible everywhere in the program. Variables declared in local scope are only accessible inside the function where they are declared. \n\nES6 introduced the let keyword, which allows variables to be declared with block scope. This means that variables declared with let are only accessible inside the block where they are declared."
+            },
+            {
+              "question": "Explain what Closure is and how it impacts private functions & variables.",
+              "answer": "A closure is a function that has access to variables in the parent scope, even after the parent scope has been closed. This means that private functions and variables can still be accessed and used by the closure."
+            },
+            {
+              "question": "Describe how private functions & variables are useful.",
+              "answer": "Private functions and variables are useful because they can only be accessed by the code within the same file. This means that they can only be accessed by the code that you have written, and no one else can access or change them. This makes your code more secure and less likely to be tampered with."
+            },
+            {
+              "question": "Use inheritance in objects using the factory pattern.",
+              "answer": "In the factory pattern, inheritance is used to extend the functionality of an object by creating a new object that inherits the properties of the original object. The new object can then be customized to add new functionality."
+            },
+            {
+              "question": "Explain the module pattern.",
+              "answer": "The module pattern is a design pattern used in software engineering that isolates the business logic of a software application into discrete, independent modules. This type of design pattern is often used in object-oriented programming languages like Java and C#. The module pattern is also sometimes referred to as the service locator pattern."
+            },
+            {
+              "question": "Describe IIFE. What does it stand for?",
+              "answer": "An IIFE is an Immediately Invoked Function Expression. It is a function that is immediately executed when it is defined."
+            },
+            {
+              "question": "Briefly explain namespacing and how it’s useful.",
+              "answer": "Namespacing is the process of creating unique names for variables and functions so that they don't conflict with other variables and functions in your code. This is especially important in large projects where multiple developers are working on the same codebase. Namespacing can help prevent errors and make your code more readable."
+            },
+            {
+              "question": "Briefly explain namespacing and how it’s useful.",
+              "answer": "Namespacing is the process of creating unique names for variables and functions so that they don't conflict with other variables and functions in your code. This is especially important in large projects where multiple developers are working on the same codebase. Namespacing can help prevent errors and make your code more readable."
+            },
+            {
+              "question": "Describe the pros and cons of using classes in JavaScript.",
+              "answer": "Classes in JavaScript can be used to create reusable components. They can also be used to create inheritance hierarchies and to make code more organized and maintainable. However, classes can also make code more difficult to understand and can lead to unexpected behavior."
+            },
+            {
+              "question": "How does JavaScript’s object creation differ from a language like Java or Ruby?",
+              "answer": "In JavaScript, objects are created with the keyword 'new'. In Java and Ruby, objects are created with the keyword 'class'."
+            },
+            {
+              "question": "Explain the differences between object constructors and classes.",
+              "answer": "A class is a template for creating objects. A class defines the variables and methods common to all objects created from the class. An object constructor is a method used to create an object."
+            },
+            {
+              "question": "What are “getters” & “setters”?",
+              "answer": "Getters and setters are methods used to get and set the value of a property in an object, respectively."
+            },
+            {
+              "question": "Describe computed names and class fields.",
+              "answer": "Computed names and class fields are two ways to create variables in JavaScript. Computed names are variables that are created by using an expression, while class fields are variables that are created by using the keyword class."
+            },
+            {
+              "question": "Describe function binding.",
+              "answer": "Function binding is the process of setting up a connection between a function and the object it will be operating on. This is usually done by passing a reference to the function and the object as arguments to a function that sets up the binding."
+            },
+            {
+              "question": "Describe static properties.",
+              "answer": "A static property is a property that is shared by all instances of a class. Static properties are defined on the class itself, and not on the prototype."
+            },
+            {
+              "question": "How is inheritance used with classes?",
+              "answer": "Inheritance is used with classes to create a parent-child relationship between two classes. This relationship allows a child class to inherit the attributes and methods of a parent class."
+            },
+            {
+              "question": "Why is favoring Composition over Inheritance suggested?",
+              "answer": "Favoring composition over inheritance is suggested because it is generally more flexible and easier to maintain. Inheritance can create tight coupling between classes, which can make it difficult to change the code later on."
+            },
+            {
+              "question": "Explain what npm is and where it was commonly used before being adopted on the frontend.",
+              "answer": "Npm is a package manager for Javascript. It was commonly used for backend development before being adopted by the frontend."
+            },
+            {
+              "question": "Describe what npm init does and what package.json is.",
+              "answer": "npm init creates a package.json file, which is a JSON file that contains information about the project, like the name, version, dependencies, etc."
+            },
+            {
+              "question": "Know how to install packages using npm.",
+              "answer": "The npm install command will install dependencies from a package.json file: npm install"
+            },
+            {
+              "question": "Describe what a JavaScript module bundler like webpack is.",
+              "answer": "A JavaScript module bundler is a tool that bundles JavaScript files into a single file (or a few files) for loading by a browser. Webpack is a popular JavaScript module bundler."
+            },
+            {
+              "question": "Explain what the concepts “entry” and “output” mean as relates to webpack.",
+              "answer": "'Entry' is the point webpack will start looking for dependencies in your project. This is typically set to be the root JS file. 'Output' is the location webpack will bundle your dependencies into a single file."
+            },
+            {
+              "question": "Briefly explain what a development dependency is.",
+              "answer": "A development dependency is a dependency that is used during the development process of a project, but is not required for the project to run."
+            },
+            {
+              "question": "Explain what “transpiling code” means and how it relates to frontend development.",
+              "answer": "Transpiling code means converting code from one language to another. In the context of frontend development, this usually means converting code from a newer version of JavaScript to an older version, so that it can run in older browsers."
+            },
+            {
+              "question": "Briefly describe what a task runner is and how it’s used in frontend development.",
+              "answer": "A task runner is a tool that automates common frontend development tasks, such as compiling Sass files into CSS, minifying JavaScript, and linting code. Task runners can save developers a lot of time by automating these repetitive tasks."
+            },
+            {
+              "question": "Describe how to write an npm automation script.",
+              "answer": "Assuming you want to create an npm script: 1. In your `package.json`, under the 'scripts' key, create a new key with the name of your script. The value should be the command you want to run. 2. To run the script, type `npm run` followed by the name of your script."
+            },
+            {
+              "question": "Explain one of the main benefits of writing code in modules.",
+              "answer": "One benefit of writing code in modules is that it allows for code reuse. For example, if a module contains a function that is needed in multiple places, that function can be imported into multiple files and used as needed. This helps to avoid duplication of code and makes code easier to maintain."
+            },
+            {
+              "question": "Explain “named exports” and “default exports”.",
+              "answer": "Named exports are variables or functions that are exported from a module under a given name. Default exports are typically a single module value, such as a function, that is exported from a module."
+            },
+            {
+              "question": "How do you load CSS using webpack?",
+              "answer": "To load CSS using webpack, you need to use the css-loader and style-loader. The css-loader will load the CSS file and the style-loader will add it to the HTML page."
+            },
+            {
+              "question": "How do you load images using webpack?",
+              "answer": "Images can be loaded using webpack by using the file-loader or url-loader modules."
+            },
+            {
+              "question": "How do you load fonts using webpack?",
+              "answer": "You can load fonts using webpack by using the file-loader or url-loader modules."
+            },
+            {
+              "question": "How do you load data using webpack?",
+              "answer": "To load data using webpack, you can use the import statement."
+            },
+            {
+              "question": "How would you track errors in bundled source code?",
+              "answer": "If you are using a bundler like Webpack, you can use the 'source map' option to generate a source map file that can be used to map error messages back to the original source code."
+            },
+            {
+              "question": "Explain the “Single Responsibility Principle”.",
+              "answer": "The Single Responsibility Principle is the principle that a class or module should have one, and only one, reason to change. This principle is often used in conjunction with the Open/Closed Principle, which states that a class or module should be open for extension but closed for modification."
+            },
+            {
+              "question": "Briefly explain the additional SOLID principles.",
+              "answer": "The additional SOLID principles are: -S: Single Responsibility Principle - a class should only have one responsibility -O: Open/Closed Principle - a class should be open for extension but closed for modification -L: Liskov Substitution Principle - subclasses should be substitutable for their superclasses -I: Interface Segregation Principle - clients should not be forced to depend on methods they do not use -D: Dependency Inversion Principle - higher-level modules should not depend on lower-level modules"
+            },
+            {
+              "question": "Explain what “tightly coupled” objects are and why we want to avoid them.",
+              "answer": "\"Tightly coupled\" objects are those that are closely linked together. We want to avoid them because they can be difficult to change or reuse."
+            }
+          ]
+        },
+        {
+          "title": "JavaScript in the Real World",
+          "flashcards": [
+            {
+              "question": "What is linting?",
+              "answer": "Linting is a process of running a program that will analyze code for potential errors."
+            },
+            {
+              "question": "Which problems can linting prevent?",
+              "answer": "Linting can prevent many problems, including:\n\n- code that does not conform to a style guide\n- code that is difficult to read or understand\n- code that is error-prone\n- code that is not well-tested\n- code that is not portable"
+            },
+            {
+              "question": "Why should you use Prettier?",
+              "answer": "Prettier is an opinionated code formatter that enforces a consistent code style. It can be used to format code in a wide variety of languages and can be integrated into various code editors. Prettier can help to avoid style debates and can make code easier to read and maintain."
+            },
+            {
+              "question": "What are some different types of navigation menus?",
+              "answer": "There are many types of navigation menus, but some of the most common are drop-down menus, hamburger menus, and side menus."
+            },
+            {
+              "question": "What are the alternatives to hamburger menus?",
+              "answer": "There are many alternatives to hamburger menus, including drop-down menus, accordion menus, and tree menus."
+            },
+            {
+              "question": "What are the downsides of hamburger menus?",
+              "answer": "Some potential downsides of hamburger menus include:\n\n1. They can take up a lot of space on a small screen, leaving less room for content.\n\n2. They can be difficult to use, especially if the menu items are not clearly labeled.\n\n3. They can be confusing for users who are not familiar with them."
+            },
+            {
+              "question": "Understand the importance of validating HTML forms before submitting them to a server.",
+              "answer": "HTML forms are used to collect user input. Before submitting the form to a server, it is important to validate the form to ensure that the input is valid and complete. Invalid input can cause the form to be rejected by the server, or can cause the server to return an error."
+            },
+            {
+              "question": "Describe the two types of client-side form validation, built-in form validation and validation using JavaScript.",
+              "answer": "Built-in form validation is a feature of some web browsers that can validate input elements in an HTML form automatically. This feature is usually enabled by default, but it can be disabled by the user or the web developer. Validation using JavaScript is a technique that can be used to validate input elements in an HTML form manually."
+            },
+            {
+              "question": "Understand JavaScript Constraint Validation API provides more control and customization of form validation.",
+              "answer": "The Constraint Validation API offers a set of methods that let you customize the browser's default behavior when checking a form for errors. You can also use this API to trigger the browser to check a form for errors without submitting it.\n\nThe Constraint Validation API is supported in all major browsers, including Chrome, Firefox, Safari, and Edge."
+            },
+            {
+              "question": "Use JavaScript to write custom error messages and add custom styling to the errors.",
+              "answer": "// Add custom error message\n\ndocument.getElementById(\"myForm\").addEventListener(\"submit\", function(e){\n  var errorMessage = document.getElementById(\"errorMessage\");\n  var input = document.getElementById(\"myInput\");\n  \n  if(input.value === \"\"){\n    errorMessage.innerHTML = \"Please enter a value\";\n    errorMessage.style.color = \"red\";\n    e.preventDefault();\n  }\n});"
+            },
+            {
+              "question": "Understand forms can also be validated without using Constraint Validation API, which is useful in certain cases.",
+              "answer": "Forms can be validated using JavaScript. Forms can be validated using server-side code. Forms can be validated using a combination of JavaScript and server-side code. Forms can be validated using a custom validation function."
+            }
+          ]
+        },
+        {
+          "title": "Asynchronous JavaScript and APIs",
+          "flashcards": [
+            {
+              "question": "What is a callback?",
+              "answer": "A callback is a function that is passed as an argument to another function."
+            },
+            {
+              "question": "What is a promise?",
+              "answer": "A promise is a declaration or assurance that one will do a particular thing or that a particular thing will happen."
+            },
+            {
+              "question": "When should you use promises over callbacks?",
+              "answer": "If you are dealing with asynchronous code, you should use promises instead of callbacks. Promises are easier to work with and make your code more readable."
+            },
+            {
+              "question": "What does the .then() function do?",
+              "answer": "The .then() function is used to specify what should happen when a promise is resolved."
+            },
+            {
+              "question": "What is an API?",
+              "answer": "API stands for application programming interface. An API is a set of programming instructions and standards for accessing a web-based software application. A developer uses an API to request information from the application, which is delivered in a format that can be easily read and used by the developer's own application."
+            },
+            {
+              "question": "How is access to an API restricted?",
+              "answer": "There are many ways to restrict access to an API. Some common methods are using an API key, using OAuth, or using a token."
+            },
+            {
+              "question": "How do you fetch and extract data from an API?",
+              "answer": "There are many ways to fetch and extract data from an API. One way is to use a web scraping tool like Octoparse. Octoparse can help you extract data from an API by automatically creating a scraping template for you."
+            },
+            {
+              "question": "Why might your API request be blocked by the browser, and how might you fix this?",
+              "answer": "The browser may be blocking the API request because the site is not secure. To fix this, you can try using a secure connection (https://) or a VPN."
+            },
+            {
+              "question": "How do you declare an async function?",
+              "answer": "To declare an async function, you simply need to use the async keyword before the function declaration:\n\nasync function foo() {\n  // code goes here\n}"
+            },
+            {
+              "question": "What does the async keyword do?",
+              "answer": "The async keyword allows a method to be executed asynchronously. This means that the method can be run in a separate thread from the main program, and does not need to wait for the rest of the program to finish before it starts."
+            },
+            {
+              "question": "What does the await keyword do?",
+              "answer": "The await keyword is used to wait for a Promise to resolve, before running the rest of the code in the async function."
+            },
+            {
+              "question": "What is returned from an async function?",
+              "answer": "An async function returns a promise."
+            },
+            {
+              "question": "What happens when an error is thrown inside an async function?",
+              "answer": "If an error is thrown inside an async function, it will be caught by the promise that is returned by the async function."
+            },
+            {
+              "question": "How can you handle errors inside an async function?",
+              "answer": "You can handle errors inside an async function by using the try/catch statement."
+            }
+          ]
+        },
+        {
+          "title": "A Bit of Computer Science",
+          "flashcards": [
+            {
+              "question": "What is an Algorithm?",
+              "answer": "An algorithm is a set of instructions that are followed in order to complete a task."
+            },
+            {
+              "question": "What is the importance of algorithms in web development?",
+              "answer": "Algorithms are important in web development because they can be used to optimize webpages for search engines, to create better user experiences, and to improve the overall performance of a website."
+            },
+            {
+              "question": "What is pseudocode?",
+              "answer": "Pseudocode is a language that can be used to write out the steps of an algorithm without using a specific programming language."
+            },
+            {
+              "question": "How would you briefly define a recursive function?",
+              "answer": "A recursive function is a function that calls itself."
+            },
+            {
+              "question": "What is the point of recursion? Is it more efficient than using a plain loop?",
+              "answer": "Recursion is a technique for solving problems that can be divided into smaller subproblems. It is often more efficient than using a plain loop because it avoids duplication of work."
+            },
+            {
+              "question": "What are the 2 essential parts in a recursive function?",
+              "answer": "The two essential parts in a recursive function are the base case and the recursive case."
+            },
+            {
+              "question": "Why is “stack overflow” relevant to a recursive problem?",
+              "answer": "\"Stack overflow\" is relevant to a recursive problem because a stack overflow can occur when a program tries to store too much data on the stack. This can happen when a program uses too much recursion."
+            },
+            {
+              "question": "What is Big O?",
+              "answer": "Big O notation is a mathematical notation that describes the limiting behavior of a function when the argument tends towards a particular value or infinity. It is a way of formalizing the concept of a limiting process."
+            },
+            {
+              "question": "What are the Big O Notations?",
+              "answer": "There are three common Big O Notations:\n\nO(1), O(log n), and O(n).\n\nO(1) means that the time complexity is constant, regardless of the input size. O(log n) means that the time complexity is logarithmic, meaning it will increase at a slower rate as the input size increases. O(n) means that the time complexity is linear, meaning it will increase at the same rate as the input size increases."
+            },
+            {
+              "question": "Why use Big O?",
+              "answer": "There are a few reasons to use Big O notation:\n\n1. To describe the runtime of an algorithm.\n2. To compare the efficiency of two algorithms.\n3. To predict the behavior of an algorithm as the input size grows."
+            },
+            {
+              "question": "What is Big Omega and why isn’t it as useful?",
+              "answer": "Big Omega is a way of measuring the efficiency of an algorithm. It is the asymptotic upper bound of the running time of an algorithm. While it is useful in determining the efficiency of an algorithm, it is not as useful in determining the actual running time of an algorithm, since the actual running time may be different from the asymptotic upper bound."
+            },
+            {
+              "question": "What is space complexity?",
+              "answer": "In computer science, space complexity is the amount of memory required to store the data associated with a given algorithm or problem."
+            },
+            {
+              "question": "How do we measure space complexity?",
+              "answer": "The space complexity of an algorithm is the amount of memory required to run the algorithm."
+            },
+            {
+              "question": "What are the main considerations we should consider before optimising code?",
+              "answer": "Before optimising code, we should consider the following:\n\n- The time complexity of the code\n- The space complexity of the code\n- The trade-offs between time and space complexity\n- The readability and maintainability of the code"
+            },
+            {
+              "question": "What is the difference between a stack and a queue?",
+              "answer": "A stack is a data structure that allows items to be added and removed in a last-in, first-out (LIFO) order. A queue is a data structure that allows items to be added and removed in a first-in, first-out (FIFO) order."
+            },
+            {
+              "question": "What are the enqueue and dequeue properties?",
+              "answer": "The enqueue property is that an element can be added to the back of the queue. The dequeue property is that an element can be removed from the front of the queue."
+            },
+            {
+              "question": "What is a linked list? What is a node?",
+              "answer": "A linked list is a data structure that stores a list of items. Each item in the list is called a node. Each node contains a reference to the next node in the list."
+            },
+            {
+              "question": "What type of algorithm would you use to perform a binary search?",
+              "answer": "A binary search algorithm would be used to perform a binary search."
+            },
+            {
+              "question": "What abstract data type would you use to defer/store nodes in a breadth-first tree traversal?",
+              "answer": "A queue would be the most appropriate abstract data type to use for deferring/storing nodes in a breadth-first tree traversal"
+            }
+          ]
+        },
+        {
+          "title": "Intermediate Git",
+          "flashcards": [
+            {
+              "question": "How can you amend your last commit?",
+              "answer": "To amend your last commit in Git, you can use the 'git commit --amend' command. This allows you to make changes to the last commit message or add additional changes to the commit."
+            },
+            {
+              "question": "What are some different ways to rewrite history?",
+              "answer": "There are several ways to rewrite history in Git, such as using 'git rebase', 'git reset', 'git cherry-pick', and 'git filter-branch'. These commands allow you to modify the commit history, reorder commits, squash or split commits, and more."
+            },
+            {
+              "question": "What is a safe way to push history changes to a remote repository?",
+              "answer": "A safe way to push history changes to a remote repository is by using 'git push --force-with-lease'. This option ensures that you don't overwrite changes made by others unknowingly, as it will only allow the push if the remote branch matches your expectations."
+            },
+            {
+              "question": "What are the dangers of history-changing operations?",
+              "answer": "The dangers of history-changing operations in Git include the potential to lose commits permanently, introduce conflicts, and disrupt collaboration with other team members. It is crucial to use these operations with caution and communicate changes to the team."
+            },
+            {
+              "question": "What are best practices of history-changing operations?",
+              "answer": "Some best practices for history-changing operations in Git are to avoid rewriting history on shared branches, create backup branches before making significant changes, and communicate with your team about any history modifications you plan to perform."
+            },
+            {
+              "question": "Explain what it means for branches to be pointers.",
+              "answer": "In Git, branches are simply pointers to specific commits in the repository. When you create a new commit on a branch, the branch pointer moves forward to the new commit. Multiple branches can point to the same commit, and they can diverge and merge as development progresses."
+            },
+            {
+              "question": "What name is typically given for a Git remote that points to a repo that’s been forked?",
+              "answer": "The typical name given to a Git remote that points to a repo that's been forked is 'origin'. This convention allows you to easily push changes to the forked repository from your local repository."
+            },
+            {
+              "question": "Can you directly send your changes to a repository that you don’t own/have write access to?",
+              "answer": "No, you cannot directly send your changes to a repository that you don't own or have write access to. Instead, you can fork the repository, make your changes in your fork, and then create a pull request to propose your changes to the original repository. The repository owner can review your changes and choose to accept or reject the pull request."
+            },
+            {
+              "question": "What should you do immediately before merging your feature branch into main?",
+              "answer": "Before merging your feature branch into the main branch, it is essential to ensure that your feature branch is up-to-date with the latest changes from the main branch. You can do this by performing a 'git pull' on the main branch to fetch and merge the latest changes into your local repository. This helps prevent conflicts and ensures a smooth merge."
+            }
+          ]
+        },
+        {
+          "title": "Testing JavaScript",
+          "flashcards": [
+            {
+              "question": "What are the benefits of TDD?",
+              "answer": "Test-Driven Development (TDD) offers several benefits, such as improved code quality, early bug detection, better code maintainability, increased developer confidence, and a more predictable development process."
+            },
+            {
+              "question": "What are some common jest matchers?",
+              "answer": "Some common Jest matchers include 'toBe' for strict equality, 'toEqual' for deep equality, 'toBeTruthy' and 'toBeFalsy' for truthiness checks, 'toContain' for array or string inclusion, 'toMatch' for regular expression matching, and 'toThrow' for checking if a function throws an error."
+            },
+            {
+              "question": "What is tightly coupled code?",
+              "answer": "Tightly coupled code refers to a situation where two or more components in a system are strongly dependent on each other. Changes in one component may require modifications in other tightly connected components, making the codebase less flexible and harder to maintain."
+            },
+            {
+              "question": "What are the two requirements for a function to be pure?",
+              "answer": "For a function to be pure, it must satisfy two requirements: 1) It should always produce the same output for the same input, and 2) It must not cause any side effects, such as modifying global state or external resources."
+            },
+            {
+              "question": "What are side effects and why is it important to identify them when testing a function?",
+              "answer": "Side effects are any changes a function makes to the outside world beyond the scope of the function itself, such as modifying variables outside its scope or making network calls. Identifying side effects is crucial when testing a function because it helps ensure that the function behaves as expected and does not have unintended consequences on the system."
+            },
+            {
+              "question": "What are two solutions to the tightly coupled code problem?",
+              "answer": "Two solutions to the tightly coupled code problem are Dependency Injection and the use of interfaces or abstractions. Dependency Injection allows components to declare their dependencies explicitly, making it easier to replace or mock those dependencies for testing. Interfaces or abstractions allow components to interact through well-defined contracts, reducing direct dependencies on concrete implementations."
+            },
+            {
+              "question": "What is mocking?",
+              "answer": "Mocking is a technique used in testing to create objects that simulate the behavior of real objects in a controlled way. Mocks are often used to replace external dependencies or complex objects during testing, allowing developers to isolate and test specific parts of the system in isolation."
+            },
+            {
+              "question": "When would you use a mock function?",
+              "answer": "You would use a mock function when you need to simulate the behavior of a real function or object to isolate the code under test from external dependencies. Mock functions allow you to control the behavior of the mocked object and focus on testing the logic inside the function being tested."
+            },
+            {
+              "question": "How should you test incoming query messages?",
+              "answer": "You should test incoming query messages by writing tests that set up the expected query and the expected response, then invoke the relevant function or API and compare the actual response with the expected response using appropriate Jest matchers."
+            },
+            {
+              "question": "Why should you not test implementation?",
+              "answer": "Testing implementation details can make the tests brittle and tightly coupled to the codebase, making it harder to refactor or modify the implementation without breaking the tests. It is better to test the behavior and functionality of the code rather than its specific implementation details."
+            },
+            {
+              "question": "Should you test private methods?",
+              "answer": "In general, it is not recommended to test private methods directly. Private methods are implementation details and should be tested indirectly by testing the public methods that utilize these private methods. Testing public methods ensures that the expected behavior is correctly achieved through the private methods."
+            },
+            {
+              "question": "Why should you not test messages with no side effects?",
+              "answer": "Testing messages with no side effects can be unnecessary and add overhead to the testing process without providing significant benefits. Such messages typically have straightforward behavior and do not require extensive testing, as there are no complex interactions with external systems or state changes to validate."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
