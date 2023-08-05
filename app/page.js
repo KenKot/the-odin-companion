@@ -7,7 +7,6 @@ export default function Home() {
       <UserInfo />
       <hr />
       <br />
-      {/* <Link href="/courses" className="border-2 border-red-500"> */}
       <Link href="/courses">
         <button
           className="
