@@ -4,7 +4,7 @@
       "title": "Foundations",
       "lessons": [
         {
-          "title": "Computer Basics",
+          "title": "Prerequisites",
           "flashcards": [
             {
               "question": "Is Windows an operating system or an application?",
@@ -21,6 +21,1180 @@
             {
               "question": "Give an example of a weak and a strong password.",
               "answer": "A weak password might be 'password' or '1234'. A strong password would be a combination of letters, numbers, and symbols that is not easily guessed."
+            },
+            {
+              "question": "What is a web server?",
+              "answer": "A web server is a computer that stores and delivers web pages. It is connected to the Internet and runs web server software that listens for requests from web browsers. When a browser requests a web page from a web server, the server sends the page back to the browser."
+            },
+            {
+              "question": "What is a network?",
+              "answer": "A network is a system of computers and other devices that are connected together in order to share data and resources."
+            },
+            {
+              "question": "What is the internet?",
+              "answer": "The internet is a global network of computers connected by phone lines, fiber-optic cables, and satellite."
+            },
+            {
+              "question": "What is an IP address?",
+              "answer": "An IP address is a unique numerical identifier assigned to each computer connected to the Internet."
+            },
+            {
+              "question": "What is a router?",
+              "answer": "A router is a device that connects two or more computer networks."
+            },
+            {
+              "question": "What is an ISP?",
+              "answer": "An ISP is an Internet Service Provider. This is a company that provides access to the internet, usually for a fee."
+            },
+            {
+              "question": "What are packets and how are they used to transfer data?",
+              "answer": "A packet is a small unit of data that is sent over a computer network. Packets are used to transfer data between devices on a network."
+            },
+            {
+              "question": "What is a client?",
+              "answer": "A client is someone who buys goods or services from a business."
+            },
+            {
+              "question": "What is a server?",
+              "answer": "A server is a computer that provides data to other computers. It may provide data to computers on the same network, or to computers on the Internet."
+            },
+            {
+              "question": "What is a web page?",
+              "answer": "A web page is a document that is typically written in HTML and is accessed through a web browser on the Internet."
+            },
+            {
+              "question": "What is a web browser?",
+              "answer": "A web browser is a software application that enables a user to display and interact with text, images, videos, and other information on a computer screen or mobile device."
+            },
+            {
+              "question": "What is a search engine?",
+              "answer": "A search engine is a tool that allows users to find information on the internet."
+            },
+            {
+              "question": "What is a DNS request?",
+              "answer": "A DNS request is a query that is sent to a DNS server in order to resolve a hostname to an IP address."
+            },
+            {
+              "question": "Which browser are you currently using?",
+              "answer": "I am currently using the Google Chrome browser."
+            },
+            {
+              "question": "In your own words, explain what happens when you run a search on google.com.",
+              "answer": "When you search for something on Google, the company's algorithms scour the internet for pages that might be relevant to what you're looking for and rank them in order of what it believes is most relevant."
+            },
+            {
+              "question": "What is the command line?",
+              "answer": "A command line is a text-based interface that allows users to type commands to perform tasks on a computer or other device."
+            },
+            {
+              "question": "How do you open the command line on your computer?",
+              "answer": "To open the command line on a Windows computer, go to the Start menu and type 'cmd' into the search bar. On a Mac, open the Terminal application."
+            },
+            {
+              "question": "How can you navigate to a particular directory?",
+              "answer": "There are a few ways to navigate to a directory:\n\n- Use the 'cd' command to change directories. For example, 'cd /home/user/Documents' will navigate to the Documents directory.\n- Use the 'ls' command to list the contents of the current directory. This can be useful to find the name of the directory you want to navigate to.\n- Use a file manager. This is a graphical way to browse the file system and can be found in the applications menu on most Linux distributions."
+            },
+            {
+              "question": "Where will cd on its own navigate you to?",
+              "answer": "The cd command will navigate you to your home directory."
+            },
+            {
+              "question": "Where will cd .. navigate you to?",
+              "answer": "The cd .. command will navigate you to the parent directory of the current directory."
+            },
+            {
+              "question": "How do you display the name of the directory you are currently in?",
+              "answer": "pwd"
+            },
+            {
+              "question": "What does the ls command do?",
+              "answer": "ls lists the contents of the current directory"
+            },
+            {
+              "question": "How do you display the contents of the directory you are currently in?",
+              "answer": "The contents of the current directory can be displayed using the ls command."
+            },
+            {
+              "question": "How do you create a new directory?",
+              "answer": "The command to create a new directory is mkdir"
+            },
+            {
+              "question": "How do you create a new file?",
+              "answer": "touch filename.txt"
+            },
+            {
+              "question": "How do you destroy a directory or file?",
+              "answer": "You can destroy a directory or file by using the rm command."
+            },
+            {
+              "question": "How do you rename a directory or file?",
+              "answer": "The command to rename a directory or file is \"mv\"."
+            }
+          ]
+        },
+        {
+          "title": "Git Basics",
+          "flashcards": [
+            {
+              "question": "What kind of program is Git?",
+              "answer": "Git is a distributed version control system."
+            },
+            {
+              "question": "What are the differences between Git and a text editor in terms of what they save and their record keeping?",
+              "answer": "Git saves snapshots of a project as it changes over time, whereas a text editor just saves the most recent version of a project. Git keeps a history of all the changes made to a project, whereas a text editor does not."
+            },
+            {
+              "question": "Does Git work at a local or remote level?",
+              "answer": "Git works at both a local and remote level."
+            },
+            {
+              "question": "Does GitHub work at a local or remote level?",
+              "answer": "GitHub works at a remote level."
+            },
+            {
+              "question": "Why is Git useful for developers?",
+              "answer": "Git is useful for developers because it allows them to easily track changes to their code and collaborate with other developers on projects."
+            },
+            {
+              "question": "Why are Git and GitHub useful for a team of developers?",
+              "answer": "GitHub is a web-based hosting service for software development projects that use the Git revision control system. Git is a distributed revision control system with an emphasis on speed, data integrity, and support for distributed, non-linear workflows."
+            },
+            {
+              "question": "How do you create a new repository on GitHub?",
+              "answer": "To create a new repository on GitHub, click on the '+' icon in the top right corner and select 'New repository'."
+            },
+            {
+              "question": "How do you copy a repository onto your local machine from GitHub?",
+              "answer": "There are a few ways to do this: 1. If you have the GitHub Desktop application, you can clone repositories directly from the app. 2. If you prefer to use the command line, you can use the 'git clone' command. 3. You can also download repositories as zip files from the GitHub website."
+            },
+            {
+              "question": "What is the default name of your remote connection?",
+              "answer": "The default name of your remote connection is 'Remote Desktop Connection.'"
+            },
+            {
+              "question": "Explain what origin is in git push origin main.",
+              "answer": "The 'origin' in 'git push origin main' is the name of the remote repository that you are pushing to. 'main' is the name of the branch that you are pushing."
+            },
+            {
+              "question": "Explain what main is in git push origin main.",
+              "answer": "The main command in git push origin main is used to push the changes from your local repository to the remote repository."
+            },
+            {
+              "question": "Explain the two-stage system that Git uses to save files.",
+              "answer": "Git uses a two-stage system to save files. The first stage is the git add command, which adds a file to the staging area. The second stage is the git commit command, which commits the file to the repository."
+            },
+            {
+              "question": "How do you check the status of your current repository?",
+              "answer": "The status of the current repository can be checked by running the 'git status' command."
+            },
+            {
+              "question": "How do you add files to the staging area in git?",
+              "answer": "You can add files to the staging area in git by using the 'git add' command."
+            },
+            {
+              "question": "How do you commit the files in the staging area and add a descriptive message?",
+              "answer": "To commit the files in the staging area and add a descriptive message, use the 'git commit -m' command."
+            },
+            {
+              "question": "How do you push your changes to your repository on GitHub?",
+              "answer": "git push"
+            },
+            {
+              "question": "How do you look at the history of your previous commits?",
+              "answer": "You can view the history of your previous commits by using the 'git log' command."
+            }
+          ]
+        },
+        {
+          "title": "HTML Foundations",
+          "flashcards": [
+            {
+              "question": "What do HTML and CSS stand for?",
+              "answer": "HTML stands for Hypertext Markup Language. CSS stands for Cascading Style Sheets."
+            },
+            {
+              "question": "Between HTML and CSS, which would you use for putting paragraphs of text on a webpage?",
+              "answer": "You would use HTML to put paragraphs of text on a webpage."
+            },
+            {
+              "question": "Between HTML and CSS, which would you use for changing the font and background color of a button?",
+              "answer": "CSS"
+            },
+            {
+              "question": "What is the difference between HTML, CSS and JavaScript?",
+              "answer": "HTML is the structure of a webpage. CSS is the style of a webpage. JavaScript is the programming of a webpage."
+            },
+            {
+              "question": "What is an HTML tag?",
+              "answer": "An HTML tag is a code that is used to tell a web browser how to display the content of a web page."
+            },
+            {
+              "question": "What are the three parts of an HTML element?",
+              "answer": "The three parts of an HTML element are the start tag, the content, and the end tag."
+            },
+            {
+              "question": "What is the purpose of the doctype declaration?",
+              "answer": "The doctype declaration is used to specify the document type for the HTML document."
+            },
+            {
+              "question": "What is the HTML element?",
+              "answer": "The HTML element is the root element of an HTML document."
+            },
+            {
+              "question": "What is the purpose of the head element?",
+              "answer": "The head element is used to specify information about the document, such as the document's title, character encoding, and style sheets."
+            },
+            {
+              "question": "What is the purpose of the body element?",
+              "answer": "The body element contains all the contents of an HTML document, such as text, hyperlinks, images, tables, lists, etc."
+            },
+            {
+              "question": "How do you create a paragraph in HTML?",
+              "answer": "To create a paragraph in HTML, you use the <p> element. The <p> element represents a paragraph of text."
+            },
+            {
+              "question": "How do you create a heading in HTML?",
+              "answer": "To create a heading in HTML, use the tag. The heading tag defines the heading of a section. The heading tag is a block-level element."
+            },
+            {
+              "question": "How many different levels of headings are there and what is the difference between them?",
+              "answer": "There are six different levels of headings. The first level is the largest and the sixth level is the smallest. The difference between them is the size of the font and the amount of space between the lines."
+            },
+            {
+              "question": "What element should you use to make text bold and important?",
+              "answer": "The element you should use to make text bold and important is the <strong> tag."
+            },
+            {
+              "question": "What element should you use to make text italicized to add emphasis to it?",
+              "answer": "The <em> element is used to make text italicized to add emphasis to it."
+            },
+            {
+              "question": "What relationship does an element have with any nested elements within it?",
+              "answer": "An element has a parent-child relationship with any nested elements within it."
+            },
+            {
+              "question": "What relationship do two elements have if they are at the same level of nesting?",
+              "answer": "The two elements are siblings."
+            },
+            {
+              "question": "How do you create HTML comments?",
+              "answer": "To create an HTML comment, use the <!--  --> syntax."
+            },
+            {
+              "question": "What HTML element is used to create an unordered list?",
+              "answer": "The HTML element used to create an unordered list is the <ul> element."
+            },
+            {
+              "question": "What HTML element is used to create an ordered list?",
+              "answer": "The HTML element used to create an ordered list is the <ol> element."
+            },
+            {
+              "question": "What HTML element is used to create list items within both unordered and ordered lists?",
+              "answer": "<li>"
+            },
+            {
+              "question": "What element is used to create a link?",
+              "answer": "The element used to create a link is the <a> element."
+            },
+            {
+              "question": "What is an attribute?",
+              "answer": "An attribute is a characteristic or quality of something."
+            },
+            {
+              "question": "What attribute tells links where to go to?",
+              "answer": "The 'href' attribute tells links where to go to."
+            },
+            {
+              "question": "What security considerations must be taken if you wish to use the target attribute to open links in a new tab/window?",
+              "answer": "When using the target attribute to open links in a new tab/window, the following security considerations must be taken: -The target attribute should only be used if the link is to an external site; -The target attribute should not be used if the link is to an internal page on the same site; -The target attribute should not be used if the link is to a file that is not part of the site."
+            },
+            {
+              "question": "What is the difference between an absolute and relative link?",
+              "answer": "An absolute link is a link that includes the entire URL to the linked page. A relative link is a link that only includes part of the URL to the linked page."
+            },
+            {
+              "question": "Which element is used to display an image?",
+              "answer": "The element is used to display an image."
+            },
+            {
+              "question": "What two attributes do images always need to have?",
+              "answer": "Images always need to have a width and a height."
+            },
+            {
+              "question": "How do you access a parent directory in a filepath?",
+              "answer": "You can access a parent directory in a filepath by using the '..' notation. For example, if you are in the /home/user/Documents directory, you can use the command 'cd ..' to change to the /home/user directory."
+            },
+            {
+              "question": "What are the four main image formats that you can use for images on the web?",
+              "answer": "The four main image formats that you can use for images on the web are JPEG, PNG, GIF, and SVG."
+            },
+            {
+              "question": "What are two benefits of having well-written commit messages and a good commit history?",
+              "answer": "1. Well-written commit messages can help developers quickly understand the purpose of a commit and the changes it introduced. 2. A good commit history can be helpful when debugging issues or trying to understand the evolution of a codebase."
+            },
+            {
+              "question": "How many characters should the subject line of your commit message be?",
+              "answer": "The subject line of your commit message should be 50 characters or less."
+            }
+          ]
+        },
+        {
+          "title": "CSS Foundations",
+          "flashcards": [
+            {
+              "question": "What is the syntax for class and ID selectors?",
+              "answer": "The syntax for class selectors is \".class\". The syntax for ID selectors is \"#id\"."
+            },
+            {
+              "question": "How would you apply a single rule to two different selectors?",
+              "answer": "You can apply a single rule to two different selectors by using a comma to separate the selectors."
+            },
+            {
+              "question": "Given an element that has an id of title and a class of primary, how would you use both attributes for a single rule?",
+              "answer": "#title.primary { }"
+            },
+            {
+              "question": "What does the descendant combinator do?",
+              "answer": "The descendant combinator is used to select elements that are descendants of other elements in the document tree."
+            },
+            {
+              "question": "What are the names of the three ways to add CSS to HTML?",
+              "answer": "There are three ways to add CSS to HTML: 1. Inline CSS 2. Embedded CSS 3. External CSS"
+            },
+            {
+              "question": "What are the main differences between the three ways of adding CSS to HTML?",
+              "answer": "The main differences between the three ways of adding CSS to HTML are: 1. Inline CSS is added to HTML elements using the style attribute. 2. Internal CSS is added to the <head> section of an HTML document. 3. External CSS is added to HTML documents using the <link> element."
+            },
+            {
+              "question": "Between a rule that uses one class selector and a rule that uses three type selectors, which rule has the higher specificity?",
+              "answer": "A rule that uses three type selectors has a higher specificity than a rule that uses one class selector."
+            },
+            {
+              "question": "How do you select a specific element on your page with your browser’s developer tools?",
+              "answer": "In order to select a specific element on your page with your browser's developer tools, you will need to first open the developer tools. Once the developer tools are open, you can then select the element you would like to inspect by clicking on it."
+            },
+            {
+              "question": "What does a strikethrough in a CSS declaration mean in your browser’s developer tools?",
+              "answer": "A strikethrough in a CSS declaration means that the CSS rule is being overridden by another rule."
+            },
+            {
+              "question": "How do you change CSS in real time on specific elements of a web page with your browser’s developer tools?",
+              "answer": "To change CSS in real time on specific elements of a web page with your browser’s developer tools, you can use the browser’s built-in inspector tool."
+            },
+            {
+              "question": "From inside to outside, what is the order of box-model properties?",
+              "answer": "The order of box-model properties is as follows: content, padding, border, margin."
+            },
+            {
+              "question": "What does the box-sizing CSS property do?",
+              "answer": "The box-sizing CSS property defines how the user agent should calculate the total width and height of an element."
+            },
+            {
+              "question": "What is the difference between the standard and alternative box model?",
+              "answer": "The standard box model is the default box model used in CSS. It includes the content, padding, border, and margin. The alternative box model includes only the content and padding, and does not include the border and margin."
+            },
+            {
+              "question": "Would you use margin or padding to create more space between 2 elements?",
+              "answer": "You would use margin to create more space between 2 elements."
+            },
+            {
+              "question": "Would you use margin or padding to create more space between the contents of an element and its border?",
+              "answer": "You would use padding."
+            },
+            {
+              "question": "Would you use margin or padding if you wanted two elements to overlap each other?",
+              "answer": "If you wanted two elements to overlap each other, you would use the CSS property \"position: absolute;\" for one of the elements."
+            },
+            {
+              "question": "How do you set the alternative box model for all of your elements?",
+              "answer": "The alternative box model can be set for all elements by using the CSS3 box-sizing property. This property can be set to one of two values: border-box or content-box. The default value is content-box."
+            },
+            {
+              "question": "How do you center an element horizontally?",
+              "answer": "The easiest way to center an element horizontally is to set the style property \"margin\" to \"auto\". This will split the available space evenly between the left and right margins, effectively centering the element."
+            },
+            {
+              "question": "What is the difference between a block element and an inline element?",
+              "answer": "A block element is an element that takes up the entire width of the page and is typically placed on its own line. An inline element is an element that only takes up as much width as it needs and can be placed on the same line as other elements."
+            },
+            {
+              "question": "What is the difference between an inline element and an inline-block element?",
+              "answer": "An inline element is an element that can be used inline with other content. An inline-block element is an element that can be used inline with other content, but that also has a block-level element's characteristics."
+            },
+            {
+              "question": "Is an h1 block or inline?",
+              "answer": "An h1 is a block level element."
+            },
+            {
+              "question": "Is button block or inline?",
+              "answer": "Button elements are inline elements by default, but block elements can be used by setting the display property to block."
+            },
+            {
+              "question": "Is div block or inline?",
+              "answer": "A div is a block element."
+            },
+            {
+              "question": "Is span block or inline?",
+              "answer": "Span elements are inline elements by default."
+            }
+          ]
+        },
+        {
+          "title": "Flexbox",
+          "flashcards": [
+            {
+              "question": "What’s the difference between a flex container and a flex item?",
+              "answer": "A flex container is an element that has the display property set to flex or inline-flex. Flex items are the children of a flex container. They are the elements that are aligned and laid out using the flexbox model."
+            },
+            {
+              "question": "How do you create a flex item?",
+              "answer": "A flex item is an element within a flex container."
+            },
+            {
+              "question": "What are the 3 values defined in the shorthand flex property (e.g. flex: 1 1 auto)?",
+              "answer": "The three values defined in the shorthand flex property are: 1. The flex-grow value 2. The flex-shrink value 3. The flex-basis value."
+            },
+            {
+              "question": "What are the 3 defined values for the flex shorthand flex:auto?",
+              "answer": "The flex shorthand flex:auto defines the flex grow factor, flex shrink factor, and flex basis."
+            },
+            {
+              "question": "How do you make flex items arrange themselves vertically instead of horizontally?",
+              "answer": "To make flex items arrange themselves vertically instead of horizontally, you can use the flex-direction property with a value of column."
+            },
+            {
+              "question": "In a column flex-container, what does flex-basis refer to?",
+              "answer": "Flex-basis refers to the initial size of a flex item."
+            },
+            {
+              "question": "In a row flex-container, what does flex-basis refer to?",
+              "answer": "Flex-basis refers to the size of the content area of a flex item."
+            },
+            {
+              "question": "Why do the previous two questions have different answers?",
+              "answer": "The first question asks for the value of the expression 2 + 3 * 4. The answer is 14 because the order of operations dictates that the 3 * 4 should be done first, and then the 2 should be added to that. The second question asks for the value of the expression (2 + 3) * 4. The answer is 20 because the parentheses dictate that the 2 + 3 should be done first, and then the 4 should be multiplied by that."
+            },
+            {
+              "question": "What is the difference between justify-content and align-items?",
+              "answer": "The justify-content property is used to align items horizontally, while the align-items property is used to align items vertically."
+            },
+            {
+              "question": "How do you use flexbox to completely center a div inside a flex container?",
+              "answer": "To center a div inside a flex container, you can use the align-items property with a value of center."
+            },
+            {
+              "question": "What’s the difference between justify-content: space-between and justify-content: space-around?",
+              "answer": "The main difference between the two is that space-between will put an equal amount of space on either end of the flex container, while space-around will put an equal amount of space around all flex items."
+            }
+          ]
+        },
+        {
+          "title": "JavaScript Basics",
+          "flashcards": [
+            {
+              "question": "Name the three ways to declare a variable",
+              "answer": "There are three ways to declare a variable in JavaScript: var myVariable = 'some value'; let myVariable = 'some value'; const myVariable = 'some value';"
+            },
+            {
+              "question": "Which of the three variable declarations should you avoid and why?",
+              "answer": "The third variable declaration should be avoided because it is not necessary to declare the variable again inside the for loop."
+            },
+            {
+              "question": "What rules should you follow when naming variables?",
+              "answer": "There are a few basic rules you should follow when naming variables: 1. Use descriptive names that make it easy to understand the purpose of the variable. 2. Avoid using names that are too long or too short. 3. Avoid using names that are similar to other variable names. 4. Use a consistent naming convention throughout your code."
+            },
+            {
+              "question": "What happens when you add numbers and strings together?",
+              "answer": "If you add a number and a string together, the result is a string."
+            },
+            {
+              "question": "How does the Modulo (%), or Remainder, operator work?",
+              "answer": "The Modulo, or Remainder, operator returns the remainder of two numbers after division."
+            },
+            {
+              "question": "Explain the difference between == and ===.",
+              "answer": "The == operator checks whether the two operands are equal in value. The === operator checks whether the two operands are equal in value and type."
+            },
+            {
+              "question": "When would you receive a NaN result?",
+              "answer": "If you divide 0 by 0, you would receive a NaN result."
+            },
+            {
+              "question": "How do you increment and decrement a number?",
+              "answer": "To increment a number, you add one to it. To decrement a number, you subtract one from it."
+            },
+            {
+              "question": "Explain the difference between prefixing and postfixing increment/decrement operators.",
+              "answer": "Prefixing increment/decrement operators increase or decrease the value of a variable by 1 before the rest of the code in the line is executed. Postfixing increment/decrement operators increase or decrease the value of a variable by 1 after the rest of the code in the line is executed."
+            },
+            {
+              "question": "What is operator precedence and how is it handled in JS?",
+              "answer": "Operator precedence is the order in which operators are evaluated when they are used in an expression. In JS, operators with higher precedence are evaluated before operators with lower precedence."
+            },
+            {
+              "question": "How do you access developer tools and the console?",
+              "answer": "To access the developer tools, right-click on any element on a web page and select 'Inspect' or 'Inspect Element'. This will open the developer tools. To access the console, open the developer tools and select the 'Console' tab."
+            },
+            {
+              "question": "How do you log information to the console?",
+              "answer": "The console.log() method is used to log information to the console."
+            },
+            {
+              "question": "What does unary plus operator do to string representations of integers? eg. +”10”",
+              "answer": "The unary plus operator doesn't do anything to string representations of integers."
+            },
+            {
+              "question": "Which data type is NOT primitive?",
+              "answer": "The Object data type is not primitive."
+            },
+            {
+              "question": "What is the relationship between null and undefined?",
+              "answer": "Null and undefined both represent the absence of a value. However, null is explicitly given a value of null, while undefined is not given a value at all."
+            },
+            {
+              "question": "What is the difference between single, double, and backtick quotes for strings?",
+              "answer": "The difference between single, double, and backtick quotes for strings is that single quotes denote a literal string value, double quotes allow for variable interpolation, and backticks allow for command substitution."
+            },
+            {
+              "question": "What is the term for joining strings together?",
+              "answer": "The term for joining strings together is concatenation."
+            },
+            {
+              "question": "Which type of quote lets you embed variables/expressions in a string?",
+              "answer": "A template literal."
+            },
+            {
+              "question": "How do you embed variables/expressions in a string?",
+              "answer": "Use string interpolation: 'The value of x is #{x}'"
+            },
+            {
+              "question": "How do you use escape characters in a string?",
+              "answer": "Escape characters are used to signal an alternative interpretation of a character. For example, a new line character could be represented as \\r\\n."
+            },
+            {
+              "question": "What is the difference between the slice/substring/substr string methods?",
+              "answer": "The slice method returns a copy of a portion of a string. The substring method returns a copy of a portion of a string. The substr method returns a copy of a portion of a string."
+            },
+            {
+              "question": "What are the three logical operators and what do they stand for?",
+              "answer": "The three logical operators are 'and', 'or', and 'not'. They stand for logical conjunction, logical disjunction, and negation respectively."
+            },
+            {
+              "question": "What are the comparison operators?",
+              "answer": "The comparison operators are the operators that are used to compare two values. The comparison operators are: > Greater than < Less than >= Greater than or equal to <= Less than or equal to == Equal to != Not equal to"
+            },
+            {
+              "question": "What are truthy and falsy values?",
+              "answer": "Truthy values are values that evaluate to true in a boolean context. Falsy values are values that evaluate to false in a boolean context."
+            },
+            {
+              "question": "What are the falsy values in JavaScript?",
+              "answer": "The falsy values in JavaScript are false, 0, '', null, undefined, and NaN."
+            },
+            {
+              "question": "What are conditionals?",
+              "answer": "Conditionals are blocks of code that only run if a certain condition is true."
+            },
+            {
+              "question": "What is the syntax for an if/else conditional?",
+              "answer": "The syntax for an if/else conditional is: if (condition) { // code to execute if condition is true } else { // code to execute if condition is false }"
+            },
+            {
+              "question": "What is the syntax for a switch statement?",
+              "answer": "switch (expression) { case value1: // Statements executed when the result of expression matches value1 break; case value2: // Statements executed when the result of expression matches value2 break; // ... default: // Statements executed when none of the values match the value of the expression }"
+            },
+            {
+              "question": "What is the syntax for a ternary operator?",
+              "answer": "The syntax for a ternary operator is: condition ? expression1 : expression2"
+            },
+            {
+              "question": "What is nesting?",
+              "answer": "Nesting is a programming technique in which data or code is placed inside another data structure or code."
+            },
+            {
+              "question": "How do you open developer tools?",
+              "answer": "There are a few ways to open the developer tools: 1. Press F12. 2. Press Ctrl+Shift+I. 3. Right-click on an element on the page and select 'Inspect element'."
+            },
+            {
+              "question": "How do you change screen size of a website using developer tools?",
+              "answer": "Open the developer tools in your browser, then go to the 'Settings' tab. Under the 'General' tab, you will see a 'Screen Size' option. You can change the width and height of your screen here."
+            },
+            {
+              "question": "What is a breakpoint?",
+              "answer": "A breakpoint is a line of code where the debugger will stop when executing a program. This allows the programmer to examine the program's state to see what is causing an error."
+            },
+            {
+              "question": "How do you set a breakpoint?",
+              "answer": "A breakpoint is set by clicking on the line number where you want the breakpoint to be set."
+            },
+            {
+              "question": "What are functions useful for?",
+              "answer": "Functions are useful for organizing code and making it more readable. They can also be used to reuse code."
+            },
+            {
+              "question": "How do you invoke a function?",
+              "answer": "A function can be invoked by calling it followed by parentheses. For example, if you have a function named 'myFunction', you would call it as myFunction(); You can Call the function using a function pointer: funcptr(); or Use the function as a callback: someOtherFunc(func);"
+            },
+            {
+              "question": "What are anonymous functions?",
+              "answer": "An anonymous function is a function that is not bound to a name."
+            },
+            {
+              "question": "What is function scope?",
+              "answer": "Function scope is the scope in which a function is defined. This scope is the function itself and all the variables declared within the function."
+            },
+            {
+              "question": "What are return values?",
+              "answer": "In computer programming, a return value is the result of a function or method."
+            },
+            {
+              "question": "What are arrow functions?",
+              "answer": "Arrow functions are a shorter way to write functions in JavaScript. They do not have their own this, arguments, super, or new.target."
+            },
+            {
+              "question": "What are the three stages in the problem solving process?",
+              "answer": "The three stages in the problem solving process are identifying the problem, developing a plan, and implementing the plan."
+            },
+            {
+              "question": "Why is it important to clearly understand the problem first?",
+              "answer": "If you do not understand the problem, you will not be able to solve it."
+            },
+            {
+              "question": "What can you do to help get a clearer understanding of the problem?",
+              "answer": "There are a few things you can do to help get a clearer understanding of the problem:\n\n-Talk to the person who reported the problem and get as much information as possible about what they experienced.\n\n-Talk to other people who may have witnessed the problem.\n\n-Look at any available evidence, such as logs, screenshots, or videos.\n\n-Try to reproduce the problem yourself."
+            },
+            {
+              "question": "What are some of the things you should do in the planning stage of the problem solving process?",
+              "answer": "Some things you should do in the planning stage of the problem solving process are:\n\n1. Define the problem\n2. Identify the goal\n3. Generate possible solutions\n4. Evaluate the possible solutions\n5. Choose the best solution\n6. Implement the solution\n7. Evaluate the results"
+            },
+            {
+              "question": "What is an algorithm?",
+              "answer": "An algorithm is a set of instructions that are followed in order to solve a problem."
+            },
+            {
+              "question": "What is pseudocode?",
+              "answer": "Pseudocode is a way of describing a computer program or algorithm in human-readable terms. It is not a programming language, but rather a way of representing a program's steps in a more logical, step-by-step fashion."
+            },
+            {
+              "question": "What are the advantages of breaking a problem down and solving the smaller problems?",
+              "answer": "There are several advantages to breaking a problem down and solving the smaller problems. First, it can make the problem seem more manageable. Second, it can help you to better understand the problem and how it can be solved. Third, it can help you to find a solution more quickly. Finally, it can help you to avoid making mistakes when solving the problem."
+            },
+            {
+              "question": "What are three reasons why you may see a TypeError?",
+              "answer": "A TypeError may be thrown for many reasons, but some of the most common are:\n\n1. Trying to use a variable that has not been assigned a value\n2. Trying to use a variable that has been assigned a value of the wrong type\n3. Trying to use a function that does not exist"
+            },
+            {
+              "question": "What is the key difference between an error and a warning?",
+              "answer": "An error is a message that indicates that the compiler cannot continue compiling the program. A warning is a message that indicates that there is something in the program that may not be what the programmer intended."
+            },
+            {
+              "question": "What is one method you can use to resolve an error?",
+              "answer": "One method you can use to resolve an error is to search for the error online."
+            },
+            {
+              "question": "Why is it important to write clean code?",
+              "answer": "There are many reasons why writing clean code is important. One reason is that it can make code easier to read and understand. This is especially important for other developers who may need to work on or maintain your code in the future. Additionally, clean code can help prevent errors and make code more reliable."
+            },
+            {
+              "question": "Name 5 clean code principles previously mentioned",
+              "answer": "1. Single Responsibility Principle\n2. Open/Closed Principle\n3. Liskov Substitution Principle\n4. Interface Segregation Principle\n5. Dependency Inversion Principle"
+            },
+            {
+              "question": "What is the difference between good comments and bad comments?",
+              "answer": "The difference between good comments and bad comments is that good comments are constructive and add to the discussion, while bad comments are unhelpful and do not contribute to the discussion."
+            },
+            {
+              "question": "What is an array?",
+              "answer": "An array is a data structure that stores a collection of elements of the same data type."
+            },
+            {
+              "question": "What are arrays useful for?",
+              "answer": "Arrays are useful for storing data in a structured way."
+            },
+            {
+              "question": "How do you access an array element?",
+              "answer": "There are various ways to access array elements in JavaScript:\n\n- Using the index number\n- Using the for loop\n- Using the forEach() method\n- Using the map() method\n- Using the filter() method\n- Using the reduce() method\n- Using the some() method\n- Using the every() method"
+            },
+            {
+              "question": "How do you change an array element?",
+              "answer": "To change an array element, you need to use the index number of the element you want to change. For example, if you want to change the first element in an array, you would use the index number 0."
+            },
+            {
+              "question": "What are some useful array properties?",
+              "answer": "Some useful array properties are the length property, which returns the number of elements in the array, and the indexOf() method, which returns the first index at which a given element can be found in the array."
+            },
+            {
+              "question": "What are some useful array methods?",
+              "answer": "Some useful array methods are:\n\n- push(): Add one or more elements to the end of an array and return the new length of the array.\n- pop(): Remove the last element from an array and return that element.\n- shift(): Remove the first element from an array and return that element.\n- unshift(): Add one or more elements to the beginning of an array and return the new length of the array.\n- splice(): Remove elements from an array and/or add new elements.\n- concat(): Join two or more arrays and return a new array.\n- slice(): Select a part of an array and return a new array.\n- forEach(): Execute a function for each"
+            },
+            {
+              "question": "What are loops useful for?",
+              "answer": "Loops are useful for repeating a set of instructions until a specific condition is met."
+            },
+            {
+              "question": "What is the break statement?",
+              "answer": "The break statement terminates the loop body and transfers execution to the statement following the loop."
+            },
+            {
+              "question": "What is the continue statement?",
+              "answer": "The continue statement is used to continue to the next iteration of a loop."
+            },
+            {
+              "question": "What is the advantage of writing automated tests?",
+              "answer": "The advantage of writing automated tests is that they can be run quickly and often, with little effort on the part of the tester. Automated tests can also be run in a variety of environments, including those that are not conducive to manual testing."
+            },
+            {
+              "question": "What is the DOM?",
+              "answer": "The DOM is a tree-like structure that represents the HTML document. It is used to access and modify the document."
+            },
+            {
+              "question": "How do you target the nodes you want to work with?",
+              "answer": "There are a few ways to target nodes:\n\n- By using a CSS selector\n- By using the `getElementById` function\n- By using the `getElementsByClassName` function\n- By using the `getElementsByTagName` function"
+            },
+            {
+              "question": "How do you create an element in the DOM?",
+              "answer": "There are various ways to create an element in the DOM. One way is to use the document.createElement() method. This method requires one parameter, which is the name of the element you wish to create."
+            },
+            {
+              "question": "How do you add an element to the DOM?",
+              "answer": "There are various ways to add an element to the DOM. One way is to use the appendChild() method to append a new child node to an existing element. Another way is to use the insertBefore() method to insert a new child node before an existing child node."
+            },
+            {
+              "question": "How do you remove an element from the DOM?",
+              "answer": "There are several ways to remove an element from the DOM, depending on whether you want to remove the element itself, or just its contents.\n\nTo remove an element from the DOM, you can use the removeChild() method. This method removes a child element from an element.\n\nTo remove just the contents of an element, you can use the innerHTML property."
+            },
+            {
+              "question": "How can you alter an element in the DOM?",
+              "answer": "You can use the `.setAttribute()` method to change an attribute of an element in the DOM."
+            },
+            {
+              "question": "When adding text to a DOM element, should you use textContent or innerHTML? Why?",
+              "answer": "You should use textContent because it will not parse the string as HTML."
+            },
+            {
+              "question": "Where should you include your JavaScript tag in your HTML file when working with DOM nodes?",
+              "answer": "The JavaScript tag should be included in the HTML file before any DOM nodes are created."
+            },
+            {
+              "question": "How do 'events' and 'listeners' work?",
+              "answer": "Events are a way to trigger a function when something happens. Listeners are a way to trigger a function when an event happens."
+            },
+            {
+              "question": "What are three ways to use events in your code?",
+              "answer": "1. You can use events to trigger a function when a user clicks a button.\n2. You can use events to trigger a function when a user hovers over an element.\n3. You can use events to trigger a function when a user scrolls down the page."
+            },
+            {
+              "question": "Why are event listeners the preferred way to handle events?",
+              "answer": "Event listeners are the preferred way to handle events because they allow you to add or remove event handlers at any time, and they don't require you to add extra HTML to your page."
+            },
+            {
+              "question": "What are the benefits of using named functions in your listeners?",
+              "answer": "There are several benefits to using named functions in your listeners:\n\n1. It makes your code more readable.\n\n2. It makes your code easier to debug.\n\n3. It makes it easier to add new features or change existing ones.\n\n4. It makes your code more maintainable."
+            },
+            {
+              "question": "How do you attach listeners to groups of nodes?",
+              "answer": "You can attach listeners to groups of nodes by using the addEventListener() method."
+            },
+            {
+              "question": "What is the difference between the return values of querySelector and querySelectorAll?",
+              "answer": "querySelector returns the first element that matches the given CSS selector. querySelectorAll returns all elements that match the given CSS selector."
+            },
+            {
+              "question": "What does a 'nodelist' contain?",
+              "answer": "A nodelist is a collection of nodes."
+            },
+            {
+              "question": "Explain the difference between 'capture' and 'bubbling'.",
+              "answer": "The difference between 'capture' and 'bubbling' is that 'capture' happens first and 'bubbling' happens afterwards. 'Capture' happens when the event is first fired on the target element, and then it moves up the DOM tree to the parent elements. 'Bubbling' happens when the event is first fired on the target element, and then it moves down the DOM tree to the child elements."
+            },
+            {
+              "question": "What is the difference between objects and arrays?",
+              "answer": "An object is a data type that stores a collection of properties. An array is a data type that stores a collection of values."
+            },
+            {
+              "question": "How do you access object properties?",
+              "answer": "To access object properties, you use the dot notation."
+            },
+            {
+              "question": "What is Array.prototype.map() useful for?",
+              "answer": "The Array.prototype.map() method is useful for creating a new array from the results of a callback function."
+            },
+            {
+              "question": "What is Array.prototype.reduce() useful for?",
+              "answer": "The Array.prototype.reduce() method is useful for reducing an array to a single value."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Intermediate HTML and CSS",
+      "lessons": [
+        {
+          "title": "Intermediate HTML Concepts",
+          "flashcards": [
+            {
+              "question": "Why should you use Emmet?",
+              "answer": "Emmet is a great tool for quickly creating HTML and CSS code. It can help you save time by automatically creating code for you, and it can also help you avoid mistakes by automatically checking your code for errors."
+            },
+            {
+              "question": "What are some useful Emmet abbreviations?",
+              "answer": "Emmet abbreviations are most useful for HTML and CSS code. Some common Emmet abbreviations are:\n\nhtml:5 - Creates an HTML5 document skeleton\n\nhead - Creates a head element\n\ntitle - Creates a title element\n\nmeta - Creates a meta element\n\nlink - Creates a link element\n\nscript - Creates a script element\n\nstyle - Creates a style element\n\nbody - Creates a body element\n\nheader - Creates a header element\n\nnav - Creates a nav element\n\nmain - Creates a main element\n\nsection - Creates a section element\n\narticle - Creates an article element\n\naside -"
+            },
+            {
+              "question": "What syntax would you use to create this element <p class='text'></p>?",
+              "answer": "<p class='text'></p>"
+            },
+            {
+              "question": "What syntax expands to an element with a child element inside of it? For example: <div><p></p></div>",
+              "answer": "<div><p></p></div>"
+            },
+            {
+              "question": "What syntax would you use to create three elements that have the same class name?",
+              "answer": "<div class='same'></div>\n<div class='same'></div>\n<div class='same'></div>"
+            },
+            {
+              "question": "What is the xmlns attribute?",
+              "answer": "The xmlns attribute is used to declare a namespace."
+            },
+            {
+              "question": "What are some situations where you wouldn’t want to use SVG?",
+              "answer": "Some situations where you wouldn't want to use SVG include when you want support for older browsers, or when you want to create a complex animation."
+            },
+            {
+              "question": "What are the benefits of “inlining” your SVGs? What are the drawbacks?",
+              "answer": "Inlining SVGs can be beneficial because it allows you to style them with CSS and control them with JavaScript. It can also be beneficial because it can reduce the number of HTTP requests. However, inline SVGs can be difficult to maintain and can increase the size of your HTML document."
+            },
+            {
+              "question": "What is a table?",
+              "answer": "A table is a piece of furniture with a flat top and one or more legs, used as a surface for working at, eating from or on which to place things."
+            },
+            {
+              "question": "Why is it a bad idea to use HTML Tables for page layout?",
+              "answer": "It is a bad idea to use HTML Tables for page layout because they are not intended for that purpose. Tables are meant to be used to present tabular data, not to control the layout of a page. Using tables for page layout can lead to unexpected results and can make it difficult to maintain your page."
+            },
+            {
+              "question": "What are caption elements useful for?",
+              "answer": "Caption elements are useful for providing titles for sections of content, and for providing descriptions for images."
+            },
+            {
+              "question": "What is the scope attribute?",
+              "answer": "The scope attribute is an HTML element that determines the visibility and accessibility of variables and functions within a web page. The scope attribute can have one of three values: global, local, or isolated. Global scope means that the variable or function is visible and accessible from anywhere within the web page. Local scope means that the variable or function is only visible and accessible from within the same HTML element. Isolated scope means that the variable or function is only visible and accessible from within the same JavaScript file."
+            }
+          ]
+        },
+        {
+          "title": "Intermediate CSS Concepts",
+          "flashcards": [
+            {
+              "question": "Why would you want to use a CSS reset?",
+              "answer": "A CSS reset is a way to force browsers to render all elements consistently. Each browser has its own default styles for how elements should be displayed, and these can vary significantly. A CSS reset removes these default styles, providing a level playing field to work from."
+            },
+            {
+              "question": "Why would you want to use em or rem for font-size instead of px?",
+              "answer": "There are a few reasons why you might want to use em or rem for font-size instead of px: \n\n1. Em and rem are relative units, so they can scale more easily than px. \n2. Em and rem are also better for accessibility, because they can be resized by the user. \n3. Finally, em and rem can be more consistent across browsers and devices."
+            },
+            {
+              "question": "What are some instances where you might want to use vh and vw?",
+              "answer": "Some instances where you might want to use vh and vw are when you want to set the width or height of an element to be a percentage of the viewport's width or height."
+            },
+            {
+              "question": "What are some instances where you might want to use px instead of a relative unit?",
+              "answer": "Some instances where you might want to use px instead of a relative unit are when you are working with images, when you want something to be a certain size no matter the screen size, or when you want something to have a fixed position."
+            },
+            {
+              "question": "What are the 2 ways to add fonts that are not installed on a user’s computer?",
+              "answer": "1. Use a web font service such as Google Fonts or Adobe Fonts.\n2. Use a font management tool to install the fonts on the user’s computer."
+            },
+            {
+              "question": "What is the ‘system font stack’ and why would you want to use it?",
+              "answer": "The system font stack is a set of fonts that are installed on a user's computer. These fonts are typically used by web browsers and operating systems. The system font stack allows web developers to specify a set of fonts that are likely to be available on a user's computer. This can be useful when trying to create a consistent experience across different devices and browsers."
+            },
+            {
+              "question": "Which property would you use to increase or decrease the space between letters in a word?",
+              "answer": "The property you would use to increase or decrease the space between letters in a word is the letter-spacing property."
+            },
+            {
+              "question": "Which property would you use to increase or decrease the space between lines in a paragraph?",
+              "answer": "line-height"
+            },
+            {
+              "question": "Which property would you use to make an element transparent?",
+              "answer": "The opacity property."
+            },
+            {
+              "question": "Which property would you use to make a background image tile?",
+              "answer": "The background-repeat property."
+            },
+            {
+              "question": "Which property would you use to add scrollbars to an element?",
+              "answer": "The overflow property."
+            },
+            {
+              "question": "Which property would you use to add a shadow behind an element?",
+              "answer": "The box-shadow property is used to add a shadow behind an element."
+            },
+            {
+              "question": "Which property would you use to create rounded corners on an element?",
+              "answer": "The border-radius property."
+            },
+            {
+              "question": "How would you use border-radius to make a circular element?",
+              "answer": "You would use border-radius to make a circular element by setting the border-radius property to 50%."
+            },
+            {
+              "question": "What is the difference between the child combinator and the descendant combinator?",
+              "answer": "The child combinator is used to select only immediate children of an element, while the descendant combinator is used to select all children of an element, including grandchildren, great-grandchildren, and so on."
+            },
+            {
+              "question": "How does the syntax of pseudo-classes and pseudo-elements differ?",
+              "answer": "Pseudo-classes are used to select elements based on their state, while pseudo-elements are used to select and style specific parts of an element."
+            },
+            {
+              "question": "Do pseudo-classes exist somewhere in HTML? Do pseudo-elements?",
+              "answer": "Pseudo-classes and pseudo-elements do not exist in HTML."
+            },
+            {
+              "question": "Name two ways you could select every second child of an element, starting with the first.",
+              "answer": "1. nth-child(2n)\n2. nth-child(odd)"
+            },
+            {
+              "question": "What is the difference between div:first-child and div:last-child? What will each select?",
+              "answer": "The difference between div:first-child and div:last-child is that div:first-child will select the first child element of a parent element, while div:last-child will select the last child element of a parent element."
+            },
+            {
+              "question": "What selector would you use to style a button a user is currently hovering over? How about one that is currently being clicked on?",
+              "answer": "The selector you would use to style a button a user is currently hovering over is `:hover`. The selector you would use to style a button a user is currently clicking on is `:active`."
+            },
+            {
+              "question": "How could you select all input elements with a type of text?",
+              "answer": "$(\"input[type=text]\")"
+            },
+            {
+              "question": "How could you select all classes that begin with thunder?",
+              "answer": ".thunder"
+            },
+            {
+              "question": "What is the difference between static and relative positioning?",
+              "answer": "Static positioning is when an element is positioned according to the normal flow of the document. Relative positioning is when an element is positioned relative to its normal position."
+            },
+            {
+              "question": "What is absolute positioning useful for?",
+              "answer": "Absolute positioning is useful for creating unique layouts without having to worry about the normal flow of the document."
+            },
+            {
+              "question": "What is the difference between fixed and sticky positioning?",
+              "answer": "Fixed positioning is when an element is positioned relative to the viewport, or the browser window itself. This means that, no matter where you scroll, the element will stay in the same place. Sticky positioning is when an element is positioned relative to the viewport, but it will scroll with the rest of the page. So, if you scroll down, the element will scroll down with the page, until it reaches the end of the page, at which point it will become fixed in place."
+            },
+            {
+              "question": "What are the four CSS math functions we covered above?",
+              "answer": "add, subtract, multiply, divide"
+            },
+            {
+              "question": "How do we use CSS math functions in our CSS?",
+              "answer": "We can use the calc() function to perform mathematical operations on CSS values. For example, we could use it to calculate the width of an element as a percentage of the width of its parent element:\n\n.element {\n  width: calc(100% / 3);\n}"
+            },
+            {
+              "question": "How can CSS functions help make websites and applications more responsive?",
+              "answer": "CSS functions can help make websites and applications more responsive by allowing for the creation of responsive layouts. This means that the website or application will adapt to the size of the screen it is being viewed on, whether that is a desktop, tablet, or mobile device. This is important because it ensures that users will have a good experience no matter how they are accessing the site or application."
+            },
+            {
+              "question": "How would you declare a custom property with a name of text-color?",
+              "answer": "text-color: #000;"
+            },
+            {
+              "question": "How would you access a custom property with a name of background-color?",
+              "answer": "You would access a custom property with a name of background-color by using the syntax --background-color."
+            },
+            {
+              "question": "Where would you declare a custom property to have its scope be global and accessible by all other selectors?",
+              "answer": "A custom property can be declared globally by using the :root selector."
+            },
+            {
+              "question": "Where would you declare a custom property so that a user’s theme setting from their OS or browser was taken into account?",
+              "answer": "The best place to declare a custom property so that a user's theme setting from their OS or browser was taken into account would be in the global stylesheet."
+            },
+            {
+              "question": "What is the most used browser currently?",
+              "answer": "The most used browser is Google Chrome."
+            },
+            {
+              "question": "What was the original name of the first web browser?",
+              "answer": "The first web browser was originally named Mosaic."
+            },
+            {
+              "question": "How are mobile browsers different on Apple mobile operating systems from Android?",
+              "answer": "The main difference between mobile browsers on Apple mobile operating systems and Android is that Apple mobile operating systems use the Safari browser while Android uses the Google Chrome browser."
+            },
+            {
+              "question": "What are some advantages of using a CSS framework?",
+              "answer": "Some advantages of using a CSS framework are that it can provide a basic structure for your CSS, which can save time and be helpful if you are not a experienced CSS developer. CSS frameworks can also help keep your code organized and can make it easier to create responsive designs."
+            },
+            {
+              "question": "What are some disadvantages of using a CSS framework?",
+              "answer": "A CSS framework is a pre-prepared library that is meant to allow for easier, more standards-compliant styling of web pages using the Cascading Style Sheets language. A CSS framework typically provides a basic structure with common web page elements, such as a grid system, and basic CSS styling. A CSS framework can save time and provide consistency in a web development project, but it can also be inflexible and add unnecessary code bloat. A CSS framework can also make it more difficult to learn CSS, as it can provide a false sense of understanding of how CSS works."
+            },
+            {
+              "question": "What are some advantages of using a CSS preprocessor?",
+              "answer": "Preprocessors can make CSS more maintainable, DRY, and can provide variables, mixins, and other features that are not available in CSS."
+            },
+            {
+              "question": "What are some disadvantages of using a CSS preprocessor?",
+              "answer": "Some disadvantages of using a CSS preprocessor are that it can be difficult to debug errors, and it can also be difficult to maintain large projects."
+            }
+          ]
+        },
+        {
+          "title": "Forms",
+          "flashcards": [
+            {
+              "question": "Explain what the form element is for and what two attributes it should always include.",
+              "answer": "The form element is used to create a form that can be submitted to a server for processing. The form should always include the action and method attributes."
+            },
+            {
+              "question": "Explain what form controls are at a high level.",
+              "answer": "Form controls are the input elements that allow users to interact with a web form. They can be used to enter data, select options, submit forms, and more."
+            },
+            {
+              "question": "What is the name attribute for?",
+              "answer": "The name attribute is for specifying the name of an element."
+            },
+            {
+              "question": "What are the three most common form controls you can use for allowing users to select predefined options?",
+              "answer": "The three most common form controls you can use for allowing users to select predefined options are radio buttons, checkboxes, and drop-down menus."
+            },
+            {
+              "question": "What are the three types of buttons in HTML?",
+              "answer": "There are three types of buttons in HTML: input type='button', input type='submit', and input type='reset'."
+            },
+            {
+              "question": "What are the two most challenging aspects of styling forms?",
+              "answer": "1. Ensuring that the form is accessible to all users, including those with disabilities. 2. Making sure the form is easy to use and understand."
+            },
+            {
+              "question": "What does the required validation do?",
+              "answer": "The required validation ensures that a value is provided for a field before the form can be submitted."
+            },
+            {
+              "question": "What validations can you use for checking text length?",
+              "answer": "The most common validation for checking text length is the min and maxlength attributes."
+            },
+            {
+              "question": "How can you validate the minimum and maximum of numeric inputs?",
+              "answer": "The minimum and maximum of numeric inputs can be validated by using the min and max attributes."
+            },
+            {
+              "question": "What can you use the pattern validation for?",
+              "answer": "The pattern validation can be used for a variety of purposes, such as validating data input, verifying that a given input is in the correct format, or checking that a given input conforms to a specific pattern."
+            },
+            {
+              "question": "What pseudo CSS selectors are available for styling valid and invalid inputs?",
+              "answer": "The :valid and :invalid pseudo CSS selectors are available for styling valid and invalid inputs."
+            }
+          ]
+        },
+        {
+          "title": "Grid",
+          "flashcards": [
+            {
+              "question": "How can you use Flex to make a two-dimensional layout?",
+              "answer": "Flex can be used to make a two-dimensional layout by using the flex-direction property."
+            },
+            {
+              "question": "Why was CSS Grid introduced?",
+              "answer": "CSS Grid was introduced to provide a more efficient way to lay out content on a web page. It is a two-dimensional grid system that allows for more flexibility and control over how content is displayed on a page."
+            },
+            {
+              "question": "Which CSS layout module would you use to easily make equal sized items in a container?",
+              "answer": "The flexbox layout module."
+            },
+            {
+              "question": "How does an HTML element become a grid item?",
+              "answer": "An HTML element can become a grid item by setting the display property to grid or inline-grid."
+            },
+            {
+              "question": "What is the space between lines on the grid?",
+              "answer": "The space between lines on the grid is called a line space."
+            },
+            {
+              "question": "How do you set gutters (also known as alleys) in the grid?",
+              "answer": "In the grid, gutters are set by adding padding to the grid item."
+            },
+            {
+              "question": "Describe what happens when you have more content than defined tracks.",
+              "answer": "If you have more content than defined tracks, the extra content will not be played."
+            },
+            {
+              "question": "How could you change the size for those undefined tracks?",
+              "answer": "There is no way to change the size for undefined tracks."
+            },
+            {
+              "question": "Explain the difference between a track and a line.",
+              "answer": "A track is a path that is used regularly by vehicles or other moving objects, while a line is a path that is not regularly used."
+            },
+            {
+              "question": "What is the smallest unit on a grid?",
+              "answer": "The smallest unit on a grid is one square."
+            },
+            {
+              "question": "What kind of value do we give to the grid-column-start or grid-column-end properties?",
+              "answer": "We give a numeric value to the grid-column-start or grid-column-end properties."
+            },
+            {
+              "question": "Which property can we use to combine all the start and end values for a grid item?",
+              "answer": "The grid-column property can be used to combine all the start and end values for a grid item."
+            },
+            {
+              "question": "Which grid container property can map out a visual structure of grid items?",
+              "answer": "grid-template-columns"
+            },
+            {
+              "question": "How do you create several grid tracks of the same size without manually typing each one out?",
+              "answer": "You can use the CSS repeat function to create several grid tracks of the same size without manually typing each one out."
+            },
+            {
+              "question": "What is the difference between a static and dynamic size value?",
+              "answer": "A static size value is one that is set at compile time and cannot be changed. A dynamic size value is one that can be changed at runtime."
+            },
+            {
+              "question": "How can you assign a grid track a flexible value that changes depending on the remaining space available in the grid?",
+              "answer": "The grid track can be assigned a flexible value by using the min-content, max-content, or auto keyword."
+            },
+            {
+              "question": "How can you assign grid tracks an uneven distribution of the remaining space in a grid?",
+              "answer": "You can use the 'fr' unit, which represents a fraction of the remaining space in the grid."
+            },
+            {
+              "question": "Which CSS functions will return the smallest or largest value supplied to them?",
+              "answer": "The min() and max() functions will return the smallest and largest values, respectively, supplied to them."
+            },
+            {
+              "question": "Which CSS Grid-only function allows you to supply a minimum and maximum track size that is calculated in realtime?",
+              "answer": "minmax()"
+            },
+            {
+              "question": "Which global CSS function allows you to supply a minimum, ideal, and maximum value that is calculated in realtime?",
+              "answer": "The calc() function allows you to supply a minimum, ideal, and maximum value that is calculated in realtime."
+            },
+            {
+              "question": "What attribute of repeat() can be used to fill in as many grid tracks as possible, given certain constraints?",
+              "answer": "The max-content value."
+            },
+            {
+              "question": "What is the difference between auto-fit and auto-fill?",
+              "answer": "Auto-fit automatically adjusts the width or height of an element to fit the dimensions of its parent container. Auto-fill automatically fills the width or height of an element based on the size of its content."
+            },
+            {
+              "question": "When might you use Flexbox over Grid?",
+              "answer": "Flexbox is used for one-dimensional layouts, while Grid is used for two-dimensional layouts."
+            },
+            {
+              "question": "When might you use Grid over Flexbox?",
+              "answer": "You might use Grid over Flexbox when you are working with two-dimensional layouts."
+            },
+            {
+              "question": "When might you use the two of these tools together?",
+              "answer": "You might use Grid and Flexbox together when you want to create a complex layout, where the overall structure is defined by Grid, and Flexbox is used for smaller-scale layouts within the Grid."
             }
           ]
         }
