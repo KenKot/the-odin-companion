@@ -1,26 +1,77 @@
 {
-  "courses": [
+  "paths": [
     {
-      "title": "Foundations",
-      "lessons": [
+      "title": "Pathy 1",
+      "courses": [
         {
-          "title": "Computer Basics",
-          "flashcards": [
+          "title": "Course 1",
+          "lessons": [
             {
-              "question": "Is Windows an operating system or an application?",
-              "answer": "Windows is an operating system."
+              "title": "Lesson 1",
+              "flashcards": [
+                {
+                  "question": "Question for Flashcard 1",
+                  "answer": "Answer for Flashcard 1"
+                },
+                {
+                  "question": "Question for Flashcard 2",
+                  "answer": "Answer for Flashcard 2"
+                }
+              ]
             },
             {
-              "question": "What’s the difference between open source and closed source software?",
-              "answer": "Open source software is software that can be freely accessed, used, changed, and shared by anyone. Closed source software is software that can only be used and accessed by the people who have been given permission to do so by the owner or creator of the software."
-            },
+              "title": "Lesson 2",
+              "flashcards": [
+                {
+                  "question": "Question for Flashcard 3",
+                  "answer": "Answer for Flashcard 3"
+                },
+                {
+                  "question": "Question for Flashcard 4",
+                  "answer": "Answer for Flashcard 4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Course 2",
+          "lessons": [
             {
-              "question": "What are some use cases of a screenshot?",
-              "answer": "Some use cases for a screenshot are to save an image of what is on your screen, to share something you are seeing on your screen with someone else, or to capture an error message."
-            },
+              "title": "Lesson 3",
+              "flashcards": [
+                {
+                  "question": "Question for Flashcard 5",
+                  "answer": "Answer for Flashcard 5"
+                },
+                {
+                  "question": "Question for Flashcard 6",
+                  "answer": "Answer for Flashcard 6"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Path 2",
+      "courses": [
+        {
+          "title": "Course 3",
+          "lessons": [
             {
-              "question": "Give an example of a weak and a strong password.",
-              "answer": "A weak password might be 'password' or '1234'. A strong password would be a combination of letters, numbers, and symbols that is not easily guessed."
+              "title": "Lesson 4",
+              "flashcards": [
+                {
+                  "question": "Question for Flashcard 7",
+                  "answer": "Answer for Flashcard 7"
+                },
+                {
+                  "question": "Question for Flashcard 8",
+                  "answer": "Answer for Flashcard 8"
+                }
+              ]
             }
           ]
         }

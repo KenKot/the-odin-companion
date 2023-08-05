@@ -8,7 +8,7 @@ import Path from "@/models/path";
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
-import flashcardJSONData from "@/misc/flashcardData";
+import allDataJSON from "@/misc/flashcardData";
 
 const authOptions = {
   providers: [
@@ -33,37 +33,34 @@ const authOptions = {
           await connectMongoDB();
           let userDoc = await User.findOne({ email });
 
-          let lessonCounter = 0; // Initialize a lesson counter
-
           if (!userDoc) {
             userDoc = await User.create({ name, email }); // Directly create the user using MongoDB
 
-            // Create two paths for the new user
-            const paths = Array.from({ length: 2 }, async (_, i) => {
-              const path = new Path({ title: `Path ${i + 1}` });
+            // Iterate over each path in the JSON
+            const paths = allDataJSON.paths.map(async (pathData) => {
+              const path = new Path({ title: pathData.title });
 
-              // Create two courses for each path
-              const courses = Array.from({ length: 2 }, async (_, j) => {
-                const course = new Course({ title: `Course ${j + 1}` });
+              // Iterate over each course in the path
+              const courses = pathData.courses.map(async (courseData) => {
+                const course = new Course({ title: courseData.title });
 
-                // Create two lessons for each course
-                const lessons = Array.from({ length: 2 }, async (_, k) => {
-                  lessonCounter += 1; // Increment the lesson counter
-                  const lesson = new Lesson({
-                    title: `Lesson ${lessonCounter}`,
-                  });
+                // Iterate over each lesson in the course
+                const lessons = courseData.lessons.map(async (lessonData) => {
+                  const lesson = new Lesson({ title: lessonData.title });
 
-                  // Create three flashcards for each lesson
-                  const flashcards = Array.from({ length: 3 }, async (_, l) => {
-                    const flashcard = new Flashcard({
-                      question: `Question ${l + 1}`,
-                      answer: `Answer ${l + 1}`,
-                      isMastered: false,
-                    });
+                  // Iterate over each flashcard in the lesson
+                  const flashcards = lessonData.flashcards.map(
+                    async (flashcardData) => {
+                      const flashcard = new Flashcard({
+                        question: flashcardData.question,
+                        answer: flashcardData.answer,
+                        isMastered: flashcardData.isMastered,
+                      });
 
-                    await flashcard.save();
-                    lesson.flashcards.push(flashcard._id);
-                  });
+                      await flashcard.save();
+                      lesson.flashcards.push(flashcard._id);
+                    }
+                  );
 
                   await Promise.all(flashcards);
                   await lesson.save();
