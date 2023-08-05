@@ -26,7 +26,7 @@ export default function Navbar() {
           {status === "authenticated" ? (
             <button
               className="px-4 py-2 font-semibold text-blue-500 bg-white rounded"
-              onClick={() => signOut()}
+              onClick={() => signOut({ callbackUrl: "/" })}
             >
               Sign Out
             </button>
