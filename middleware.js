@@ -1,7 +1,8 @@
 export { default } from "next-auth/middleware";
 
-export const config = { matcher: ["/courses/:path*", "/lessons/:path*"] };
-
+// export const config = { matcher: ["/courses/:path*", "/lessons/:path*"] };
+// ~~~~~~~~~~
+// ~~~~~~~~~~
 // import { NextResponse } from "next/server";
 // import type { NextRequest } from "next/server";
 
