@@ -1,7 +1,7 @@
 <h1 align="center">The Odin Companion</h1>
 
 <p align="center">
-    <img src="./public/magni.png" alt="Magni Image" style="border-radius: 50%; width: 100px; height: 100px;">
+    <img src="./public/magni.png" alt="Magni Image">
 </p>
 
 <h2 align="center">
