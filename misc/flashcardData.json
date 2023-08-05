@@ -1,0 +1,66 @@
+{
+  "courses": [
+    {
+      "title": "Biology",
+      "lessons": [
+        {
+          "title": "Cellular Biology",
+          "flashcards": [
+            {
+              "question": "What is the powerhouse of the cell?",
+              "answer": "Mitochondria"
+            },
+            {
+              "question": "What do lysosomes do?",
+              "answer": "They break down waste materials and cellular debris"
+            }
+          ]
+        },
+        {
+          "title": "Evolutionary Biology",
+          "flashcards": [
+            {
+              "question": "Who proposed the theory of evolution?",
+              "answer": "Charles Darwin"
+            },
+            {
+              "question": "What is natural selection?",
+              "answer": "It's a mechanism where organisms better adapted to their environment tend to survive and produce more offspring"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Mathematics",
+      "lessons": [
+        {
+          "title": "Algebra",
+          "flashcards": [
+            {
+              "question": "Solve for x: 2x = 10",
+              "answer": "x = 5"
+            },
+            {
+              "question": "Simplify: (x+3)^2",
+              "answer": "x^2 + 6x + 9"
+            }
+          ]
+        },
+        {
+          "title": "Calculus",
+          "flashcards": [
+            {
+              "question": "What is the derivative of x^2?",
+              "answer": "2x"
+            },
+            {
+              "question": "What is the integral of 2x?",
+              "answer": "x^2 + C"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
