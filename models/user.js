@@ -10,7 +10,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    courses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    paths: [{ type: mongoose.Schema.Types.ObjectId, ref: "Path" }],
   },
   { timestamps: true }
 );

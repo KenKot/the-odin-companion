@@ -1,30 +1,43 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import Course from "@/models/course";
 import User from "@/models/user";
+import Path from "@/models/path";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import { NextResponse } from "next/server";
 
-export const GET = async (request) => {
+export const GET = async (request, { params }) => {
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
 
-    let urlCoursenameArray = request.url.split("/");
-    let coursename = urlCoursenameArray[urlCoursenameArray.length - 1];
-    const courseTitle = coursename.replace(/-/g, " ");
+    let courseId = params.id;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).populate({
+      path: "paths",
+      model: "Path",
+    });
 
     if (!user) {
       console.log("USER NOT FOUND");
       return new Response("User not found", { status: 404 });
     }
 
-    const course = await Course.findOne({
-      _id: { $in: user.courses },
-      title: courseTitle,
-    }).populate({
+    let course;
+
+    for (let path of user.paths) {
+      course = path.courses.find(
+        (course) => course._id.toString() === courseId
+      );
+      if (course) break;
+    }
+
+    if (!course) {
+      return new Response("Course not found", { status: 404 });
+    }
+
+    course = await Course.findById(courseId).populate({
       path: "lessons",
       model: "Lesson",
       populate: {
@@ -32,10 +45,6 @@ export const GET = async (request) => {
         model: "Flashcard",
       },
     });
-
-    if (!course) {
-      return new Response("Course not found", { status: 404 });
-    }
 
     const courseWithMasteredFlashcards = {
       ...course._doc,
@@ -46,12 +55,11 @@ export const GET = async (request) => {
         ).length,
       })),
     };
-
-    return new Response(JSON.stringify(courseWithMasteredFlashcards), {
-      status: 200,
-    });
+    return NextResponse.json(courseWithMasteredFlashcards, { status: 201 });
   } catch (error) {
-    console.error("Failed to fetch course: ", error);
-    return new Response("Failed to fetch course", { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch courseWithMasteredFlashcards" },
+      { status: 500 }
+    );
   }
 };

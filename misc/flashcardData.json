@@ -1,0 +1,30 @@
+{
+  "courses": [
+    {
+      "title": "Foundations",
+      "lessons": [
+        {
+          "title": "Computer Basics",
+          "flashcards": [
+            {
+              "question": "Is Windows an operating system or an application?",
+              "answer": "Windows is an operating system."
+            },
+            {
+              "question": "What’s the difference between open source and closed source software?",
+              "answer": "Open source software is software that can be freely accessed, used, changed, and shared by anyone. Closed source software is software that can only be used and accessed by the people who have been given permission to do so by the owner or creator of the software."
+            },
+            {
+              "question": "What are some use cases of a screenshot?",
+              "answer": "Some use cases for a screenshot are to save an image of what is on your screen, to share something you are seeing on your screen with someone else, or to capture an error message."
+            },
+            {
+              "question": "Give an example of a weak and a strong password.",
+              "answer": "A weak password might be 'password' or '1234'. A strong password would be a combination of letters, numbers, and symbols that is not easily guessed."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
