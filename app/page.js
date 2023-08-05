@@ -1,22 +1,28 @@
-"use client";
-
 import UserInfo from "@/components/UserInfo";
-import { useSession } from "next-auth/react";
-import SigninBtn from "@/components/SigninBtn";
-import Paths from "@/components/Paths";
 import Link from "next/link";
 
 export default function Home() {
-  const { status, data: session } = useSession();
-
-  if (status !== "authenticated") {
-    return <SigninBtn />;
-  }
-
   return (
     <>
-      Signed in!
-      <Paths />
+      <UserInfo />
+      <hr />
+      <br />
+      {/* <Link href="/courses" className="border-2 border-red-500"> */}
+      <Link href="/courses">
+        <button
+          className="
+    bg-blue-500 
+    hover:bg-blue-700 
+    text-white 
+    font-bold 
+    py-2 
+    px-4 
+    rounded
+  "
+        >
+          Courses
+        </button>
+      </Link>
     </>
   );
 }
