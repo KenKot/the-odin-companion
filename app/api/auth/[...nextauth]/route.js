@@ -3,6 +3,7 @@ import User from "@/models/user";
 import Course from "@/models/course";
 import Lesson from "@/models/lesson";
 import Flashcard from "@/models/flashcard";
+import Path from "@/models/path";
 
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
@@ -32,30 +33,37 @@ const authOptions = {
           await connectMongoDB();
           let userDoc = await User.findOne({ email });
 
+          let lessonCounter = 0; // Initialize a lesson counter
+
           if (!userDoc) {
-            userDoc = await User.create({ name, email });
+            userDoc = await User.create({ name, email }); // Directly create the user using MongoDB
 
-            // Loop through the courses in your JSON data
-            const courses = flashcardJSONData.courses.map(
-              async (courseData) => {
-                const course = new Course({ title: courseData.title });
+            // Create two paths for the new user
+            const paths = Array.from({ length: 2 }, async (_, i) => {
+              const path = new Path({ title: `Path ${i + 1}` });
 
-                // Loop through the lessons in this course
-                const lessons = courseData.lessons.map(async (lessonData) => {
-                  const lesson = new Lesson({ title: lessonData.title });
+              // Create two courses for each path
+              const courses = Array.from({ length: 2 }, async (_, j) => {
+                const course = new Course({ title: `Course ${j + 1}` });
 
-                  // Loop through the flashcards in this lesson
-                  const flashcards = lessonData.flashcards.map(
-                    async (flashcardData) => {
-                      const flashcard = new Flashcard({
-                        question: flashcardData.question,
-                        answer: flashcardData.answer,
-                      });
+                // Create two lessons for each course
+                const lessons = Array.from({ length: 2 }, async (_, k) => {
+                  lessonCounter += 1; // Increment the lesson counter
+                  const lesson = new Lesson({
+                    title: `Lesson ${lessonCounter}`,
+                  });
 
-                      await flashcard.save();
-                      lesson.flashcards.push(flashcard._id);
-                    }
-                  );
+                  // Create three flashcards for each lesson
+                  const flashcards = Array.from({ length: 3 }, async (_, l) => {
+                    const flashcard = new Flashcard({
+                      question: `Question ${l + 1}`,
+                      answer: `Answer ${l + 1}`,
+                      isMastered: false,
+                    });
+
+                    await flashcard.save();
+                    lesson.flashcards.push(flashcard._id);
+                  });
 
                   await Promise.all(flashcards);
                   await lesson.save();
@@ -64,11 +72,15 @@ const authOptions = {
 
                 await Promise.all(lessons);
                 await course.save();
-                return course._id;
-              }
-            );
+                path.courses.push(course._id);
+              });
 
-            userDoc.courses = await Promise.all(courses);
+              await Promise.all(courses);
+              await path.save();
+              return path._id;
+            });
+
+            userDoc.paths = await Promise.all(paths);
             await userDoc.save();
           }
 
