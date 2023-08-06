@@ -1,9 +1,6 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import Course from "@/models/course";
 import User from "@/models/user";
-import { getSession } from "next-auth/react";
 import { NextResponse } from "next/server";
-
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 
@@ -26,8 +23,6 @@ export const GET = async (request) => {
         },
       },
     });
-
-    // console.log("user=", user);
 
     // Extract courses from user object
     const userCourses = user.courses;
