@@ -50,9 +50,9 @@ export const GET = async (request) => {
 
       coursesInfo.push(courseInfo);
     });
-
     return NextResponse.json(coursesInfo, { status: 201 });
   } catch (error) {
+    console.log("COURSES API ERROR!!!");
     return NextResponse.json(
       { message: "Failed to fetch all courses" },
       { status: 500 }
