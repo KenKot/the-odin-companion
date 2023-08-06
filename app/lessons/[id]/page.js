@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Flashcard from "@/components/Flashcard";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function LessonDetail({ params }) {
@@ -10,6 +11,10 @@ export default function LessonDetail({ params }) {
     fetch(`/api/lessons/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
+        // Sorting the flashcards directly after data fetching
+        data.flashcards.sort((a, b) =>
+          a.isMastered === b.isMastered ? 0 : a.isMastered ? 1 : -1
+        );
         setLesson(data);
         setLoading(false);
       })
@@ -37,13 +42,18 @@ export default function LessonDetail({ params }) {
     })
       .then((response) => response.json())
       .then((updatedFlashcard) => {
+        // Updating and re-sorting the flashcards after toggling mastery
         setLesson((prevLesson) => ({
           ...prevLesson,
-          flashcards: prevLesson.flashcards.map((flashcard) =>
-            flashcard._id === updatedFlashcard._id
-              ? updatedFlashcard
-              : flashcard
-          ),
+          flashcards: prevLesson.flashcards
+            .map((flashcard) =>
+              flashcard._id === updatedFlashcard._id
+                ? updatedFlashcard
+                : flashcard
+            )
+            .sort((a, b) =>
+              a.isMastered === b.isMastered ? 0 : a.isMastered ? 1 : -1
+            ),
         }));
       })
       .catch((error) => console.error("Error:", error));
@@ -53,18 +63,11 @@ export default function LessonDetail({ params }) {
     <div>
       <h1>{lesson.title}</h1>
       {lesson.flashcards.map((flashcard, index) => (
-        <div key={index} className="border-2 border-black m-2 p-2">
-          <h2>{flashcard.question}</h2>
-          <p>Is Mastered: {flashcard.isMastered ? "Yes" : "No"}</p>
-          <button
-            className="border-2 border-red-500"
-            onClick={() =>
-              toggleFlashcardMastered(flashcard._id, flashcard.isMastered)
-            }
-          >
-            Toggle Mastery
-          </button>
-        </div>
+        <Flashcard
+          key={index}
+          flashcard={flashcard}
+          toggleFlashcardMastered={toggleFlashcardMastered}
+        />
       ))}
     </div>
   );
