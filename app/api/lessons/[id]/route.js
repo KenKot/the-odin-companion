@@ -8,6 +8,7 @@ import { NextResponse } from "next/server";
 export const GET = async (request, { params }) => {
   try {
     await connectMongoDB();
+
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
     const lessonId = params.id;
@@ -15,28 +16,18 @@ export const GET = async (request, { params }) => {
     // Fetch the lesson using its id and populate flashcards
     const lesson = await Lesson.findById(lessonId).populate("flashcards");
 
-    if (!lesson) {
-      return new Response("Lesson not found", { status: 404 });
-    }
-
     // Fetch the user
     const user = await User.findById(userId).populate("courses");
 
-    if (!user) {
-      return new Response("User not found", { status: 404 });
-    }
-
     // Check if the lesson belongs to one of the user's courses
-    let lessonExists = user.courses.some((course) =>
-      course.lessons.includes(lessonId)
-    );
+    const lessonExists =
+      user && user.courses.some((course) => course.lessons.includes(lessonId));
 
-    if (!lessonExists) {
-      return new Response("User does not have access to this lesson", {
-        status: 403,
-      });
+    if (!lesson || !user || !lessonExists) {
+      return new Response("Access denied", { status: 403 });
     }
-    return NextResponse.json(lesson, { status: 201 });
+
+    return NextResponse.json(lesson, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch lesson " },

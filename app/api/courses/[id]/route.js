@@ -11,18 +11,15 @@ export const GET = async (request, { params }) => {
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
 
-    // let urlCourseIdArray = request.url.split("/");
-    // let courseId = urlCourseIdArray[urlCourseIdArray.length - 1];
-
     let courseId = params.id;
 
+    // Check if the user exists
     const user = await User.findById(userId);
-
     if (!user) {
-      console.log("USER NOT FOUND");
-      return new Response("User not found", { status: 404 });
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
+    // Fetch the course and check if it exists
     const course = await Course.findOne({
       _id: { $in: user.courses, $eq: courseId },
     }).populate({
@@ -35,7 +32,10 @@ export const GET = async (request, { params }) => {
     });
 
     if (!course) {
-      return new Response("Course not found", { status: 404 });
+      return NextResponse.json(
+        { message: "Course not found" },
+        { status: 404 }
+      );
     }
 
     const courseWithMasteredFlashcards = {
@@ -47,7 +47,7 @@ export const GET = async (request, { params }) => {
         ).length,
       })),
     };
-    return NextResponse.json(courseWithMasteredFlashcards, { status: 201 });
+    return NextResponse.json(courseWithMasteredFlashcards, { status: 200 });
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch courseWithMasteredFlashcards" },
