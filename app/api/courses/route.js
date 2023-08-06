@@ -1,14 +1,14 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 
-export const GET = async (request) => {
+export const GET = async () => {
   try {
     await connectMongoDB();
 
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions); //only works when page.js has "use client"?
     const userId = session.user.id;
 
     const user = await User.findById(userId).populate({
