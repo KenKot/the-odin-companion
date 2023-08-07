@@ -85,14 +85,6 @@ export default function LessonDetail({ params }) {
         setCurrentIndex={setCurrentIndex}
         toggleFlashcardMastered={toggleFlashcardMastered}
       />
-
-      {/* {flashcards.map((flashcard, index) => (
-        <Flashcard
-          key={index}
-          flashcard={flashcard}
-          toggleFlashcardMastered={toggleFlashcardMastered}
-        />
-      ))} */}
     </div>
   );
 }
