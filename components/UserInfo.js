@@ -1,6 +1,5 @@
 "use client";
 
-import SigninBtn from "./SigninBtn";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
