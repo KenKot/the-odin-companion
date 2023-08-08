@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #1f2937;
+}
