@@ -1,6 +1,3 @@
-import UserInfo from "@/components/UserInfo";
-import Link from "next/link";
-
 import Courses from "@/components/Courses";
 
 import { getServerSession } from "next-auth/next";

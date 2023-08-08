@@ -12,7 +12,6 @@ async function getCourses(session) {
   try {
     await connectMongoDB();
 
-    // const session = await getServerSession(authOptions); //only works when page.js has "use client"?
     const userId = session.user.id;
 
     const user = await User.findById(userId).populate({
@@ -30,7 +29,7 @@ async function getCourses(session) {
 
     // Extract courses from user object
     const userCourses = user.courses;
-    let coursesInfo = []; //data to return. Holds course names + statistics
+    let coursesInfo = [];
 
     userCourses.forEach((course) => {
       let lessons = course.lessons;
@@ -41,20 +40,29 @@ async function getCourses(session) {
         totalLessons: lessons.length,
         completedFlashcards: 0,
         totalFlashcards: 0,
-      }; // this is the data that pushes onto courseInfo[], to eventually return to user
+        completedLessons: 0, // Initialize completedLessons count
+      };
 
       lessons.forEach((lesson) => {
+        let isLessonComplete = true; // Flag to determine if lesson is complete
+
         lesson.flashcards.forEach((flashcard) => {
           courseInfo.totalFlashcards++;
           if (flashcard.isMastered) {
             courseInfo.completedFlashcards++;
+          } else {
+            isLessonComplete = false; // If a single flashcard is not mastered, the lesson is not complete
           }
         });
+
+        if (isLessonComplete) {
+          courseInfo.completedLessons++;
+        }
       });
 
       coursesInfo.push(courseInfo);
     });
-    // return NextResponse.json(coursesInfo, { status: 201 });
+
     return coursesInfo;
   } catch (error) {
     console.log("COURSES API ERROR!!!");
@@ -63,91 +71,30 @@ async function getCourses(session) {
       { status: 500 }
     );
   }
-  // const session = await getServerSession(authOptions); //only works when page.js has "use client"?
-  // const userId = session.user.id;
-
-  // console.log("session:");
-  // console.log(session);
-  // console.log("userId");
-  // console.log(userId);
-
-  // const res = await fetch("http://localhost:3000/api/courses", {
-  //   cache: "no-cache",
-  //   cache: "no-store",
-  // });
-
-  // if (!res.ok) {
-  //   throw new Error("failed to fetch courses");
-  // }
-  // console.log(res.body);
-  // const courses = await res.json();
-  // return courses;
 }
 
 export default async function Courses({ session }) {
-  // this doesnt give me errors and doesnt have a loading functionality
-  // breaks on refresh
   const courses = await getCourses(session);
+
   return (
     <div>
       <h1>Courses</h1>
       {courses?.map((course, index) => (
         <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="border-2 border-black m-2 p-2 cursor-pointer">
+          <div className="border-2 border-white m-2 p-2 cursor-pointer">
             <h2>{course.title}</h2>
-            <p>Total Lessons: {course.totalLessons}</p>
-            <p>Completed Flashcards: {course.completedFlashcards}</p>
-            <p>Total Flashcards: {course.totalFlashcards}</p>
+            {/* <p>Total Lessons: {course.totalLessons}</p>
+            <p>Completed Lessons: {course.completedLessons}</p> */}
+            <p>
+              {course.completedLessons}/{course.totalLessons} Lessons Completed
+            </p>
+            <p>
+              {course.completedFlashcards}/{course.totalFlashcards} Flashcards
+              Completed
+            </p>
           </div>
         </Link>
       ))}
     </div>
   );
 }
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-// "use client";
-
-// import { useEffect, useState } from "react";
-// import Link from "next/link";
-
-// export default function Courses() {
-//   const [courses, setCourses] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     fetch("/api/courses")
-//       .then((response) => response.json())
-//       .then((data) => {
-//         setCourses(data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.error("Error:", error);
-//         setLoading(false);
-//       });
-//   }, []);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>Courses</h1>
-//       {courses.map((course, index) => (
-//         <Link key={index} href={`/courses/${course._id}`} passHref>
-//           <div className="border-2 border-black m-2 p-2 cursor-pointer">
-//             <h2>{course.title}</h2>
-//             <p>Total Lessons: {course.totalLessons}</p>
-//             <p>Completed Flashcards: {course.completedFlashcards}</p>
-//             <p>Total Flashcards: {course.totalFlashcards}</p>
-//           </div>
-//         </Link>
-//       ))}
-//     </div>
-//   );
-// }
