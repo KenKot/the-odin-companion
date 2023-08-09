@@ -1,8 +1,5 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import Flashcard from "@/models/flashcard";
-import Lesson from "@/models/lesson";
-import Course from "@/models/course";
-import User from "@/models/user";
+import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
@@ -15,47 +12,31 @@ export const PATCH = async (request, { params }) => {
     const userId = session.user.id;
     let flashcardId = params.id;
 
-    const flashcard = await Flashcard.findById(flashcardId);
+    console.log("flashcardId", flashcardId);
+    console.log("userId", userId);
 
-    if (!flashcard) {
-      return NextResponse.json(
-        { message: "Flashcard not found" },
-        { status: 404 }
-      );
-    }
-
-    // Find the lesson containing the flashcard.
-    const lesson = await Lesson.findOne({ flashcards: flashcardId });
-    if (!lesson) {
-      return NextResponse.json(
-        { message: "Lesson not found" },
-        { status: 404 }
-      );
-    }
-
-    // Fetch the user
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return NextResponse.json({ message: "User not found" }, { status: 404 });
-    }
-
-    // Check if the user has a course that includes the lesson of the flashcard.
-    const userOwnsFlashcard = user.courses.some(async (courseId) => {
-      const course = await Course.findById(courseId);
-      return course.lessons.includes(lesson._id);
+    // Find the UserFlashcardRelation for the given user and flashcard
+    let userFlashcard = await UserFlashcardRelation.findOne({
+      user: userId,
+      flashcard: flashcardId,
     });
 
-    if (!userOwnsFlashcard) {
-      return NextResponse.json({ message: "Unauthorized" }, { status: 403 });
+    // If the relation does not exist, create a new one
+    if (!userFlashcard) {
+      userFlashcard = new UserFlashcardRelation({
+        user: userId,
+        flashcard: flashcardId,
+        isMastered: false,
+      });
     }
 
-    // Toggle isMastered field.
-    flashcard.isMastered = !flashcard.isMastered;
+    // Toggle the isMastered property
+    userFlashcard.isMastered = !userFlashcard.isMastered;
 
-    // Save the updated flashcard.
-    await flashcard.save();
-    return NextResponse.json(flashcard, { status: 201 });
+    // Save the updated UserFlashcardRelation
+    await userFlashcard.save();
+
+    return NextResponse.json(userFlashcard, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to update flashcard" },

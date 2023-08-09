@@ -55,12 +55,10 @@ export default function LessonDetail({ params }) {
   }
 
   const toggleFlashcardMastered = (flashcardId, isMastered) => {
+    console.log("toggleFlashcardMastered ran, flashcardId is", flashcardId);
+
     fetch(`/api/flashcards/${flashcardId}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ isMastered: !isMastered }),
     })
       .then((response) => response.json())
       .then((updatedFlashcard) => {

@@ -82,6 +82,8 @@ async function getCourses(session) {
 }
 
 export default async function Courses({ session }) {
+  //add TRY / CATCH to address the error:  Error: courses?.map is not a function
+
   const courses = await getCourses(session);
 
   return (

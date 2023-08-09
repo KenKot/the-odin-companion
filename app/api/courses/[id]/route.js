@@ -1,6 +1,7 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import Course from "@/models/course";
 import User from "@/models/user";
+import UserFlashcardRelation from "@/models/userFlashcard"; // Assuming this is the model for UserFlashcardRelation schema
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
@@ -10,26 +11,10 @@ export const GET = async (request, { params }) => {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
+    const courseId = params.id;
 
-    let courseId = params.id;
-
-    // Check if the user exists
-    const user = await User.findById(userId);
-    if (!user) {
-      return NextResponse.json({ message: "User not found" }, { status: 404 });
-    }
-
-    // Fetch the course and check if it exists
-    const course = await Course.findOne({
-      _id: { $in: user.courses, $eq: courseId },
-    }).populate({
-      path: "lessons",
-      model: "Lesson",
-      populate: {
-        path: "flashcards",
-        model: "Flashcard",
-      },
-    });
+    // Fetch the course with populated lessons
+    const course = await Course.findById(courseId).populate("lessons").exec();
 
     if (!course) {
       return NextResponse.json(
@@ -38,19 +23,39 @@ export const GET = async (request, { params }) => {
       );
     }
 
-    const courseWithMasteredFlashcards = {
-      ...course._doc,
-      lessons: course.lessons.map((lesson) => ({
+    // Fetch all mastered flashcards for the user
+    const masteredFlashcards = await UserFlashcardRelation.find({
+      user: userId,
+      isMastered: true,
+    });
+
+    const masteredFlashcardIds = masteredFlashcards.map((rel) =>
+      rel.flashcard.toString()
+    );
+
+    // Calculate statistics for each lesson
+    const lessonsWithStats = course.lessons.map((lesson) => {
+      const masteredCount = lesson.flashcards.filter((flashcard) =>
+        masteredFlashcardIds.includes(flashcard._id.toString())
+      ).length;
+      return {
         ...lesson._doc,
-        masteredFlashcards: lesson.flashcards.filter(
-          (flashcard) => flashcard.isMastered
-        ).length,
-      })),
-    };
-    return NextResponse.json(courseWithMasteredFlashcards, { status: 200 });
-  } catch (error) {
+        masteredFlashcards: masteredCount,
+      };
+    });
+
+    // Return the course with lessons containing flashcard statistics
     return NextResponse.json(
-      { message: "Failed to fetch courseWithMasteredFlashcards" },
+      {
+        ...course._doc,
+        lessons: lessonsWithStats,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: "Failed to fetch course details" },
       { status: 500 }
     );
   }
