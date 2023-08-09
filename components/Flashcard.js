@@ -2,31 +2,24 @@ import { useState, useEffect } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
 export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
-  const [contentToShow, setContentToShow] = useState("question");
+  const [showQuestion, setShowQuestion] = useState(true);
 
   // This effect ensures that the question is shown whenever a new flashcard is displayed
   useEffect(() => {
-    setContentToShow("question");
+    setShowQuestion(true);
   }, [flashcard]);
 
   return (
     <div className="w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2">
-      {/* <div className="border-2 border-black m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[500px] w-[400px] md:w-[800px] md:h-[600px]"> */}
       <div
         className="overflow-auto flex-grow w-full"
         onClick={() => {
-          setContentToShow((prevContent) =>
-            prevContent === "question" ? "answer" : "question"
-          );
+          setShowQuestion((prev) => !prev);
         }}
       >
         <h2 className="text-xl mb-2 text-center break-words">
-          {contentToShow === "question" ? flashcard.question : flashcard.answer}
+          {showQuestion ? flashcard.question : flashcard.answer}
         </h2>
-
-        {/* <p className="mb-2 text-center">
-          Is Mastered: {flashcard.isMastered ? "Yes" : "No"}
-        </p> */}
       </div>
 
       <div className="flex justify-between items-center w-full mt-4">

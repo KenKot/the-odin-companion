@@ -24,7 +24,7 @@ export default function FlashcardViewer({
           <FiArrowLeft size={24} />
         </button>
         <span className="text-white">
-          {currentIndex + 1}//{flashcards.length}
+          {currentIndex + 1}/{flashcards.length}
         </span>
         <button
           className="bg-gray-200 p-2 rounded"
