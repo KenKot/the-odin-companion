@@ -10,7 +10,7 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
   }, [flashcard]);
 
   return (
-    <div className="w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px]">
+    <div className="w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2">
       {/* <div className="border-2 border-black m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[500px] w-[400px] md:w-[800px] md:h-[600px]"> */}
       <div
         className="overflow-auto flex-grow w-full"
@@ -41,7 +41,7 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
             toggleFlashcardMastered(flashcard._id, flashcard.isMastered);
           }}
         >
-          {flashcard.isMastered ? "Change to Unmastered" : "Mastered!"}
+          {flashcard.isMastered ? "Unmastered" : "Mastered"}
         </button>
         <FaRegStar size={24} />
         {/* <FaStar size={24} /> */}
