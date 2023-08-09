@@ -77,8 +77,9 @@ export default function LessonDetail({ params }) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <h1 className="text-2xl mb-4">{lessonTitle}</h1>
+    // <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <div className="">
+      <h1 className="text-3xl text-center">{lessonTitle}</h1>
       <FlashcardViewer
         flashcards={flashcards}
         currentIndex={currentIndex}

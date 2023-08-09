@@ -29,14 +29,14 @@ export default function CourseDetail({ params }) {
 
   return (
     <div>
-      <h1>{course.title}</h1>
+      <h1 className="text-3xl text-center">{course.title}</h1>
       {course.lessons.map((lesson, index) => (
         <Link key={index} href={`/lessons/${lesson._id}`} passHref>
-          <div className="border-2 border-white m-2 p-2 cursor-pointer">
+          <div className="border-2 border-white m-2 p-2 cursor-pointer rounded">
             <h2>{lesson.title}</h2>
             <p>
-              Mastered Flashcards: {lesson.masteredFlashcards} /{" "}
-              {lesson.flashcards.length}
+              {lesson.masteredFlashcards} / {lesson.flashcards.length}{" "}
+              Flashcards Completed
             </p>
           </div>
         </Link>

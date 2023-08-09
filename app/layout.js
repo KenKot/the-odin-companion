@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./Providers";
-// import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

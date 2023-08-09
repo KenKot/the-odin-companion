@@ -13,7 +13,7 @@ export default function FlashcardViewer({
         toggleFlashcardMastered={toggleFlashcardMastered}
       />
 
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 text-black">
         <button
           className="bg-gray-200 p-2 rounded"
           onClick={() => {
@@ -22,7 +22,7 @@ export default function FlashcardViewer({
         >
           Previous
         </button>
-        <span>
+        <span className="text-white">
           {currentIndex + 1}/{flashcards.length}
         </span>
         <button
