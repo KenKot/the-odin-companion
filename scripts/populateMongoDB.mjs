@@ -1,8 +1,15 @@
-import { connectMongoDB } from "./lib/mongodb";
-import Course from "./models/course";
-import Lesson from "./models/lesson";
-import Flashcard from "./models/flashcard";
-import flashcardJSONData from "./misc/flashcardData";
+// import { connectMongoDB } from "../lib/mongodb.js";
+import User from "../models/user.js";
+// import Course from "@/models/course";
+// import Lesson from "@/models/lesson";
+// import Flashcard from "@/models/flashcard";
+
+// import mongoose from "mongoose";
+// import User from "../models/user";
+// import User from "@/models/user";
+// import Course from "./models/course";
+// import Lesson from "./models/lesson";
+// import Flashcard from "./models/flashcard";
 
 async function populateData() {
   console.log("populateData ran");

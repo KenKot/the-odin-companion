@@ -6,32 +6,40 @@ import { authOptions } from "../app/api/auth/[...nextauth]/route";
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
+import UserFlashcard from "@/models/userFlashcard";
+import Course from "@/models/course";
+import Flashcard from "@/models/flashcard";
 
 //this f(x) should be in a /utils folder
 async function getCourses(session) {
   try {
     await connectMongoDB();
-
     const userId = session.user.id;
 
-    const user = await User.findById(userId).populate({
-      path: "courses",
-      model: "Course",
+    // Fetch the user's flashcard relations
+    const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
+      "flashcard"
+    );
+
+    // Create a map of mastered flashcards for easy checking
+    const masteredFlashcards = {};
+    userFlashcards.forEach((relation) => {
+      if (relation.isMastered) {
+        masteredFlashcards[relation.flashcard._id.toString()] = true;
+      }
+    });
+
+    // Fetch all courses, lessons, and flashcards
+    const allCourses = await Course.find({}).populate({
+      path: "lessons",
       populate: {
-        path: "lessons",
-        model: "Lesson",
-        populate: {
-          path: "flashcards",
-          model: "Flashcard",
-        },
+        path: "flashcards",
       },
     });
 
-    // Extract courses from user object
-    const userCourses = user.courses;
     let coursesInfo = [];
 
-    userCourses.forEach((course) => {
+    allCourses.forEach((course) => {
       let lessons = course.lessons;
 
       let courseInfo = {
@@ -48,7 +56,7 @@ async function getCourses(session) {
 
         lesson.flashcards.forEach((flashcard) => {
           courseInfo.totalFlashcards++;
-          if (flashcard.isMastered) {
+          if (masteredFlashcards[flashcard._id.toString()]) {
             courseInfo.completedFlashcards++;
           } else {
             isLessonComplete = false; // If a single flashcard is not mastered, the lesson is not complete

@@ -3,11 +3,14 @@ import User from "@/models/user";
 import Course from "@/models/course";
 import Lesson from "@/models/lesson";
 import Flashcard from "@/models/flashcard";
+import UserFlashcard from "@/models/userFlashcard";
 
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
 import flashcardJSONData from "@/misc/flashcardData";
+
+import seedDatabase from "@/misc/seed";
 
 const authOptions = {
   providers: [
@@ -32,48 +35,27 @@ const authOptions = {
           await connectMongoDB();
           let userDoc = await User.findOne({ email });
 
+          // seedDatabase(); // SEED DATABASE
+
           if (!userDoc) {
             userDoc = await User.create({ name, email });
 
-            // Loop through the courses in your JSON data
-            const courses = flashcardJSONData.courses.map(
-              async (courseData) => {
-                const course = new Course({ title: courseData.title });
+            // Get all flashcards
+            const flashcards = await Flashcard.find();
 
-                // Loop through the lessons in this course
-                const lessons = courseData.lessons.map(async (lessonData) => {
-                  const lesson = new Lesson({ title: lessonData.title });
+            // Create UserFlashcard relations for this user
+            for (let flashcard of flashcards) {
+              await UserFlashcard.create({
+                user: userDoc._id,
+                flashcard: flashcard._id,
+                isMastered: false,
+                starred: false,
+              });
+            }
 
-                  // Loop through the flashcards in this lesson
-                  const flashcards = lessonData.flashcards.map(
-                    async (flashcardData) => {
-                      const flashcard = new Flashcard({
-                        question: flashcardData.question,
-                        answer: flashcardData.answer,
-                      });
-
-                      await flashcard.save();
-                      lesson.flashcards.push(flashcard._id);
-                    }
-                  );
-
-                  await Promise.all(flashcards);
-                  await lesson.save();
-                  course.lessons.push(lesson._id);
-                });
-
-                await Promise.all(lessons);
-                await course.save();
-                return course._id;
-              }
-            );
-
-            userDoc.courses = await Promise.all(courses);
-            await userDoc.save();
+            // Update the user object with the user document from MongoDB
+            user.id = userDoc._id;
           }
-
-          // Update the user object with the user document from MongoDB
-          user.id = userDoc._id;
 
           return user;
         } catch (error) {
