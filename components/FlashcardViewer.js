@@ -1,4 +1,5 @@
 import Flashcard from "./Flashcard";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi"; // Importing arrow icons
 
 export default function FlashcardViewer({
   flashcards,
@@ -20,7 +21,7 @@ export default function FlashcardViewer({
             if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
           }}
         >
-          Previous
+          <FiArrowLeft size={24} />
         </button>
         <span className="text-white">
           {currentIndex + 1}/{flashcards.length}
@@ -32,7 +33,7 @@ export default function FlashcardViewer({
               setCurrentIndex((prev) => prev + 1);
           }}
         >
-          Next
+          <FiArrowRight size={24} />
         </button>
       </div>
     </div>

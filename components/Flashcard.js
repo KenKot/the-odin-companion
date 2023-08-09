@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
   const [contentToShow, setContentToShow] = useState("question");
@@ -13,7 +14,6 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
       {/* <div className="border-2 border-black m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[500px] w-[400px] md:w-[800px] md:h-[600px]"> */}
       <div
         className="overflow-auto flex-grow w-full"
-        // className="overflow-auto flex-grow w-full"
         onClick={() => {
           setContentToShow((prevContent) =>
             prevContent === "question" ? "answer" : "question"
@@ -24,20 +24,28 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
           {contentToShow === "question" ? flashcard.question : flashcard.answer}
         </h2>
 
-        <p className="mb-2 text-center">
+        {/* <p className="mb-2 text-center">
           Is Mastered: {flashcard.isMastered ? "Yes" : "No"}
-        </p>
+        </p> */}
       </div>
 
-      <button
-        className="bg-gradient-to-r from-red-400 to-red-600 text-white border-2 border-red-500 p-2 mt-4 rounded-md shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-        onClick={(e) => {
-          e.stopPropagation(); // Prevents the entire div's click event from firing
-          toggleFlashcardMastered(flashcard._id, flashcard.isMastered);
-        }}
-      >
-        Mastered!
-      </button>
+      <div className="flex justify-between items-center w-full mt-4">
+        <button
+          className={`border-2 p-2 rounded-md shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 ${
+            flashcard.isMastered
+              ? "bg-gradient-to-r from-red-400 to-red-600 text-white border-red-500 focus:ring-red-500"
+              : "bg-gradient-to-r from-green-400 to-green-600 text-white border-green-500 focus:ring-green-500"
+          }`}
+          onClick={(e) => {
+            e.stopPropagation(); // Prevents the entire div's click event from firing
+            toggleFlashcardMastered(flashcard._id, flashcard.isMastered);
+          }}
+        >
+          {flashcard.isMastered ? "Change to Unmastered" : "Mastered!"}
+        </button>
+        <FaRegStar size={24} />
+        {/* <FaStar size={24} /> */}
+      </div>
     </div>
   );
 }
