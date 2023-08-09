@@ -78,19 +78,17 @@ export default async function Courses({ session }) {
 
   return (
     <div>
-      <h1 className="text-3xl text-center">Courses</h1>
+      <h1 className="mb-4 text-5xl text-center ">Courses</h1>
       {courses?.map((course, index) => (
         <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="border-2 border-white m-2 p-2 cursor-pointer rounded">
-            <h2>{course.title}</h2>
-            {/* <p>Total Lessons: {course.totalLessons}</p>
-            <p>Completed Lessons: {course.completedLessons}</p> */}
+          <div className="p-2 m-2 border-2 border-white rounded cursor-pointer ">
+            <h2 className="text-3xl">{course.title}</h2>
+
             <p>
-              {course.completedLessons}/{course.totalLessons} Lessons Completed
+              Lessons: {course.completedLessons}/{course.totalLessons}
             </p>
             <p>
-              {course.completedFlashcards}/{course.totalFlashcards} Flashcards
-              Completed
+              Flashcards: {course.completedFlashcards}/{course.totalFlashcards}
             </p>
           </div>
         </Link>
