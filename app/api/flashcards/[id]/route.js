@@ -12,9 +12,6 @@ export const PATCH = async (request, { params }) => {
     const userId = session.user.id;
     let flashcardId = params.id;
 
-    console.log("flashcardId", flashcardId);
-    console.log("userId", userId);
-
     // Find the UserFlashcardRelation for the given user and flashcard
     let userFlashcard = await UserFlashcardRelation.findOne({
       user: userId,

@@ -66,11 +66,6 @@ async function getCourses() {
   // const session = await getServerSession(authOptions); //only works when page.js has "use client"?
   // const userId = session.user.id;
 
-  // console.log("session:");
-  // console.log(session);
-  // console.log("userId");
-  // console.log(userId);
-
   // const res = await fetch("http://localhost:3000/api/courses", {
   //   cache: "no-cache",
   //   cache: "no-store",
@@ -85,15 +80,14 @@ async function getCourses() {
 }
 
 export default async function Courses() {
-  // this doesnt give me errors and doesnt have a loading functionality
-  // breaks on refresh
-  const courses = await getCourses();
+  const courses = await getCourses(); // put in try/catch block?
+
   return (
     <div>
       <h1>Courses</h1>
       {courses?.map((course, index) => (
         <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="border-2 border-black m-2 p-2 cursor-pointer">
+          <div className="p-2 m-2 border-2 border-black cursor-pointer">
             <h2>{course.title}</h2>
             <p>Total Lessons: {course.totalLessons}</p>
             <p>Completed Flashcards: {course.completedFlashcards}</p>
@@ -140,7 +134,7 @@ export default async function Courses() {
 //       <h1>Courses</h1>
 //       {courses.map((course, index) => (
 //         <Link key={index} href={`/courses/${course._id}`} passHref>
-//           <div className="border-2 border-black m-2 p-2 cursor-pointer">
+//           <div className="p-2 m-2 border-2 border-black cursor-pointer">
 //             <h2>{course.title}</h2>
 //             <p>Total Lessons: {course.totalLessons}</p>
 //             <p>Completed Flashcards: {course.completedFlashcards}</p>
