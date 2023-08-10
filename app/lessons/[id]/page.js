@@ -39,6 +39,7 @@ export default function LessonDetail({ params }) {
           ]; // Swap elements
         }
         const rejoinedCards = tempUnmasteredCards.concat(tempMasteredCards);
+        console.log("original flashcard in [0]", rejoinedCards[0]);
         setFlashcards(rejoinedCards);
 
         setLoading(false);
@@ -60,11 +61,13 @@ export default function LessonDetail({ params }) {
       method: "PATCH",
     })
       .then((response) => response.json())
-      .then((updatedFlashcard) => {
-        console.log("updatedFlashcard is", updatedFlashcard);
-        const updatedFlashcards = flashcards.map((card) =>
-          card._id === updatedFlashcard._id ? updatedFlashcard : card
-        );
+      .then((updatedFlashcardId) => {
+        const updatedFlashcards = flashcards.map((card) => {
+          if (card._id === updatedFlashcardId) {
+            card.isMastered = !card.isMastered;
+          }
+          return card;
+        });
         console.log("updatedFlashcards is", updatedFlashcards);
         setFlashcards(updatedFlashcards);
         // Check if it's not the last flashcard and then move to the next one
