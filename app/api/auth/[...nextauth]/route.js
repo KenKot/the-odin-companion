@@ -29,13 +29,15 @@ const authOptions = {
       return session;
     },
     async signIn({ user, account }) {
+      // seedDatabase(); // SEED DATABASE
+      // return;
+
       if (account.provider === "github") {
         const { name, email } = user;
         try {
           await connectMongoDB();
-          let userDoc = await User.findOne({ email });
 
-          // seedDatabase(); // SEED DATABASE
+          let userDoc = await User.findOne({ email });
 
           if (!userDoc) {
             userDoc = await User.create({ name, email });

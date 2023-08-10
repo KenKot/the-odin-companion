@@ -12,6 +12,7 @@ import Flashcard from "@/models/flashcard";
 
 //this f(x) should be in a /utils folder
 async function getCourses(session) {
+  console.log("getCourses ran");
   try {
     await connectMongoDB();
     const userId = session.user.id;
@@ -83,6 +84,7 @@ async function getCourses(session) {
 
 export default async function Courses({ session }) {
   //add TRY / CATCH to address the error:  Error: courses?.map is not a function
+  console.log("Courses ran");
 
   const courses = await getCourses(session);
 

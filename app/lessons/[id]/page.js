@@ -13,7 +13,6 @@ export default function LessonDetail({ params }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("UseEffect fetch + shuffle ran");
     fetch(`/api/lessons/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -62,9 +61,11 @@ export default function LessonDetail({ params }) {
     })
       .then((response) => response.json())
       .then((updatedFlashcard) => {
+        console.log("updatedFlashcard is", updatedFlashcard);
         const updatedFlashcards = flashcards.map((card) =>
           card._id === updatedFlashcard._id ? updatedFlashcard : card
         );
+        console.log("updatedFlashcards is", updatedFlashcards);
         setFlashcards(updatedFlashcards);
         // Check if it's not the last flashcard and then move to the next one
         if (currentIndex < flashcards.length - 1) {
