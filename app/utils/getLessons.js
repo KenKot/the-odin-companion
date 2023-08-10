@@ -6,7 +6,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
-export default async function getLessons(courseId) {
+export async function getLessons(courseId) {
+  console.log("getLessons is called");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
@@ -45,14 +46,10 @@ export default async function getLessons(courseId) {
     });
 
     // Return the course with lessons containing flashcard statistics
-    return {};
-    return (
-      {
-        ...course._doc,
-        lessons: lessonsWithStats,
-      },
-      { status: 200 }
-    );
+    return {
+      ...course._doc,
+      lessons: lessonsWithStats,
+    };
 
     // return NextResponse.json(
     //   {

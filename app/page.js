@@ -6,5 +6,6 @@ import { authOptions } from "../app/api/auth/[...nextauth]/route";
 export default async function Home() {
   const session = await getServerSession(authOptions);
 
-  return <>{session && <Courses session={session} />}</>;
+  // return <>{session && <Courses session={session} />}</>;
+  return <>{session && <Courses />}</>;
 }

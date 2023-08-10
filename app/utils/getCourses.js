@@ -1,38 +1,48 @@
 // // ASYNC F(X) ISNT FOR CLIENT COMPONENTS
 import Link from "next/link";
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
+import UserFlashcard from "@/models/userFlashcard";
+import Course from "@/models/course";
+import Flashcard from "@/models/flashcard";
+import { getServerSession } from "next-auth/next";
 
 //this f(x) should be in a /utils folder
-export default async function getCourses() {
+export async function getCourses() {
+  console.log("getCourses ran");
   try {
     await connectMongoDB();
-
     const session = await getServerSession(authOptions);
+
     const userId = session.user.id;
 
-    const user = await User.findById(userId).populate({
-      path: "courses",
-      model: "Course",
+    // Fetch the user's flashcard relations
+    const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
+      "flashcard"
+    );
+
+    // Create a map of mastered flashcards for easy checking
+    const masteredFlashcards = {};
+    userFlashcards.forEach((relation) => {
+      if (relation.isMastered) {
+        masteredFlashcards[relation.flashcard._id.toString()] = true;
+      }
+    });
+
+    // Fetch all courses, lessons, and flashcards
+    const allCourses = await Course.find({}).populate({
+      path: "lessons",
       populate: {
-        path: "lessons",
-        model: "Lesson",
-        populate: {
-          path: "flashcards",
-          model: "Flashcard",
-        },
+        path: "flashcards",
       },
     });
 
-    // Extract courses from user object
-    const userCourses = user.courses;
-    let coursesInfo = []; //data to return. Holds course names + statistics
+    let coursesInfo = [];
 
-    userCourses.forEach((course) => {
+    allCourses.forEach((course) => {
       let lessons = course.lessons;
 
       let courseInfo = {
@@ -41,20 +51,29 @@ export default async function getCourses() {
         totalLessons: lessons.length,
         completedFlashcards: 0,
         totalFlashcards: 0,
-      }; // this is the data that pushes onto courseInfo[], to eventually return to user
+        completedLessons: 0, // Initialize completedLessons count
+      };
 
       lessons.forEach((lesson) => {
+        let isLessonComplete = true; // Flag to determine if lesson is complete
+
         lesson.flashcards.forEach((flashcard) => {
           courseInfo.totalFlashcards++;
-          if (flashcard.isMastered) {
+          if (masteredFlashcards[flashcard._id.toString()]) {
             courseInfo.completedFlashcards++;
+          } else {
+            isLessonComplete = false; // If a single flashcard is not mastered, the lesson is not complete
           }
         });
+
+        if (isLessonComplete) {
+          courseInfo.completedLessons++;
+        }
       });
 
       coursesInfo.push(courseInfo);
     });
-    // return NextResponse.json(coursesInfo, { status: 201 });
+
     return coursesInfo;
   } catch (error) {
     console.log("COURSES API ERROR!!!");
@@ -63,18 +82,4 @@ export default async function getCourses() {
       { status: 500 }
     );
   }
-  // const session = await getServerSession(authOptions); //only works when page.js has "use client"?
-  // const userId = session.user.id;
-
-  // const res = await fetch("http://localhost:3000/api/courses", {
-  //   cache: "no-cache",
-  //   cache: "no-store",
-  // });
-
-  // if (!res.ok) {
-  //   throw new Error("failed to fetch courses");
-  // }
-  // console.log(res.body);
-  // const courses = await res.json();
-  // return courses;
 }

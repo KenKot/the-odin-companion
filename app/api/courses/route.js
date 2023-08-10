@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async () => {
+  console.log("/courses/page.js ran");
   try {
     await connectMongoDB();
 
