@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Flashcard from "@/components/Flashcard";
 import FlashcardViewer from "@/components/FlashcardViewer";
 import { usePathname, useRouter } from "next/navigation";
+import BackButton from "@/components/BackButton";
 
 export default function LessonDetail({ params }) {
   const [flashcards, setFlashcards] = useState([]);
@@ -54,7 +55,7 @@ export default function LessonDetail({ params }) {
     return <div>Loading...</div>;
   }
 
-  const toggleFlashcardMastered = (flashcardId, isMastered) => {
+  const toggleFlashcardMastered = (flashcardId) => {
     console.log("toggleFlashcardMastered ran, flashcardId is", flashcardId);
 
     fetch(`/api/flashcards/${flashcardId}`, {
@@ -81,6 +82,7 @@ export default function LessonDetail({ params }) {
   return (
     // <div className="flex flex-col items-center justify-center min-h-screen p-4">
     <div className="">
+      <BackButton />
       <h1 className="text-3xl text-center">{lessonTitle}</h1>
       <FlashcardViewer
         flashcards={flashcards}
