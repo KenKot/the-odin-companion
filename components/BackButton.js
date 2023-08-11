@@ -1,16 +1,12 @@
-"use client";
 import { FiArrowLeft } from "react-icons/fi";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function BackButton() {
-  const router = useRouter();
-
   return (
-    <button
-      onClick={() => router.back()}
-      className="bg-gray-200 p-2 rounded text-black"
-    >
-      <FiArrowLeft size={24} />
+    <button className="bg-gray-200 p-2 rounded text-black">
+      <Link href="..">
+        <FiArrowLeft size={24} />
+      </Link>
     </button>
   );
 }
