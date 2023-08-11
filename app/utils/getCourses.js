@@ -13,6 +13,8 @@ import { getServerSession } from "next-auth/next";
 //this f(x) should be in a /utils folder
 export async function getCourses() {
   console.log("getCourses ran");
+  // imitate delay
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);

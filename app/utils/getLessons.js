@@ -8,6 +8,8 @@ import { NextResponse } from "next/server";
 
 export async function getLessons(courseId) {
   console.log("getLessons is called");
+  // imitate delay
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
