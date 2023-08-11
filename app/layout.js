@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { NextAuthProvider } from "./Providers";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
           <div className="h-screen mx-8 mx-auto">
             <Navbar />
             <br />
+            {/* <Suspense fallback={<Loading />}>{children}</Suspense> */}
             {children}
           </div>
         </NextAuthProvider>
