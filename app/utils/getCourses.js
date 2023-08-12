@@ -1,6 +1,5 @@
 // // ASYNC F(X) ISNT FOR CLIENT COMPONENTS
 import Link from "next/link";
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 import { connectMongoDB } from "@/lib/mongodb";
@@ -9,15 +8,17 @@ import { NextResponse } from "next/server";
 import UserFlashcard from "@/models/userFlashcard";
 import Course from "@/models/course";
 import Flashcard from "@/models/flashcard";
+import { getServerSession } from "next-auth/next";
 
 //this f(x) should be in a /utils folder
-async function getCourses() {
+export async function getCourses() {
   console.log("getCourses ran");
-
-  const session = await getServerSession(authOptions);
-  // console.log("session", session);
+  // imitate delay
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
+    const session = await getServerSession(authOptions);
+
     const userId = session.user.id;
 
     // Fetch the user's flashcard relations
@@ -40,7 +41,6 @@ async function getCourses() {
         path: "flashcards",
       },
     });
-    console.log("loser allCourses", allCourses);
 
     let coursesInfo = [];
 
@@ -84,38 +84,4 @@ async function getCourses() {
       { status: 500 }
     );
   }
-}
-
-export default async function Courses() {
-  // export default async function Courses({ session }) {
-  //add TRY / CATCH to address the error:  Error: courses?.map is not a function
-  console.log("Courses ran");
-
-  // try {
-  const courses = await getCourses();
-  // } catch (error) {
-  // console.log("error yo", error);
-  // }
-
-  return (
-    <div>
-      <h1 className="mb-4 text-5xl text-center ">Courses</h1>
-      {courses &&
-        courses?.map((course, index) => (
-          <Link key={index} href={`/courses/${course._id}`} passHref>
-            <div className="p-2 m-2 border-2 border-white rounded cursor-pointer ">
-              <h2 className="text-3xl">{course.title}</h2>
-
-              <p>
-                Lessons: {course.completedLessons}/{course.totalLessons}
-              </p>
-              <p>
-                Flashcards: {course.completedFlashcards}/
-                {course.totalFlashcards}
-              </p>
-            </div>
-          </Link>
-        ))}
-    </div>
-  );
 }

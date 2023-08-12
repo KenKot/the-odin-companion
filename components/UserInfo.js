@@ -1,6 +1,5 @@
 "use client";
 
-import SigninBtn from "./SigninBtn";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 
@@ -24,6 +23,6 @@ export default function UserInfo() {
       </div>
     );
   } else {
-    return <SigninBtn />;
+    return <div> used to be SigninBtn</div>;
   }
 }

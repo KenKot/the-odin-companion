@@ -1,17 +1,15 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import Course from "@/models/course";
 import User from "@/models/user";
-import { getSession } from "next-auth/react";
 import { NextResponse } from "next/server";
-
-import { getServerSession } from "next-auth";
+import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]/route";
 
-export const GET = async (request) => {
+export const GET = async () => {
+  console.log("/courses/page.js ran");
   try {
     await connectMongoDB();
 
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions); //only works when page.js has "use client"?
     const userId = session.user.id;
 
     const user = await User.findById(userId).populate({
@@ -26,8 +24,6 @@ export const GET = async (request) => {
         },
       },
     });
-
-    // console.log("user=", user);
 
     // Extract courses from user object
     const userCourses = user.courses;
@@ -55,9 +51,9 @@ export const GET = async (request) => {
 
       coursesInfo.push(courseInfo);
     });
-
     return NextResponse.json(coursesInfo, { status: 201 });
   } catch (error) {
+    console.log("COURSES API ERROR!!!");
     return NextResponse.json(
       { message: "Failed to fetch all courses" },
       { status: 500 }

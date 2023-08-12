@@ -1,43 +1,23 @@
-"use client";
-import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { getLessons } from "@/app/utils/getLessons";
+import BackButton from "@/components/BackButton";
 
-export default function CourseDetail({ params }) {
-  const [course, setCourse] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(`/api/courses/${params.id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCourse(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!course) {
-    return <div>Course not found</div>;
-  }
+export default async function CourseDetail({ params }) {
+  const course = await getLessons(params.id);
 
   return (
     <div>
-      <h1>{course.title}</h1>
+      <div className="flex items-center justify-center mb-4 text-5xl">
+        <BackButton />
+        <h1 className="ml-4">{course.title}</h1>
+      </div>
       {course.lessons.map((lesson, index) => (
         <Link key={index} href={`/lessons/${lesson._id}`} passHref>
-          <div className="border-2 border-black m-2 p-2 cursor-pointer">
-            <h2>{lesson.title}</h2>
+          <div className="p-2 m-2 border-2 border-white rounded cursor-pointer">
+            <h2 className="text-3xl">{lesson.title}</h2>
             <p>
-              Mastered Flashcards: {lesson.masteredFlashcards} /{" "}
-              {lesson.flashcards.length}
+              Flashcards: {lesson.masteredFlashcards} /{" "}
+              {lesson.flashcards.length}{" "}
             </p>
           </div>
         </Link>

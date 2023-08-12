@@ -10,4 +10,4 @@
 
 ## Overview:
 
-A pre-populated, ready to go Anki-like flashcard system that learners of The Odin Project can easily use for practice to help master the material. The flashcard questions are based off lesson's ["Knowledge Checks."](https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors#knowledge-check)
+A pre-populated, ready to go flashcard system that learners of The Odin Project can easily use for practice to help master the material. The flashcard questions are based off lesson's ["Knowledge Checks."](https://www.theodinproject.com/lessons/node-path-javascript-objects-and-object-constructors#knowledge-check)

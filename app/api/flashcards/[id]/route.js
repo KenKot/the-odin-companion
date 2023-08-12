@@ -1,53 +1,72 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import Flashcard from "@/models/flashcard";
-import Lesson from "@/models/lesson";
-import Course from "@/models/course";
+import Flashcard from "@/models/flashcard"; // Import the Flashcard model
+import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
-export const PATCH = async (request) => {
+export const PATCH = async (request, { params }) => {
   try {
     await connectMongoDB();
 
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
+    const flashcardId = params.id;
 
-    let urlFlashcardIdArray = request.url.split("/");
-    let flashcardId = urlFlashcardIdArray[urlFlashcardIdArray.length - 1];
+    const { property } = await request.json();
 
-    const flashcard = await Flashcard.findById(flashcardId);
-
-    if (!flashcard) {
-      return new Response("Flashcard not found", { status: 404 });
+    // Validate provided property
+    const validProperties = ["isMastered", "starred"];
+    if (!validProperties.includes(property)) {
+      return NextResponse.json(
+        { message: "Invalid property provided" },
+        { status: 400 }
+      );
     }
 
-    // I'd need to change schema for this to work
+    // Find or create the UserFlashcardRelation for the given user and flashcard
+    let userFlashcard = await UserFlashcardRelation.findOne({
+      user: userId,
+      flashcard: flashcardId,
+    });
 
-    // const lesson = await Lesson.findById(flashcard.lessonId);
+    if (!userFlashcard) {
+      userFlashcard = new UserFlashcardRelation({
+        user: userId,
+        flashcard: flashcardId,
+        isMastered: false,
+        starred: false,
+      });
+    }
 
-    // if (!lesson) {
-    //   return new Response("Lesson not found", { status: 404 });
-    // }
+    // Toggle the provided property
+    userFlashcard[property] = !userFlashcard[property];
 
-    // const course = await Course.findOne({
-    //   _id: { $in: lesson.course },
-    //   userId: userId,
-    // });
+    // Save the changes
+    await userFlashcard.save();
 
-    // if (!course) {
-    //   return new Response("Unauthorized", { status: 403 });
-    // }
+    // Fetch the corresponding flashcard
+    const flashcard = await Flashcard.findById(flashcardId);
+    if (!flashcard) {
+      return NextResponse.json(
+        { message: "Flashcard not found." },
+        { status: 404 }
+      );
+    }
 
-    // toggle isMastered field
-    flashcard.isMastered = !flashcard.isMastered;
+    // Merge UserFlashcardRelation data with the flashcard data
+    const mergedFlashcard = {
+      ...flashcard._doc,
+      isMastered: userFlashcard.isMastered,
+      starred: userFlashcard.starred,
+    };
 
-    // save the updated flashcard
-    await flashcard.save();
-    return NextResponse.json(flashcard, { status: 201 });
+    // Return the merged flashcard object
+    return NextResponse.json(mergedFlashcard, { status: 200 });
   } catch (error) {
+    console.error("PATCH Flashcard Relation Error:", error); // Log the error for debugging
     return NextResponse.json(
-      { message: "Failed to fetch flashcard" },
+      { message: "Failed to update flashcard's property" },
       { status: 500 }
     );
   }
