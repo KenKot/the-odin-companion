@@ -14,7 +14,7 @@ import { getServerSession } from "next-auth/next";
 export async function getCourses() {
   console.log("getCourses ran");
   // imitate delay
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
@@ -25,6 +25,9 @@ export async function getCourses() {
     const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
       "flashcard"
     );
+    console.log("mad0");
+
+    console.log("mad1", userFlashcards);
 
     // Create a map of mastered flashcards for easy checking
     const masteredFlashcards = {};

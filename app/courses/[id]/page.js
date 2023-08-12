@@ -7,10 +7,10 @@ export default async function CourseDetail({ params }) {
 
   return (
     <div>
-      <h1 className="mb-4 text-5xl text-center">
+      <div className="flex items-center justify-center mb-4 text-5xl">
         <BackButton />
-        {course.title}
-      </h1>
+        <h1 className="ml-4">{course.title}</h1>
+      </div>
       {course.lessons.map((lesson, index) => (
         <Link key={index} href={`/lessons/${lesson._id}`} passHref>
           <div className="p-2 m-2 border-2 border-white rounded cursor-pointer">

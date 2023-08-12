@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
           <div className="h-screen mx-8 mx-auto">
             <Navbar />
             <br />
-            {/* <Suspense fallback={<Loading />}>{children}</Suspense> */}
             {children}
           </div>
         </NextAuthProvider>
