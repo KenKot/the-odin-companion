@@ -9,6 +9,11 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
   const [flashcards, setFlashcards] = useState(shuffledflashcards);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [showQuestion, setShowQuestion] = useState(true);
+  const toggleShowQuestion = () => {
+    setShowQuestion((prev) => !prev);
+  };
+
   const toggleFlashcardProperty = (flashcardId, property) => {
     fetch(`/api/flashcards/${flashcardId}`, {
       method: "PATCH",
@@ -24,9 +29,11 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
           return card;
         });
         setFlashcards(updatedFlashcards);
-        if (property === "isMastered" && currentIndex < flashcards.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-        }
+
+        // If the user clicks the "Mastered" button, we want to automatically move to the next flashcard
+        // if (property === "isMastered" && currentIndex < flashcards.length - 1) {
+        //   setCurrentIndex(currentIndex + 1);
+        // }
       })
       .catch((error) => console.error("Error:", error));
   };
@@ -41,13 +48,18 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
         <Flashcard
           flashcard={flashcards[currentIndex]}
           toggleFlashcardProperty={toggleFlashcardProperty}
+          showQuestion={showQuestion}
+          toggleShowQuestion={toggleShowQuestion}
         />
 
         <div className="flex items-center space-x-4 text-black">
           <button
             className="bg-gray-200 p-2 rounded"
             onClick={() => {
-              if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
+              if (currentIndex > 0) {
+                setShowQuestion(true);
+                setCurrentIndex((prev) => prev - 1);
+              }
             }}
           >
             <FiArrowLeft size={24} />
@@ -58,8 +70,12 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
           <button
             className="bg-gray-200 p-2 rounded"
             onClick={() => {
-              if (currentIndex < flashcards.length - 1)
+              setShowQuestion(true);
+
+              if (currentIndex < flashcards.length - 1) {
                 setCurrentIndex((prev) => prev + 1);
+                setShowQuestion(true);
+              }
             }}
           >
             <FiArrowRight size={24} />
