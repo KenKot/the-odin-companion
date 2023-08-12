@@ -1,4 +1,5 @@
 import { connectMongoDB } from "@/lib/mongodb";
+import Flashcard from "@/models/flashcard"; // Import the Flashcard model
 import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
@@ -44,14 +45,24 @@ export const PATCH = async (request, { params }) => {
     // Save the changes
     await userFlashcard.save();
 
-    // Return the updated property state
-    return NextResponse.json(
-      {
-        message: `${property} updated successfully.`,
-        [property]: userFlashcard[property],
-      },
-      { status: 200 }
-    );
+    // Fetch the corresponding flashcard
+    const flashcard = await Flashcard.findById(flashcardId);
+    if (!flashcard) {
+      return NextResponse.json(
+        { message: "Flashcard not found." },
+        { status: 404 }
+      );
+    }
+
+    // Merge UserFlashcardRelation data with the flashcard data
+    const mergedFlashcard = {
+      ...flashcard._doc,
+      isMastered: userFlashcard.isMastered,
+      starred: userFlashcard.starred,
+    };
+
+    // Return the merged flashcard object
+    return NextResponse.json(mergedFlashcard, { status: 200 });
   } catch (error) {
     console.error("PATCH Flashcard Relation Error:", error); // Log the error for debugging
     return NextResponse.json(
