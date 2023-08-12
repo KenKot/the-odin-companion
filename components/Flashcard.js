@@ -36,8 +36,9 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
         >
           {flashcard.isMastered ? "Unmastered" : "Mastered"}
         </button>
-        <FaRegStar size={24} />
-        {/* <FaStar size={24} /> */}
+        <button>
+          {flashcard.starred ? <FaStar size={24} /> : <FaRegStar size={24} />}
+        </button>
       </div>
     </div>
   );
