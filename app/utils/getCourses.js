@@ -25,9 +25,6 @@ export async function getCourses() {
     const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
       "flashcard"
     );
-    console.log("mad0");
-
-    console.log("mad1", userFlashcards);
 
     // Create a map of mastered flashcards for easy checking
     const masteredFlashcards = {};
