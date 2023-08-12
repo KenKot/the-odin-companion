@@ -32,6 +32,7 @@ export const GET = async (request, { params }) => {
     }
 
     // Merge UserFlashcardRelation data into flashcards
+    // Merge UserFlashcardRelation data into flashcards
     const flashcardsWithUserData = await Promise.all(
       lesson.flashcards.map(async (flashcard) => {
         const userFlashcard = await UserFlashcardRelation.findOne({
@@ -44,6 +45,7 @@ export const GET = async (request, { params }) => {
           isMastered: userFlashcard
             ? userFlashcard.isMastered
             : flashcard.isMastered,
+          starred: userFlashcard ? userFlashcard.starred : false, // Adding the starred property
         };
       })
     );

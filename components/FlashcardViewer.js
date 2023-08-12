@@ -5,15 +5,13 @@ export default function FlashcardViewer({
   flashcards,
   currentIndex,
   setCurrentIndex,
-  toggleFlashcardMastered,
-  toggleStarred,
+  toggleFlashcardProperty,
 }) {
   return (
     <div className="flex flex-col items-center space-y-4">
       <Flashcard
         flashcard={flashcards[currentIndex]}
-        toggleFlashcardMastered={toggleFlashcardMastered}
-        toggleStarred={toggleStarred}
+        toggleFlashcardProperty={toggleFlashcardProperty}
       />
 
       <div className="flex items-center space-x-4 text-black">

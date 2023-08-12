@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
-export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
+export default function Flashcard({ flashcard, toggleFlashcardProperty }) {
   const [showQuestion, setShowQuestion] = useState(true);
 
   // This effect ensures that the question is shown whenever a new flashcard is displayed
@@ -31,12 +31,17 @@ export default function Flashcard({ flashcard, toggleFlashcardMastered }) {
           }`}
           onClick={(e) => {
             e.stopPropagation(); // Prevents the entire div's click event from firing
-            toggleFlashcardMastered(flashcard._id, flashcard.isMastered);
+            toggleFlashcardProperty(flashcard._id, "isMastered");
           }}
         >
-          {flashcard.isMastered ? "Unmastered" : "Mastered"}
+          {flashcard.isMastered ? "Unmaster" : "Mastered"}
         </button>
-        <button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); // Prevents the entire div's click event from firing
+            toggleFlashcardProperty(flashcard._id, "starred");
+          }}
+        >
           {flashcard.starred ? <FaStar size={24} /> : <FaRegStar size={24} />}
         </button>
       </div>
