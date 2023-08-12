@@ -23,6 +23,6 @@ export default function UserInfo() {
       </div>
     );
   } else {
-    return <SigninBtn />;
+    return <div> used to be SigninBtn</div>;
   }
 }
