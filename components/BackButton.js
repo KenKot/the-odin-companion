@@ -7,6 +7,7 @@ export default function BackButton() {
   const router = useRouter();
 
   const handleGoBack = () => {
+    router.refresh();
     router.back();
   };
 
