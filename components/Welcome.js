@@ -3,7 +3,7 @@ export default function Welcome() {
     <div>
       <h1 className="text-center text-4xl">
         Welcome to the Odin Companion! A flashcard app that pairs with The Odin
-        Project's curriculum.
+        Project&apos;s curriculum.
       </h1>
       <h2 className="text-center text-2xl mt-4">
         Just Sign In with your Github account to get started!
