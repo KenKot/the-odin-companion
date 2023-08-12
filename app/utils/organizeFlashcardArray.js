@@ -1,7 +1,7 @@
 import shuffleArray from "./shuffleArray";
 
 export default function organizeFlashcardArray(flashcardData) {
-  let tempUnmasteredCards = []; //to be shuffled
+  let tempUnmasteredCards = [];
   let tempMasteredCards = [];
 
   flashcardData.forEach((card) => {

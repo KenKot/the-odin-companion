@@ -1,8 +1,5 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import User from "@/models/user";
 import Lesson from "@/models/lesson";
-import Course from "@/models/course";
-import Flashcard from "@/models/flashcard";
 import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
@@ -15,7 +12,6 @@ export async function getLesson(lessonId) {
 
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
-    // const lessonId = params.id;
 
     const lesson = await Lesson.findById(lessonId)
       .populate({
@@ -48,25 +44,6 @@ export async function getLesson(lessonId) {
         };
       })
     );
-
-    // sort flashcards so 'mastered' cards are at the end
-
-    // Sorting the flashcards directly after data fetching
-    // let tempUnmasteredCards = []; //to be shuffled
-    // let tempMasteredCards = [];
-
-    // flashcardsWithUserData.forEach((card) => {
-    //   if (card.isMastered) {
-    //     tempMasteredCards.push(card);
-    //   } else {
-    //     tempUnmasteredCards.push(card);
-    //   }
-    // });
-
-    // tempUnmasteredCards = shuffleArray(tempUnmasteredCards);
-    // tempMasteredCards = shuffleArray(tempMasteredCards);
-
-    // const rejoinedCards = tempUnmasteredCards.concat(tempMasteredCards);
 
     const organizedCards = organizeFlashcardArray(flashcardsWithUserData);
 

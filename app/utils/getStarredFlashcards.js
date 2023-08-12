@@ -13,8 +13,6 @@ export async function getStarredFlashcards() {
     const session = await getServerSession(authOptions);
     const userId = session.user.id;
 
-    console.log("11111 getStarred", session, userId);
-
     // Fetch flashcards that the user has starred
     const starredRelations = await UserFlashcardRelation.find({
       user: userId,
