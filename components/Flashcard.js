@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 

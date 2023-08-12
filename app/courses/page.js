@@ -15,19 +15,15 @@ async function getCourses() {
   console.log("getCourses ran");
 
   const session = await getServerSession(authOptions);
-  console.log("session", session);
+  // console.log("session", session);
   try {
     await connectMongoDB();
     const userId = session.user.id;
-
-    console.log("loserId", userId);
 
     // Fetch the user's flashcard relations
     const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
       "flashcard"
     );
-
-    // console.log("loserflashcards", userFlashcards);
 
     // Create a map of mastered flashcards for easy checking
     const masteredFlashcards = {};
