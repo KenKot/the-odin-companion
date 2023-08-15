@@ -5,6 +5,8 @@
 body {
   /* margin-left: 10%;
   margin-right: 10%; */
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
   color: white;
+  background-image: url("/grid.svg"),
+    radial-gradient(circle, rgba(47, 66, 89, 1) 0%, #1f2937 100%);
 }

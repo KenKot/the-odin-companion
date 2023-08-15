@@ -1,10 +1,30 @@
-import Link from "next/link";
-import { getCourses } from "@/app/utils/getCourses";
-import { getStarredFlashcardsCount } from "@/app/utils/getStarredFlashcardsCount";
+"use client";
 
-export default async function Courses() {
-  const courses = await getCourses();
-  const starredFlashcardsCount = await getStarredFlashcardsCount();
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function Courses() {
+  const [courses, setCourses] = useState([]);
+  const [starredFlashcardsCount, setStarredFlashcardsCount] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/courses")
+      .then((response) => response.json())
+      .then((data) => {
+        setCourses(data.coursesInfo);
+        setStarredFlashcardsCount(data.starredFlashcardsCount);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <h1 className="mb-4 text-5xl text-center ">Courses</h1>

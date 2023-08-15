@@ -1,12 +1,15 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import Course from "@/models/course";
 import User from "@/models/user";
-import UserFlashcardRelation from "@/models/userFlashcard"; // Assuming this is the model for UserFlashcardRelation schema
+import UserFlashcard from "@/models/userFlashcard"; // Assuming this is the model for UserFlashcard schema
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
+  console.log("/course/:id is called");
+  // imitate delay
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
@@ -24,7 +27,7 @@ export const GET = async (request, { params }) => {
     }
 
     // Fetch all mastered flashcards for the user
-    const masteredFlashcards = await UserFlashcardRelation.find({
+    const masteredFlashcards = await UserFlashcard.find({
       user: userId,
       isMastered: true,
     });
@@ -45,6 +48,11 @@ export const GET = async (request, { params }) => {
     });
 
     // Return the course with lessons containing flashcard statistics
+    // return {
+    //   ...course._doc,
+    //   lessons: lessonsWithStats,
+    // };
+
     return NextResponse.json(
       {
         ...course._doc,
