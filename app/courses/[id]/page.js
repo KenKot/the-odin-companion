@@ -36,7 +36,8 @@ export default function CourseDetail({ params }) {
       </div>
       {course.lessons.map((lesson, index) => (
         <Link key={index} href={`/lessons/${lesson._id}`} passHref>
-          <div className="p-2 m-2 border-2 border-white rounded cursor-pointer">
+          {/* <div className="p-2 m-2 border-2 border-white rounded cursor-pointer"> */}
+          <div className="p-2 m-2 border-2 border-white rounded cursor-pointer mx-auto  md:w-3/4 lg:w-1/2">
             <h2 className="text-3xl">{lesson.title}</h2>
             <p>
               Flashcards: {lesson.masteredFlashcards} /{" "}

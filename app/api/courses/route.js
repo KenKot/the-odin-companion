@@ -17,10 +17,6 @@ export const GET = async () => {
 
     const userId = session.user.id;
 
-    console.log("+++++++++++++++");
-    console.log(session, userId);
-    console.log("+++++++++++++++");
-
     // Fetch the user's flashcard relations
     const userFlashcards = await UserFlashcard.find({ user: userId }).populate(
       "flashcard"
@@ -83,9 +79,6 @@ export const GET = async () => {
 
       coursesInfo.push(courseInfo);
     });
-    console.log("!!!!!!!!!!!!!11");
-    console.log("coursesInfo", coursesInfo);
-    console.log("!!!!!!!!!!!!!11");
 
     // Include starredFlashcardsCount in the NextResponse.json output
     return NextResponse.json(
