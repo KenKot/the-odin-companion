@@ -3,6 +3,7 @@
 import Link from "next/link";
 import BackButton from "@/components/BackButton";
 import { useEffect, useState } from "react";
+import LoadingDots from "@/components/LoadingDots";
 
 export default function CourseDetail({ params }) {
   const [course, setCourse] = useState(null);
@@ -22,7 +23,7 @@ export default function CourseDetail({ params }) {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingDots />;
   }
 
   if (!course) {

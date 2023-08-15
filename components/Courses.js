@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+// import { BeatLoader } from "react-spinners";
+import LoadingDots from "@/components/LoadingDots";
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
@@ -23,7 +25,7 @@ export default function Courses() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingDots />;
   }
   return (
     <div>
