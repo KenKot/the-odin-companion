@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { BeatLoader } from "react-spinners";
 import LoadingDots from "@/components/LoadingDots";
+import RadialProgressBar from "./RadialProgressBar";
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
@@ -42,16 +43,22 @@ export default function Courses() {
 
       {courses?.map((course, index) => (
         <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="p-2 m-2 border-2 border-white rounded cursor-pointer mx-auto  md:w-3/4 lg:w-1/2">
-            {/* <div className="p-2 m-2 border-2 border-white rounded cursor-pointer "> */}
-            <h2 className="text-3xl">{course.title}</h2>
+          <div className="flex justify-between items-center p-2 m-2 border-2 border-white rounded cursor-pointer mx-auto  md:w-3/4 lg:w-1/2">
+            <div>
+              <h2 className="text-3xl">{course.title}</h2>
+              <p>
+                Lessons: {course.completedLessons}/{course.totalLessons}
+              </p>
+              <p>
+                Flashcards: {course.completedFlashcards}/
+                {course.totalFlashcards}
+              </p>
+            </div>
 
-            <p>
-              Lessons: {course.completedLessons}/{course.totalLessons}
-            </p>
-            <p>
-              Flashcards: {course.completedFlashcards}/{course.totalFlashcards}
-            </p>
+            <RadialProgressBar
+              completed={course.completedFlashcards}
+              total={course.totalFlashcards}
+            />
           </div>
         </Link>
       ))}
