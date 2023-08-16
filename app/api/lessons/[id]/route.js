@@ -53,7 +53,6 @@ export const GET = async (request, { params }) => {
       flashcards: organizedCards,
     });
   } catch (error) {
-    console.error("GET Lesson Error:", error); // Log the error for debugging
     return NextResponse.json(
       { message: "Failed to fetch lesson. Internal Server Error." },
       { status: 500 }

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-// import { BeatLoader } from "react-spinners";
 import LoadingDots from "@/components/LoadingDots";
 import RadialProgressBar from "./RadialProgressBar";
 
@@ -30,7 +29,6 @@ export default function Courses() {
   }
   return (
     <div className="pb-10">
-      {/* <div className="rounded w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2"> */}
       <h1 className="mb-4 text-5xl text-center ">Courses</h1>
 
       <div className="p-2 m-2 mx-auto border-2 border-white rounded cursor-pointer card md:w-3/4 lg:w-1/2">

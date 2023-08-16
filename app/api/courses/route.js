@@ -1,20 +1,14 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import User from "@/models/user";
 import { NextResponse } from "next/server";
 import Course from "@/models/course";
-import Flashcard from "@/models/flashcard";
 import { getServerSession } from "next-auth/next";
-import UserFlashcard from "@/models/userFlashcard"; // Assuming this is the model for UserFlashcardRelation schema
-
+import UserFlashcard from "@/models/userFlashcard";
 import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async () => {
-  console.log("/courses/page.js ran");
-  console.log("getCourses ran");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
-
     const userId = session.user.id;
 
     // Fetch the user's flashcard relations
@@ -57,11 +51,11 @@ export const GET = async () => {
         totalLessons: lessons.length,
         completedFlashcards: 0,
         totalFlashcards: 0,
-        completedLessons: 0, // Initialize completedLessons count
+        completedLessons: 0,
       };
 
       lessons.forEach((lesson) => {
-        let isLessonComplete = true; // Flag to determine if lesson is complete
+        let isLessonComplete = true;
 
         lesson.flashcards.forEach((flashcard) => {
           courseInfo.totalFlashcards++;
@@ -80,13 +74,11 @@ export const GET = async () => {
       coursesInfo.push(courseInfo);
     });
 
-    // Include starredFlashcardsCount in the NextResponse.json output
     return NextResponse.json(
       { coursesInfo, starredFlashcardsCount },
       { status: 201 }
     );
   } catch (error) {
-    console.log("COURSES API ERROR!!!");
     return NextResponse.json(
       { message: "Failed to fetch all courses" },
       { status: 500 }

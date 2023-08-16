@@ -1,15 +1,11 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import Course from "@/models/course";
-import User from "@/models/user";
-import UserFlashcard from "@/models/userFlashcard"; // Assuming this is the model for UserFlashcard schema
+import UserFlashcard from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
-  console.log("/course/:id is called");
-  // imitate delay
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
@@ -47,12 +43,6 @@ export const GET = async (request, { params }) => {
       };
     });
 
-    // Return the course with lessons containing flashcard statistics
-    // return {
-    //   ...course._doc,
-    //   lessons: lessonsWithStats,
-    // };
-
     return NextResponse.json(
       {
         ...course._doc,
@@ -61,7 +51,6 @@ export const GET = async (request, { params }) => {
       { status: 200 }
     );
   } catch (error) {
-    console.error(error);
     return NextResponse.json(
       { message: "Failed to fetch course details" },
       { status: 500 }

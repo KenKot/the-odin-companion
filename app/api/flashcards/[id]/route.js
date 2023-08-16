@@ -1,5 +1,5 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import Flashcard from "@/models/flashcard"; // Import the Flashcard model
+import Flashcard from "@/models/flashcard";
 import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
@@ -64,7 +64,6 @@ export const PATCH = async (request, { params }) => {
     // Return the merged flashcard object
     return NextResponse.json(mergedFlashcard, { status: 200 });
   } catch (error) {
-    console.error("PATCH Flashcard Relation Error:", error); // Log the error for debugging
     return NextResponse.json(
       { message: "Failed to update flashcard's property" },
       { status: 500 }

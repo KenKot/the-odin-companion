@@ -2,8 +2,7 @@
 import Flashcard from "./Flashcard";
 import BackButton from "@/components/BackButton";
 import { useState } from "react";
-
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi"; // Importing arrow icons
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
   const [flashcards, setFlashcards] = useState(shuffledflashcards);
@@ -24,7 +23,7 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
           return card;
         });
         setFlashcards(updatedFlashcards);
-        // if (property === "isMastered" && currentIndex < flashcards.length - 1) {
+        // if (property === "isMastered" && currentIndex < flashcards.length - 1) { // If the user clicks the "Mastered" button, go to the next flashcard
         //   setCurrentIndex(currentIndex + 1);
         // }
       })
@@ -35,7 +34,7 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
     <>
       <div className="flex items-center justify-center mb-4">
         <BackButton />
-        <h1 className="ml-4 text-3xl text-center">{lessonTitle}</h1>
+        <h1 className="ml-4 text-5xl text-center">{lessonTitle}</h1>
       </div>
       <div className="flex flex-col items-center space-y-4">
         <Flashcard
