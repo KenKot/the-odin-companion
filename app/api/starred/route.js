@@ -1,11 +1,11 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import organizeFlashcardArray from "@/app/utils/organizeFlashcardArray";
 
-export async function getStarredFlashcards() {
+export const GET = async () => {
   console.log("getUserStarredFlashcards is called");
 
   try {
@@ -34,12 +34,14 @@ export async function getStarredFlashcards() {
     });
 
     starredFlashcards = organizeFlashcardArray(starredFlashcards);
-
-    return NextResponse.json(starredFlashcards, { status: 200 });
+    return NextResponse.json(
+      { starredFlashcards: starredFlashcards },
+      { status: 200 }
+    );
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to fetch starred flashcards" },
       { status: 500 }
     );
   }
-}
+};

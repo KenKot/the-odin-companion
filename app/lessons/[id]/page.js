@@ -1,13 +1,32 @@
+"use client";
+import { useEffect, useState } from "react";
 import FlashcardViewer from "@/components/FlashcardViewer";
-import { getLesson } from "@/app/utils/getLesson";
+import LoadingDots from "@/components/LoadingDots";
 
-export default async function LessonDetail({ params }) {
-  let res = await getLesson(params.id);
-  let lessonData = await res.json();
+export default function LessonDetail({ params }) {
+  const [lessonData, setLessonData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!");
-  console.log(lessonData);
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  useEffect(() => {
+    fetch(`/api/lessons/${params.id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setLessonData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setLoading(false);
+      });
+  }, [params.id]);
+
+  if (loading) {
+    return <LoadingDots />;
+  }
+
+  if (!lessonData) {
+    return <div>Lesson not found</div>;
+  }
 
   return (
     <FlashcardViewer

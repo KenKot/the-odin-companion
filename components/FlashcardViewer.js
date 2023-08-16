@@ -24,9 +24,9 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
           return card;
         });
         setFlashcards(updatedFlashcards);
-        if (property === "isMastered" && currentIndex < flashcards.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-        }
+        // if (property === "isMastered" && currentIndex < flashcards.length - 1) {
+        //   setCurrentIndex(currentIndex + 1);
+        // }
       })
       .catch((error) => console.error("Error:", error));
   };
@@ -45,18 +45,18 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
 
         <div className="flex items-center space-x-4 text-black">
           <button
-            className="bg-gray-200 p-2 rounded"
+            className="p-2 bg-gray-200 rounded"
             onClick={() => {
               if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
             }}
           >
             <FiArrowLeft size={24} />
           </button>
-          <span className="text-white">
+          <span className="w-16 text-center text-white">
             {currentIndex + 1}/{flashcards.length}
           </span>
           <button
-            className="bg-gray-200 p-2 rounded"
+            className="p-2 bg-gray-200 rounded"
             onClick={() => {
               if (currentIndex < flashcards.length - 1)
                 setCurrentIndex((prev) => prev + 1);
