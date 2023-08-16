@@ -5,6 +5,34 @@
 body {
   /* margin-left: 10%;
   margin-right: 10%; */
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
   color: white;
+  background-image: url("/grid.svg"),
+    radial-gradient(circle, rgba(47, 66, 89, 1) 0%, #1f2937 100%);
+}
+
+.bgblue {
+  background-image: radial-gradient(circle, #1f2937, #3b5278);
+}
+
+.progress-ring__circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, red, #ff7f00, yellow);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.card {
+  transition: all 0.3s ease-in-out;
+  background-color: #1f2937;
+  background-image: radial-gradient(circle, #1f2937, #3b5278);
+}
+
+.card:hover {
+  transform: scale(1.05);
 }

@@ -1,15 +1,9 @@
 import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
-import Course from "@/models/course";
-import Lesson from "@/models/lesson";
 import Flashcard from "@/models/flashcard";
 import UserFlashcard from "@/models/userFlashcard";
-
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
-
-import flashcardJSONData from "@/misc/flashcardData";
-
 import seedDatabase from "@/misc/seed";
 
 const authOptions = {

@@ -5,17 +5,13 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 export default function Flashcard({ flashcard, toggleFlashcardProperty }) {
   const [showQuestion, setShowQuestion] = useState(true);
 
-  // const [flashcard, setFlashcard] = useState(sadfasdfflashcard);
-
-  // This effect ensures that the question is shown whenever a new flashcard is displayed
   useEffect(() => {
+    console.log("this ran");
     setShowQuestion(true);
-  }, [flashcard]);
-
-  // if (!flashcard) return <>Loading...</>;
+  }, [flashcard._id]);
 
   return (
-    <div className="rounded w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2">
+    <div className="bgblue rounded w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2">
       <div
         className="flex-grow w-full overflow-auto"
         onClick={() => {

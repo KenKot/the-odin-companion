@@ -1,12 +1,10 @@
 import { connectMongoDB } from "@/lib/mongodb";
-import User from "@/models/user";
 import Lesson from "@/models/lesson";
-import Course from "@/models/course";
-import Flashcard from "@/models/flashcard";
 import UserFlashcardRelation from "@/models/userFlashcard";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
+import organizeFlashcardArray from "@/app/utils/organizeFlashcardArray";
 
 export const GET = async (request, { params }) => {
   try {
@@ -31,8 +29,6 @@ export const GET = async (request, { params }) => {
       );
     }
 
-    // Merge UserFlashcardRelation data into flashcards
-    // Merge UserFlashcardRelation data into flashcards
     const flashcardsWithUserData = await Promise.all(
       lesson.flashcards.map(async (flashcard) => {
         const userFlashcard = await UserFlashcardRelation.findOne({
@@ -50,12 +46,13 @@ export const GET = async (request, { params }) => {
       })
     );
 
+    const organizedCards = organizeFlashcardArray(flashcardsWithUserData);
+
     return NextResponse.json({
       title: lesson.title,
-      flashcards: flashcardsWithUserData,
+      flashcards: organizedCards,
     });
   } catch (error) {
-    console.error("GET Lesson Error:", error); // Log the error for debugging
     return NextResponse.json(
       { message: "Failed to fetch lesson. Internal Server Error." },
       { status: 500 }

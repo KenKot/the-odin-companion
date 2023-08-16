@@ -8,20 +8,20 @@ export default function Navbar() {
   const { status } = useSession();
 
   return (
-    <nav className="flex flex-wrap justify-between items-center p-4 md:p-6 text-white">
+    <nav className="flex flex-wrap items-center justify-between p-4 text-white md:p-6">
       <Link
         href="/"
-        className="flex items-center space-x-2 md:space-x-4 cursor-pointer hover:opacity-80 transition-opacity duration-150"
+        className="flex items-center space-x-2 transition-opacity duration-150 cursor-pointer md:space-x-4 hover:opacity-80"
       >
         <Image
           src="/magni.png"
           alt="Odin Companion Dog Logo"
           width={50}
           height={50}
-          className="rounded-full border-2 border-white"
+          className="border-2 border-white rounded-full"
         />
 
-        <h1 className="hidden md:block text-xl md:text-2xl font-semibold">
+        <h1 className="hidden text-xl font-semibold md:block md:text-2xl">
           The Odin Companion
         </h1>
       </Link>
@@ -29,7 +29,7 @@ export default function Navbar() {
         {status === "authenticated" ? (
           <button
             aria-label="Sign out"
-            className="px-3 py-1 md:px-4 md:py-2 font-semibold text-black bg-white rounded hover:bg-blue-500 hover:text-white transition-colors duration-150 cursor-pointer"
+            className="px-3 py-1 font-semibold text-black transition-colors duration-150 bg-white rounded cursor-pointer md:px-4 md:py-2 hover:bg-blue-500 hover:text-white"
             onClick={() => signOut({ callbackUrl: "/" })}
           >
             Sign Out
@@ -37,7 +37,7 @@ export default function Navbar() {
         ) : (
           <button
             aria-label="Sign in"
-            className="flex items-center px-3 py-1 md:px-4 md:py-2 font-semibold text-black bg-white rounded hover:bg-blue-500 hover:text-white transition-colors duration-150 cursor-pointer"
+            className="flex items-center px-3 py-1 font-semibold text-black transition-colors duration-150 bg-white rounded cursor-pointer md:px-4 md:py-2 hover:bg-blue-500 hover:text-white"
             onClick={() => signIn()}
           >
             Sign In
