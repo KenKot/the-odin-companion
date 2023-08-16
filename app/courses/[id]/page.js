@@ -21,7 +21,7 @@ export default function CourseDetail({ params }) {
         console.error("Error:", error);
         setLoading(false);
       });
-  }, []);
+  }, [params.id]);
 
   if (loading) {
     return <LoadingDots />;

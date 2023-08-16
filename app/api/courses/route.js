@@ -22,8 +22,6 @@ export const GET = async () => {
       starred: true,
     }).countDocuments();
 
-    console.log("Number of starred flashcards: ", starredFlashcardsCount);
-
     // Create a map of mastered flashcards for easy checking
     const masteredFlashcards = {};
     userFlashcards.forEach((relation) => {
