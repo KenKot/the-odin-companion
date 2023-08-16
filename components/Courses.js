@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import LoadingDots from "@/components/LoadingDots";
-import RadialProgressBar from "./RadialProgressBar";
+import Tile from "./Tile";
+import StarredCourseTile from "./StarredCourseTile";
 
 export default function Courses() {
   const [courses, setCourses] = useState([]);
@@ -30,35 +30,10 @@ export default function Courses() {
   return (
     <div className="pb-10">
       <h1 className="mb-4 text-5xl text-center ">Courses</h1>
-
-      <div className="p-2 m-2 mx-auto border-2 border-white rounded cursor-pointer card md:w-3/4 lg:w-1/2">
-        <Link href="/starred" passHref>
-          <h2 className="text-3xl">Favorited</h2>
-
-          <p>Flashcards: {starredFlashcardsCount}</p>
-        </Link>
-      </div>
+      <StarredCourseTile starredFlashcardsCount={starredFlashcardsCount} />
 
       {courses?.map((course, index) => (
-        <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="flex items-center justify-between p-2 m-2 mx-auto border-2 border-white rounded cursor-pointer card md:w-3/4 lg:w-1/2">
-            <div>
-              <h2 className="text-3xl">{course.title}</h2>
-              <p>
-                Lessons: {course.completedLessons}/{course.totalLessons}
-              </p>
-              <p>
-                Flashcards: {course.completedFlashcards}/
-                {course.totalFlashcards}
-              </p>
-            </div>
-
-            <RadialProgressBar
-              completed={course.completedFlashcards}
-              total={course.totalFlashcards}
-            />
-          </div>
-        </Link>
+        <Tile key={index} item={course} type="course" />
       ))}
     </div>
   );
