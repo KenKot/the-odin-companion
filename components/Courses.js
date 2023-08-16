@@ -27,6 +27,7 @@ export default function Courses() {
   if (loading) {
     return <LoadingDots />;
   }
+
   return (
     <div className="pb-10">
       <h1 className="mb-4 text-5xl text-center ">Courses</h1>
@@ -40,9 +41,12 @@ export default function Courses() {
       </div>
 
       {courses?.map((course, index) => (
-        <Link key={index} href={`/courses/${course._id}`} passHref>
-          <div className="flex items-center justify-between p-2 m-2 mx-auto border-2 border-white rounded cursor-pointer card md:w-3/4 lg:w-1/2">
-            <div>
+        <div
+          key={index}
+          className="flex items-center justify-between p-2 m-2 mx-auto border-2 border-white rounded cursor-pointer card md:w-3/4 lg:w-1/2"
+        >
+          <Link href={`/courses/${course._id}`} passHref>
+            <div className="cursor-pointer">
               <h2 className="text-3xl">{course.title}</h2>
               <p>
                 Lessons: {course.completedLessons}/{course.totalLessons}
@@ -52,13 +56,15 @@ export default function Courses() {
                 {course.totalFlashcards}
               </p>
             </div>
+          </Link>
 
+          <div>
             <RadialProgressBar
               completed={course.completedFlashcards}
               total={course.totalFlashcards}
             />
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );
