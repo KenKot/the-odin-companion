@@ -4,9 +4,9 @@
     <img src="./public/magni.png" alt="Magni Image">
 </p>
 
-<h2 align="center">
-    <a href="the-odin-companion.vercel.app">Visit the app here!</a>
-</h2>
+<p align="center">
+    <a href="https://the-odin-companion.vercel.app/" style="font-size: 24px;">Click here to visit the app!</a>
+</p>
 
 ## Overview:
 
