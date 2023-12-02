@@ -29,13 +29,8 @@ export default function Welcome() {
         onClick={() => signIn()}
       >
         Sign In
-        <span className="ml-3">
-          <Image
-            src="/github-cat.jpg"
-            alt="Github logo"
-            height={40}
-            width={40}
-          />
+        <span className="ml-2 outline-none focus:outline-none hover:outline-none">
+          <Image src="/cat.svg" alt="Github logo" height={40} width={40} />
         </span>
       </button>
     </div>
