@@ -43,10 +43,10 @@ export default function Navbar() {
             Sign In
             <span className="ml-2">
               <Image
-                src="https://authjs.dev/img/providers/github.svg"
+                src="/github-cat.jpg"
                 alt="Github logo"
-                height={20}
-                width={20}
+                height={50}
+                width={50}
               />
             </span>
           </button>

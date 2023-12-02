@@ -25,15 +25,15 @@ export default function CourseDetail({ params }) {
   if (loading) {
     return <LoadingDots />;
   }
-
   if (!course) {
     return <div>Course not found</div>;
   }
   return (
-    <div className="pb-10">
+          <div className="pb-10">
       <div className="flex items-center justify-center mb-4 text-5xl">
-        <BackButton />
         <h1 className="ml-4 text-5xl">{course.title}</h1>
+        <BackButton />
+
       </div>
       {course.lessons.map((lesson, index) => (
         <Tile key={index} item={lesson} type="lesson" />

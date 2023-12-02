@@ -31,7 +31,7 @@ export default function Welcome() {
         Sign In
         <span className="ml-3">
           <Image
-            src="https://authjs.dev/img/providers/github.svg"
+            src="/github-cat.jpg"
             alt="Github logo"
             height={40}
             width={40}
