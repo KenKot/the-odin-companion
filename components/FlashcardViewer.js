@@ -23,9 +23,6 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
           return card;
         });
         setFlashcards(updatedFlashcards);
-        // if (property === "isMastered" && currentIndex < flashcards.length - 1) { // If the user clicks the "Mastered" button, go to the next flashcard
-        //   setCurrentIndex(currentIndex + 1);
-        // }
       })
       .catch((error) => console.error("Error:", error));
   };

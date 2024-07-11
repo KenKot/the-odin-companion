@@ -6,6 +6,7 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
 export const PATCH = async (request, { params }) => {
+  console.log("/flashcards/id fired");
   try {
     await connectMongoDB();
 

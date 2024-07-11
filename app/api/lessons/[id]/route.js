@@ -7,6 +7,7 @@ import { NextResponse } from "next/server";
 import organizeFlashcardArray from "@/app/utils/organizeFlashcardArray";
 
 export const GET = async (request, { params }) => {
+  console.log("/lessons/:id fired");
   try {
     await connectMongoDB();
 

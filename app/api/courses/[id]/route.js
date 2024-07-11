@@ -6,6 +6,7 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 
 export const GET = async (request, { params }) => {
+  console.log("/courses/:id fired");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);

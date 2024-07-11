@@ -6,6 +6,7 @@ import UserFlashcard from "@/models/userFlashcard";
 import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async () => {
+  console.log("/courses fired");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);

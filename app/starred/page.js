@@ -1,24 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import useStarredCards from "@/app/hooks/useStarredCards";
 import FlashcardViewer from "@/components/FlashcardViewer";
 import LoadingDots from "@/components/LoadingDots";
 
 export default function Starred() {
-  const [starredCards, setStarredCards] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch(`/api/starred`)
-      .then((response) => response.json())
-      .then((data) => {
-        setStarredCards(data.starredFlashcards);
-        setLoading(false);
-      })
-      .catch((error) => {
-        setLoading(false);
-      });
-  }, []);
+  const { starredCards, loading } = useStarredCards();
 
   if (loading) {
     return <LoadingDots />;

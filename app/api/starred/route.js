@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 import organizeFlashcardArray from "@/app/utils/organizeFlashcardArray";
 
 export const GET = async () => {
+  console.log("/starred fired");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
