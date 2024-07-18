@@ -6,7 +6,6 @@ import UserFlashcard from "@/models/userFlashcard";
 import { authOptions } from "../auth/[...nextauth]/route";
 
 export const GET = async () => {
-  console.log("/courses fired");
   try {
     await connectMongoDB();
     const session = await getServerSession(authOptions);
@@ -17,11 +16,10 @@ export const GET = async () => {
       "flashcard"
     );
 
-    // Count the user's starred flashcards
-    const starredFlashcardsCount = await UserFlashcard.find({
-      user: userId,
-      starred: true,
-    }).countDocuments();
+    let starredFlashcardsCount = 0;
+    userFlashcards.forEach((userFlashcard) => {
+      if (userFlashcard.starred) starredFlashcardsCount++;
+    });
 
     // Create a map of mastered flashcards for easy checking
     const masteredFlashcards = {};
@@ -32,14 +30,14 @@ export const GET = async () => {
     });
 
     // Fetch all courses, lessons, and flashcards
+    let coursesInfo = [];
+
     const allCourses = await Course.find({}).populate({
       path: "lessons",
       populate: {
         path: "flashcards",
       },
     });
-
-    let coursesInfo = [];
 
     allCourses.forEach((course) => {
       let lessons = course.lessons;

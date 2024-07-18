@@ -7,7 +7,6 @@ import StarredCourseTile from "./StarredCourseTile";
 
 export default function Courses() {
   const { courses, starredFlashcardsCount, loading } = useCourses();
-
   if (loading) {
     return <LoadingDots />;
   }
