@@ -33,35 +33,41 @@ export default function FlashcardViewer({ shuffledflashcards, lessonTitle }) {
         <BackButton />
         <h1 className="ml-4 text-5xl text-center">{lessonTitle}</h1>
       </div>
-      <div className="flex flex-col items-center space-y-4">
-        <Flashcard
-          flashcard={flashcards[currentIndex]}
-          toggleFlashcardProperty={toggleFlashcardProperty}
-        />
+      {flashcards.length > 0 ? (
+        <div className="flex flex-col items-center space-y-4">
+          <Flashcard
+            flashcard={flashcards[currentIndex]}
+            toggleFlashcardProperty={toggleFlashcardProperty}
+          />
 
-        <div className="flex items-center space-x-4 text-black">
-          <button
-            className="p-2 bg-gray-200 rounded"
-            onClick={() => {
-              if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
-            }}
-          >
-            <FiArrowLeft size={24} />
-          </button>
-          <span className="w-16 text-center text-white">
-            {currentIndex + 1}/{flashcards.length}
-          </span>
-          <button
-            className="p-2 bg-gray-200 rounded"
-            onClick={() => {
-              if (currentIndex < flashcards.length - 1)
-                setCurrentIndex((prev) => prev + 1);
-            }}
-          >
-            <FiArrowRight size={24} />
-          </button>
+          <div className="flex items-center space-x-4 text-black">
+            <button
+              className="p-2 bg-gray-200 rounded"
+              onClick={() => {
+                if (currentIndex > 0) setCurrentIndex((prev) => prev - 1);
+              }}
+            >
+              <FiArrowLeft size={24} />
+            </button>
+            <span className="w-16 text-center text-white">
+              {currentIndex + 1}/{flashcards.length}
+            </span>
+            <button
+              className="p-2 bg-gray-200 rounded"
+              onClick={() => {
+                if (currentIndex < flashcards.length - 1)
+                  setCurrentIndex((prev) => prev + 1);
+              }}
+            >
+              <FiArrowRight size={24} />
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="text-center text-white">
+          <p>No flashcards available.</p>
+        </div>
+      )}
     </>
   );
 }

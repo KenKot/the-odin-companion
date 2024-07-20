@@ -10,6 +10,10 @@ export default function Flashcard({ flashcard, toggleFlashcardProperty }) {
     setShowQuestion(true);
   }, [flashcard._id]);
 
+  if (!flashcard._id) {
+    return <div>No flashcard available</div>;
+  }
+
   return (
     <div className="bgblue rounded w-full border-2 border-white m-4 p-4 cursor-pointer flex flex-col items-center mx-auto h-[300px] md:w-3/4 lg:w-1/2">
       <div
